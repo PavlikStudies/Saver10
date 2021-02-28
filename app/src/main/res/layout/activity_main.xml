@@ -6,24 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Testtxd!"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Switch
-        android:id="@+id/PirmasMygtukas"
-        android:layout_width="93dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="159dp"
-        android:layout_marginTop="320dp"
-        android:text="@string/dokumentas"
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="293dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Teksto_Laukas"
+        android:layout_width="87dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="176dp"
+        android:layout_marginEnd="176dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
