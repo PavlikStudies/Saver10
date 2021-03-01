@@ -18,6 +18,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
     }
+    public double GetIncome()
+    {
+        TextView Income = (TextView) findViewById(R.id.Income_Number);
+        Double salary = Double.parseDouble(Income.toString());
+        return  salary;
+    }
+
 
 }
