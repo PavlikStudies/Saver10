@@ -2,10 +2,17 @@
     <string name="app_name">Saver1.0</string>
     <string name="dokumentas">HelloDok</string>
     <string-array name="options">
-        <item>Naujas</item>
-        <item>Senas</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
     </string-array>
 </resources>
