@@ -10,7 +10,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 public class MenesiuActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +27,8 @@ public class MenesiuActivity extends AppCompatActivity {
             public void onClick(View v) {
                if( MySpinner.getSelectedItem().toString().equals("January"))
                 {
-                    naujas.setText(MySpinner.getSelectedItem().toString());
+                    naujas.setText("January");
+
                 }
             }
         });

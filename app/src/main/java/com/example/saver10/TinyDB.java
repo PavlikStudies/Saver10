@@ -486,7 +486,7 @@ public class TinyDB {
     	putString(key, gson.toJson(obj));
    }
 
-   public void putListObject(String key, ArrayList<Object> objArray){
+   public void putListObject(String key, ArrayList<MenesioData> objArray){
     	checkForNullKey(key);
    	Gson gson = new Gson();
    	ArrayList<String> objStrings = new ArrayList<String>();

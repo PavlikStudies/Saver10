@@ -12,15 +12,27 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.content.Context;
+
+import com.example.saver10.libs.Users;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
-   // TinyDB DuomenuSaugojimas = new TinyDB(MenesiuActivity);
+    //  static TinyDB DuomenuSaugojimas;
+     ArrayList <MenesioData> naujas = new ArrayList<MenesioData>();
+  static Users Vartotojas = new Users("Marius",2.0,2.0,2.0,2.0,
+          new ArrayList<MenesioData>());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //        DuomenuSaugojimas.putListObject("Menesiai",naujas);
+        //        DuomenuSaugojimas = new TinyDB(getApplicationContext());
+        naujas.add(new MenesioData());
+        Vartotojas.SetDataMonths(naujas);
         setContentView(R.layout.activity_main);
         TextView keespending = (TextView) findViewById(R.id.KeeSpending);
         TextView investing = (TextView) findViewById(R.id.Investing);
@@ -28,26 +40,13 @@ public class MainActivity extends AppCompatActivity {
         TextView LavishSpendings = (TextView) findViewById(R.id.Lavish);
         Button tekstoPakeitejas = findViewById(R.id.Text_Changer_Button);
         tekstoPakeitejas.setOnClickListener(new View.OnClickListener() {
-            Baisic_Calculations DUOMENYS;
             @Override
             public void onClick(View v) {
-                keespending.setText(String.valueOf(DUOMENYS.getKeyExpenses()));
-                investing.setText(String.valueOf(DUOMENYS.getInvesting()));
-                Savings.setText(String.valueOf(DUOMENYS.getMinSavings()));
-                LavishSpendings.setText(String.valueOf(DUOMENYS.getLavishSpendings()));
+//             ArrayList<Object> lala =  DuomenuSaugojimas.getListObject("Menesiai",new MenesioData().getClass());
+//             investing.setText(((MenesioData) lala.get(0)).scripts[1]);
+                keespending.setText(String.valueOf(Vartotojas.GetKeyExpenses()));
+                investing.setText(String.valueOf(Vartotojas.GetInvesting()));
             }
         });
-
-
     }
-
-    public double GetIncome()
-    {
-        TextView Income = (TextView) findViewById(R.id.Income_Number);
-        /*Double salary = Double.parseDouble(Income.toString());*/
-        Double salary = 100.0;
-        return  salary;
-    }
-
-
 }
