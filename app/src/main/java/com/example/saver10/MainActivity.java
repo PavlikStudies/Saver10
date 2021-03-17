@@ -5,6 +5,7 @@ import androidx.appcompat.view.menu.ListMenuItemView;
 
 import android.app.LauncherActivity;
 import android.content.ClipData;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         TextView Savings = (TextView) findViewById(R.id.Savingai);
         TextView LavishSpendings = (TextView) findViewById(R.id.Lavish);
         Button tekstoPakeitejas = findViewById(R.id.Text_Changer_Button);
+        Button imenesius = findViewById(R.id.button_menesiai);
         tekstoPakeitejas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,5 +50,16 @@ public class MainActivity extends AppCompatActivity {
                 investing.setText(String.valueOf(Vartotojas.GetInvesting()));
             }
         });
+        imenesius.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NextActivity(v);
+            }
+        });
+    }
+    public void NextActivity(View v)
+    {
+        Intent i = new Intent(this,MenesiuActivity.class);
+        startActivity(i);
     }
 }
