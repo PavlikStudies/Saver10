@@ -33,14 +33,17 @@ public class MainActivity extends AppCompatActivity {
         //        DuomenuSaugojimas.putListObject("Menesiai",naujas);
         //        DuomenuSaugojimas = new TinyDB(getApplicationContext());
         naujas.add(new MenesioData());
+
         Vartotojas.SetDataMonths(naujas);
         setContentView(R.layout.activity_main);
+        TextView ivedimo_confirm = (TextView) findViewById(R.id.duomenu_ivedimas);
         TextView keespending = (TextView) findViewById(R.id.KeeSpending);
         TextView investing = (TextView) findViewById(R.id.Investing);
         TextView Savings = (TextView) findViewById(R.id.Savingai);
         TextView LavishSpendings = (TextView) findViewById(R.id.Lavish);
         Button tekstoPakeitejas = findViewById(R.id.Text_Changer_Button);
         Button imenesius = findViewById(R.id.button_menesiai);
+
         tekstoPakeitejas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
 //             investing.setText(((MenesioData) lala.get(0)).scripts[1]);
                 keespending.setText(String.valueOf(Vartotojas.GetKeyExpenses()));
                 investing.setText(String.valueOf(Vartotojas.GetInvesting()));
+
+                ivedimo_confirm.setText("Data entered succsesfully!");
+
             }
         });
         imenesius.setOnClickListener(new View.OnClickListener() {
