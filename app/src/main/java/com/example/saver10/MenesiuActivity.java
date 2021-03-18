@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -31,58 +32,237 @@ public class MenesiuActivity extends AppCompatActivity {
         myAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         MySpinner.setAdapter(myAdapter);
         Button buttonofpasirinkimai = findViewById(R.id.Button_Pasirinkti);
-        TextView menesis_kuris = findViewById(R.id.Labas);
-        PieChart pieChart = findViewById(R.id.piechart);
-        ArrayList<PieEntry> visitors = new ArrayList<>();
-        visitors.add(new PieEntry(508,2067));
-        visitors.add(new PieEntry(600,2017));
-        PieDataSet pieDataSet = new PieDataSet(visitors, "Pencija");
+        PieChart Savings_Chart = findViewById(R.id.piechart);
+        ArrayList<PieEntry> Savings = new ArrayList<>();
+        PieChart KeySpending_Chart = findViewById(R.id.KeySpending_Chart);
+        ArrayList<PieEntry> Keyspending = new ArrayList<>();
+        PieChart Investing_Chart = findViewById(R.id.Investing_Chart);
+        ArrayList<PieEntry> Investing = new ArrayList<>();
+
+        /*Pradiniai duomenys ar rodo*/
+        Savings.add(new PieEntry (800,""));
+        Savings.add(new PieEntry(250,""));
+        Keyspending.add(new PieEntry (264,""));
+        Keyspending.add(new PieEntry(200,""));
+        Investing.add(new PieEntry(150,""));
+        Investing.add(new PieEntry(105,""));
+
+        /*Pirma diagrama*/
+        PieDataSet pieDataSet = new PieDataSet(Savings, "");
         pieDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
         pieDataSet.setValueTextColor(Color.BLACK);
         pieDataSet.setValueTextSize(8f);
         PieData pieData = new PieData(pieDataSet);
-        pieChart.setData(pieData);
-        pieChart.getDescription().setEnabled(false);
-        pieChart.setCenterText("Visitors");
+        Savings_Chart.setData(pieData);
+        Savings_Chart.getDescription().setEnabled(false);
+        Savings_Chart.setCenterText("Savings");
+
+        /*AntraDiangrama*/
+        PieDataSet pieDataSet1 = new PieDataSet(Keyspending, "");
+        pieDataSet1.setColors(ColorTemplate.COLORFUL_COLORS);
+        pieDataSet1.setValueTextColor(Color.BLACK);
+        pieDataSet1.setValueTextSize(8f);
+        PieData pieData1 = new PieData(pieDataSet1);
+        KeySpending_Chart.setData(pieData1);
+        KeySpending_Chart.getDescription().setEnabled(false);
+        KeySpending_Chart.setCenterText("Keyspending");
+
+        /*TreciaDiagrama*/
+        PieDataSet pieDataSet2 = new PieDataSet(Investing, "");
+        pieDataSet2.setColors(ColorTemplate.COLORFUL_COLORS);
+        pieDataSet2.setValueTextColor(Color.BLACK);
+        pieDataSet2.setValueTextSize(8f);
+        PieData pieData2 = new PieData(pieDataSet2);
+        Investing_Chart.setData(pieData2);
+        Investing_Chart.getDescription().setEnabled(false);
+        Investing_Chart.setCenterText("Investing");
+
 
        buttonofpasirinkimai.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                if(MySpinner.getSelectedItem().toString().equals("January"))
                 {
-                    visitors.clear();
-                    menesis_kuris.setText("Atejau"+visitors.size());
-                    visitors.add(new PieEntry(508,2067));
-                    visitors.add(new PieEntry(600,2017));
-                    PieDataSet nx = new PieDataSet(visitors,"Lalaa");
-                    nx.setColors(ColorTemplate.COLORFUL_COLORS);
-                    nx.setValueTextColor(Color.BLACK);
-                    nx.setValueTextSize(8f);
-                    PieData koks = new PieData(nx);
-                    pieChart.setData(koks);
-                    pieChart.getDescription().setEnabled(false);
-                    pieChart.setCenterText("Visitors");
-                    pieChart.animate();
-                    pieChart.getDisplay();
-
+                    Savings.clear();
+                    Keyspending.clear();
+                    Investing.clear();
+                    ///
+                    Savings.add(new PieEntry (800,""));
+                    Savings.add(new PieEntry(250,""));;
+                    PieDataSet pie = new PieDataSet(Savings,"");
+                    pie.setColors(ColorTemplate.COLORFUL_COLORS);
+                    pie.setValueTextColor(Color.BLACK);
+                    pie.setValueTextSize(8f);
+                    PieData data = new PieData(pie);
+                    Savings_Chart.setData(data);
+                    Savings_Chart.getDescription().setEnabled(false);
+                    Savings_Chart.setCenterText("Savings");
+                    Savings_Chart.animate();
+                    Savings_Chart.invalidate();
+                    ///
+                    Keyspending.add(new PieEntry (264,""));
+                    Keyspending.add(new PieEntry(200,""));
+                    PieDataSet pie1 = new PieDataSet(Savings,"");
+                    pie1.setColors(ColorTemplate.COLORFUL_COLORS);
+                    pie1.setValueTextColor(Color.BLACK);
+                    pie1.setValueTextSize(8f);
+                    PieData data1 = new PieData(pie1);
+                    KeySpending_Chart.setData(data1);
+                    KeySpending_Chart.getDescription().setEnabled(false);
+                    KeySpending_Chart.setCenterText("Keyspending");
+                    KeySpending_Chart.animate();
+                    KeySpending_Chart.invalidate();
+                    ///
+                    Investing.add(new PieEntry(200,""));
+                    Investing.add(new PieEntry(105,""));
+                    PieDataSet pie2 = new PieDataSet(Savings,"");
+                    pie2.setColors(ColorTemplate.COLORFUL_COLORS);
+                    pie2.setValueTextColor(Color.BLACK);
+                    pie2.setValueTextSize(8f);
+                    PieData data2 = new PieData(pie2);
+                    Investing_Chart.setData(data2);
+                    Investing_Chart.getDescription().setEnabled(false);
+                    Investing_Chart.setCenterText("Investing");
+                    Investing_Chart.animate();
+                    Investing_Chart.invalidate();
                 }
                if(MySpinner.getSelectedItem().toString().equals("February"))
                {
-                   visitors.clear();
-                   menesis_kuris.setText("Atejau"+visitors.size());
-                   visitors.add(new PieEntry(200,2034));
-                   visitors.add(new PieEntry(300,2040));
-                   PieDataSet nx = new PieDataSet(visitors,"Lalaa");
-                   nx.setColors(ColorTemplate.COLORFUL_COLORS);
-                   nx.setValueTextColor(Color.BLACK);
-                   nx.setValueTextSize(8f);
-                   PieData koks = new PieData(nx);
-                   pieChart.setData(koks);
-                   pieChart.getDescription().setEnabled(false);
-                   pieChart.setCenterText("Visitors");
-                   pieChart.animate();
-                   pieChart.getDisplay();
+                   Savings.clear();
+                   Keyspending.clear();
+                   Investing.clear();
+                   ///
+                   Savings.add(new PieEntry (500,""));
+                   Savings.add(new PieEntry(1500,""));;
+                   PieDataSet pie = new PieDataSet(Savings,"");
+                   pie.setColors(ColorTemplate.COLORFUL_COLORS);
+                   pie.setValueTextColor(Color.BLACK);
+                   pie.setValueTextSize(8f);
+                   PieData data = new PieData(pie);
+                   Savings_Chart.setData(data);
+                   Savings_Chart.getDescription().setEnabled(false);
+                   Savings_Chart.setCenterText("Savings");
+                   Savings_Chart.animate();
+                   Savings_Chart.invalidate();
+                   ///
+                   Keyspending.add(new PieEntry (300,""));
+                   Keyspending.add(new PieEntry(900,""));
+                   PieDataSet pie1 = new PieDataSet(Savings,"");
+                   pie1.setColors(ColorTemplate.COLORFUL_COLORS);
+                   pie1.setValueTextColor(Color.BLACK);
+                   pie1.setValueTextSize(8f);
+                   PieData data1 = new PieData(pie1);
+                   KeySpending_Chart.setData(data1);
+                   KeySpending_Chart.getDescription().setEnabled(false);
+                   KeySpending_Chart.setCenterText("Keyspending");
+                   KeySpending_Chart.animate();
+                   KeySpending_Chart.invalidate();
+                   ///
+                   Investing.add(new PieEntry(423,""));
+                   Investing.add(new PieEntry(856,""));
+                   PieDataSet pie2 = new PieDataSet(Savings,"");
+                   pie2.setColors(ColorTemplate.COLORFUL_COLORS);
+                   pie2.setValueTextColor(Color.BLACK);
+                   pie2.setValueTextSize(8f);
+                   PieData data2 = new PieData(pie2);
+                   Investing_Chart.setData(data2);
+                   Investing_Chart.getDescription().setEnabled(false);
+                   Investing_Chart.setCenterText("Investing");
+                   Investing_Chart.animate();
+                   Investing_Chart.invalidate();
                }
+                if(MySpinner.getSelectedItem().toString().equals("March"))
+                {
+                    Savings.clear();
+                    Keyspending.clear();
+                    Investing.clear();
+                    ///
+                    Savings.add(new PieEntry (968,""));
+                    Savings.add(new PieEntry(1589,""));;
+                    PieDataSet pie = new PieDataSet(Savings,"");
+                    pie.setColors(ColorTemplate.COLORFUL_COLORS);
+                    pie.setValueTextColor(Color.BLACK);
+                    pie.setValueTextSize(8f);
+                    PieData data = new PieData(pie);
+                    Savings_Chart.setData(data);
+                    Savings_Chart.getDescription().setEnabled(false);
+                    Savings_Chart.setCenterText("Savings");
+                    Savings_Chart.animate();
+                    Savings_Chart.invalidate();
+                    ///
+                    Keyspending.add(new PieEntry (459,""));
+                    Keyspending.add(new PieEntry(783,""));
+                    PieDataSet pie1 = new PieDataSet(Savings,"");
+                    pie1.setColors(ColorTemplate.COLORFUL_COLORS);
+                    pie1.setValueTextColor(Color.BLACK);
+                    pie1.setValueTextSize(8f);
+                    PieData data1 = new PieData(pie1);
+                    KeySpending_Chart.setData(data1);
+                    KeySpending_Chart.getDescription().setEnabled(false);
+                    KeySpending_Chart.setCenterText("Keyspending");
+                    KeySpending_Chart.animate();
+                    KeySpending_Chart.invalidate();
+                    ///
+                    Investing.add(new PieEntry(1503,""));
+                    Investing.add(new PieEntry(5820,""));
+                    PieDataSet pie2 = new PieDataSet(Savings,"");
+                    pie2.setColors(ColorTemplate.COLORFUL_COLORS);
+                    pie2.setValueTextColor(Color.BLACK);
+                    pie2.setValueTextSize(8f);
+                    PieData data2 = new PieData(pie2);
+                    Investing_Chart.setData(data2);
+                    Investing_Chart.getDescription().setEnabled(false);
+                    Investing_Chart.setCenterText("Investing");
+                    Investing_Chart.animate();
+                    Investing_Chart.invalidate();
+
+                }
+                if(MySpinner.getSelectedItem().toString().equals("April"))
+                {
+                    Savings.clear();
+                    Keyspending.clear();
+                    Investing.clear();
+                    ///
+                    Savings.add(new PieEntry (1245,""));
+                    Savings.add(new PieEntry(2502,""));;
+                    PieDataSet pie = new PieDataSet(Savings,"");
+                    pie.setColors(ColorTemplate.COLORFUL_COLORS);
+                    pie.setValueTextColor(Color.BLACK);
+                    pie.setValueTextSize(8f);
+                    PieData data = new PieData(pie);
+                    Savings_Chart.setData(data);
+                    Savings_Chart.getDescription().setEnabled(false);
+                    Savings_Chart.setCenterText("Savings");
+                    Savings_Chart.animate();
+                    Savings_Chart.invalidate();
+                    ///
+                    Keyspending.add(new PieEntry (2646,""));
+                    Keyspending.add(new PieEntry(548,""));
+                    PieDataSet pie1 = new PieDataSet(Savings,"");
+                    pie1.setColors(ColorTemplate.COLORFUL_COLORS);
+                    pie1.setValueTextColor(Color.BLACK);
+                    pie1.setValueTextSize(8f);
+                    PieData data1 = new PieData(pie1);
+                    KeySpending_Chart.setData(data1);
+                    KeySpending_Chart.getDescription().setEnabled(false);
+                    KeySpending_Chart.setCenterText("Keyspending");
+                    KeySpending_Chart.animate();
+                    KeySpending_Chart.invalidate();
+                    ///
+                    Investing.add(new PieEntry(2154,""));
+                    Investing.add(new PieEntry(478,""));
+                    PieDataSet pie2 = new PieDataSet(Savings,"");
+                    pie2.setColors(ColorTemplate.COLORFUL_COLORS);
+                    pie2.setValueTextColor(Color.BLACK);
+                    pie2.setValueTextSize(8f);
+                    PieData data2 = new PieData(pie2);
+                    Investing_Chart.setData(data2);
+                    Investing_Chart.getDescription().setEnabled(false);
+                    Investing_Chart.setCenterText("Investing");
+                    Investing_Chart.animate();
+                    Investing_Chart.invalidate();
+                }
+
             }
         });
     }
