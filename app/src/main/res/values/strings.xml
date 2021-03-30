@@ -15,4 +15,13 @@
         <item>November</item>
         <item>December</item>
     </string-array>
+    <string name="EnterPays_atomPay_nameHint">nazwa platnosci</string>
+    <string name="EnterPays_TextView_ZeroValue">0</string>
+    <string name="EnterPays_addPayment">Add Payment</string>
+    <string name="title_activity_duomenu">activity_duomenu</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
 </resources>

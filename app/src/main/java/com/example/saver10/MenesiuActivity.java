@@ -2,6 +2,7 @@ package com.example.saver10;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -26,6 +27,7 @@ public class MenesiuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menesiu);
+        Button IvedimasDuomenu = (Button) findViewById(R.id.button);
         Spinner MySpinner = (Spinner) findViewById(R.id.Pasirinkimai_Spinners);
         ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(MenesiuActivity.this,
                 android.R.layout.simple_expandable_list_item_1, getResources().getStringArray(R.array.options));
@@ -77,6 +79,15 @@ public class MenesiuActivity extends AppCompatActivity {
         Investing_Chart.getDescription().setEnabled(false);
         Investing_Chart.setCenterText("Investing");
 
+        IvedimasDuomenu.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                NextActivity(v);
+
+            }
+        });
+
 
        buttonofpasirinkimai.setOnClickListener(new OnClickListener() {
             @Override
@@ -102,7 +113,7 @@ public class MenesiuActivity extends AppCompatActivity {
                     ///
                     Keyspending.add(new PieEntry (264,""));
                     Keyspending.add(new PieEntry(200,""));
-                    PieDataSet pie1 = new PieDataSet(Savings,"");
+                    PieDataSet pie1 = new PieDataSet(Keyspending,"");
                     pie1.setColors(ColorTemplate.COLORFUL_COLORS);
                     pie1.setValueTextColor(Color.BLACK);
                     pie1.setValueTextSize(8f);
@@ -115,7 +126,7 @@ public class MenesiuActivity extends AppCompatActivity {
                     ///
                     Investing.add(new PieEntry(200,""));
                     Investing.add(new PieEntry(105,""));
-                    PieDataSet pie2 = new PieDataSet(Savings,"");
+                    PieDataSet pie2 = new PieDataSet(Investing,"");
                     pie2.setColors(ColorTemplate.COLORFUL_COLORS);
                     pie2.setValueTextColor(Color.BLACK);
                     pie2.setValueTextSize(8f);
@@ -147,7 +158,7 @@ public class MenesiuActivity extends AppCompatActivity {
                    ///
                    Keyspending.add(new PieEntry (300,""));
                    Keyspending.add(new PieEntry(900,""));
-                   PieDataSet pie1 = new PieDataSet(Savings,"");
+                   PieDataSet pie1 = new PieDataSet(Keyspending,"");
                    pie1.setColors(ColorTemplate.COLORFUL_COLORS);
                    pie1.setValueTextColor(Color.BLACK);
                    pie1.setValueTextSize(8f);
@@ -160,7 +171,7 @@ public class MenesiuActivity extends AppCompatActivity {
                    ///
                    Investing.add(new PieEntry(423,""));
                    Investing.add(new PieEntry(856,""));
-                   PieDataSet pie2 = new PieDataSet(Savings,"");
+                   PieDataSet pie2 = new PieDataSet(Investing,"");
                    pie2.setColors(ColorTemplate.COLORFUL_COLORS);
                    pie2.setValueTextColor(Color.BLACK);
                    pie2.setValueTextSize(8f);
@@ -192,7 +203,7 @@ public class MenesiuActivity extends AppCompatActivity {
                     ///
                     Keyspending.add(new PieEntry (459,""));
                     Keyspending.add(new PieEntry(783,""));
-                    PieDataSet pie1 = new PieDataSet(Savings,"");
+                    PieDataSet pie1 = new PieDataSet(Keyspending,"");
                     pie1.setColors(ColorTemplate.COLORFUL_COLORS);
                     pie1.setValueTextColor(Color.BLACK);
                     pie1.setValueTextSize(8f);
@@ -205,7 +216,7 @@ public class MenesiuActivity extends AppCompatActivity {
                     ///
                     Investing.add(new PieEntry(1503,""));
                     Investing.add(new PieEntry(5820,""));
-                    PieDataSet pie2 = new PieDataSet(Savings,"");
+                    PieDataSet pie2 = new PieDataSet(Investing,"");
                     pie2.setColors(ColorTemplate.COLORFUL_COLORS);
                     pie2.setValueTextColor(Color.BLACK);
                     pie2.setValueTextSize(8f);
@@ -238,7 +249,8 @@ public class MenesiuActivity extends AppCompatActivity {
                     ///
                     Keyspending.add(new PieEntry (2646,""));
                     Keyspending.add(new PieEntry(548,""));
-                    PieDataSet pie1 = new PieDataSet(Savings,"");
+                    Keyspending.add(new PieEntry(1000,""));
+                    PieDataSet pie1 = new PieDataSet(Keyspending,"");
                     pie1.setColors(ColorTemplate.COLORFUL_COLORS);
                     pie1.setValueTextColor(Color.BLACK);
                     pie1.setValueTextSize(8f);
@@ -251,7 +263,8 @@ public class MenesiuActivity extends AppCompatActivity {
                     ///
                     Investing.add(new PieEntry(2154,""));
                     Investing.add(new PieEntry(478,""));
-                    PieDataSet pie2 = new PieDataSet(Savings,"");
+                    Investing.add(new PieEntry(589,""));
+                    PieDataSet pie2 = new PieDataSet(Investing,"");
                     pie2.setColors(ColorTemplate.COLORFUL_COLORS);
                     pie2.setValueTextColor(Color.BLACK);
                     pie2.setValueTextSize(8f);
@@ -266,4 +279,10 @@ public class MenesiuActivity extends AppCompatActivity {
             }
         });
     }
+    public void NextActivity(View v)
+    {
+        Intent i = new Intent(this,DuomenuActivity.class);
+        startActivity(i);
+    }
+
 }
