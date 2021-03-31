@@ -20,14 +20,27 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class MenesiuActivity extends AppCompatActivity {
+    File file = new File("/java/libs/OP");
+    static ArrayList<MountData> data = new ArrayList<MountData>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menesiu);
+        File file = new File("/java/libs/OP");
         Button IvedimasDuomenu = (Button) findViewById(R.id.button);
+        try {
+            data = ReadFromDataFile(file);
+        }
+        catch (IOException ex) {
+            System.out.println("Nerasta failo");
+        }
         Spinner MySpinner = (Spinner) findViewById(R.id.Pasirinkimai_Spinners);
         ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(MenesiuActivity.this,
                 android.R.layout.simple_expandable_list_item_1, getResources().getStringArray(R.array.options));
@@ -42,7 +55,7 @@ public class MenesiuActivity extends AppCompatActivity {
         ArrayList<PieEntry> Investing = new ArrayList<>();
 
         /*Pradiniai duomenys ar rodo*/
-        Savings.add(new PieEntry (800,""));
+        Savings.add(new PieEntry (data.size()," "));
         Savings.add(new PieEntry(250,""));
         Keyspending.add(new PieEntry (264,""));
         Keyspending.add(new PieEntry(200,""));
@@ -283,6 +296,25 @@ public class MenesiuActivity extends AppCompatActivity {
     {
         Intent i = new Intent(this,DuomenuActivity.class);
         startActivity(i);
+    }
+    public static ArrayList<MountData> ReadFromDataFile(File path) throws IOException {
+        ArrayList<MountData> data = new ArrayList<MountData>();
+        String line;
+        BufferedReader fileReader = new BufferedReader(new FileReader(path));
+
+        while ((line = fileReader.readLine()) != null) {
+            String[] Lines = line.split(";");
+            for (int i = 0; i < Lines.length; i++) {
+
+                String[] parts = Lines[i].split(" ");
+                String Name = (parts[0]);
+                int NumberOfMarks = Integer.parseInt(parts[1]);
+                MountData S = new MountData(Name, NumberOfMarks);
+                data.add(S);
+            }
+        }
+        fileReader.close();
+        return data;
     }
 
 }
