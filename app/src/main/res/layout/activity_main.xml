@@ -6,30 +6,85 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/OldSunday"
+        android:id="@+id/relativeLayout"
+        tools:context=".MainActivity">
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_menesiai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="127dp"
+            android:layout_marginBottom="86dp"
+            android:backgroundTint="@color/ButtonColor"
+            android:text="Pereiti į mėnesių meniu" />
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/Text_Changer_Button"
         android:layout_width="212dp"
         android:layout_height="82dp"
         android:layout_marginEnd="116dp"
         android:layout_marginBottom="200dp"
-        android:background="@drawable/shape"
-        android:text="Button"
-
+        android:background="@drawable/shapeofbutton"
+        android:backgroundTint="@color/ButtonColor"
+        android:text="Įvesti Duomenis"
         app:layout_constraintBottom_toBottomOf="parent"
-
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/Savingai"
-        android:layout_width="83dp"
-        android:layout_height="20dp"
-        android:layout_marginEnd="56dp"
-        android:text="Savings"
-        app:layout_constraintBottom_toTopOf="@+id/Text_Changer_Button"
-        app:layout_constraintEnd_toStartOf="@+id/Lavish"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.314" />
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:stretchColumns="0,1"
+
+        >
+        <TableRow>
+            <TextView
+                android:layout_margin="0.5dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:id="@+id/Savingai"
+                android:text="Savings"
+                android:gravity="center"
+                android:background="@drawable/cell_shape"
+                 />
+            <TextView
+                android:layout_margin="0.5dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:background="@drawable/cell_shape"
+                android:gravity="center"
+                android:id="@+id/Investing"
+                android:text="Investing"
+
+             />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_margin="0.5dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:background="@drawable/cell_shape"
+                android:id="@+id/Lavish"
+                android:text="Lavish"
+                android:gravity="center"
+
+
+                />
+            <TextView
+                android:layout_margin="0.5dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:background="@drawable/cell_shape"
+                android:id="@+id/KeeSpending"
+                android:text="KeeSpending"
+                android:gravity="center"
+             />
+        </TableRow>
+    </TableLayout>
+
 
     <EditText
         android:id="@+id/Income_Number"
@@ -44,50 +99,6 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/Lavish"
-        android:layout_width="78dp"
-        android:layout_height="17dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="112dp"
-        android:text="Lavish"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Investing" />
-
-    <TextView
-        android:id="@+id/Investing"
-        android:layout_width="74dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="92dp"
-        android:layout_marginEnd="116dp"
-        android:text="Investing"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/KeeSpending"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="KeeSpending"
-        app:layout_constraintBottom_toTopOf="@+id/Savingai"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.243"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.825" />
-
-    <Button
-        android:id="@+id/button_menesiai"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="176dp"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Text_Changer_Button"
-        app:layout_constraintVertical_bias="0.079" />
-
-    <TextView
         android:id="@+id/duomenu_ivedimas"
         android:layout_width="174dp"
         android:layout_height="23dp"
@@ -95,5 +106,6 @@
         android:layout_marginEnd="128dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

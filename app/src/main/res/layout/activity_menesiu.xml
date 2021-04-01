@@ -7,25 +7,55 @@
     android:exported="true"
     tools:context=".MenesiuActivity">
 
-    <Spinner
-        android:id="@+id/Pasirinkimai_Spinners"
-        android:layout_width="234dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="125dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.647"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/OldSunday"
+        tools:context=".MenesiuActivity"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-29dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_KeySpending_Chart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="51dp"
+            android:layout_marginBottom="32dp"
+            android:backgroundTint="@color/ButtonColor"
+            android:text="Įvesti išlaidas" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_Investing_Chart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="23dp"
+            android:layout_marginBottom="32dp"
+            android:backgroundTint="@color/ButtonColor"
+            android:text="Įvesti investavimą" />
+
+        <Spinner
+            android:id="@+id/Pasirinkimai_Spinners"
+            android:layout_width="187dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="56dp"
+            android:layout_marginEnd="125dp" />
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/Button_Pasirinkti"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:layout_marginEnd="24dp"
-        android:text="Button"
+        android:text="Pasirinkite mėnesį"
+        android:backgroundTint="@color/ButtonColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,12 +70,13 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button"
         android:layout_width="wrap_content"
+        android:backgroundTint="@color/ButtonColor"
         android:layout_height="wrap_content"
         android:layout_marginTop="328dp"
-        android:text="Button"
+        android:text="Įvesti santaupas"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
@@ -69,23 +100,4 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
-        android:id="@+id/button_KeySpending_Chart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="36dp"
-        android:text="Button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/KeySpending_Chart" />
-
-    <Button
-        android:id="@+id/button_Investing_Chart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="60dp"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Investing_Chart" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,6 +14,9 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.content.Context;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.widget.RelativeLayout;
 
 import com.example.saver10.libs.Users;
 
@@ -27,12 +30,17 @@ public class MainActivity extends AppCompatActivity {
   static Users Vartotojas = new Users("Marius",2.0,2.0,2.0,2.0,
           new ArrayList<MenesioData>());
 
+        RelativeLayout relativeLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //        DuomenuSaugojimas.putListObject("Menesiai",naujas);
         //        DuomenuSaugojimas = new TinyDB(getApplicationContext());
         naujas.add(new MenesioData());
+        setContentView(R.layout.activity_main);
+        relativeLayout = findViewById(R.id.relativeLayout);
+        relativeLayout.setBackgroundColor(Color.LTGRAY);
 
         Vartotojas.SetDataMonths(naujas);
         setContentView(R.layout.activity_main);
