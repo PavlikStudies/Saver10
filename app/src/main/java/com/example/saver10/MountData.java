@@ -13,4 +13,8 @@ public class MountData {
 
     public String GetDataName() { return Label;}
     public double GetValue() {return Value;}
+
+    public void SetValue(double k) {
+       Value =Value + k;
+       }
 }
