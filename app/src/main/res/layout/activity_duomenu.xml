@@ -118,8 +118,8 @@
 
     <TextView
         android:id="@+id/First_Atribute"
-        android:layout_width="110dp"
-        android:layout_height="23dp"
+        android:layout_width="112dp"
+        android:layout_height="62dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="28dp"
         android:text="TextView"
