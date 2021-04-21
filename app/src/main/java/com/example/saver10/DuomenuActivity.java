@@ -7,13 +7,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.jar.Attributes;
 
 public class DuomenuActivity extends AppCompatActivity {
 
@@ -49,10 +47,12 @@ public class DuomenuActivity extends AppCompatActivity {
                     MountData S = new MountData(Name,NumberOfMarks);
                     data.add(S);
                 }
+
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
         return data;
     }
+
 }

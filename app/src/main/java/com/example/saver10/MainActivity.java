@@ -2,12 +2,17 @@ package com.example.saver10;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.menu.ListMenuItemView;
+import androidx.core.app.AppLaunchChecker;
 
+import android.app.Activity;
 import android.app.LauncherActivity;
 import android.content.ClipData;
+import android.content.ContextWrapper;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -23,14 +28,17 @@ import com.example.saver10.libs.Users;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.PrimitiveIterator;
 
 public class MainActivity extends AppCompatActivity {
     //  static TinyDB DuomenuSaugojimas;
      ArrayList <MenesioData> naujas = new ArrayList<MenesioData>();
+     double pinigeliai;
   static Users Vartotojas = new Users("Marius",2.0,2.0,2.0,2.0,
           new ArrayList<MenesioData>());
 
         RelativeLayout relativeLayout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         relativeLayout = findViewById(R.id.relativeLayout);
         relativeLayout.setBackgroundColor(Color.LTGRAY);
-
         Vartotojas.SetDataMonths(naujas);
         setContentView(R.layout.activity_main);
         TextView ivedimo_confirm = (TextView) findViewById(R.id.duomenu_ivedimas);
@@ -51,6 +58,19 @@ public class MainActivity extends AppCompatActivity {
         TextView LavishSpendings = (TextView) findViewById(R.id.Lavish);
         Button tekstoPakeitejas = findViewById(R.id.Text_Changer_Button);
         Button imenesius = findViewById(R.id.button_menesiai);
+
+        PirmoKartoTIkrinimas PirmasKartas = new PirmoKartoTIkrinimas();
+       if (!PirmasKartas.getBooleanPreferenceValue(getApplicationContext(),"9"))
+        {
+            onStart();
+            {
+                FirstTImeactivity();
+                PirmasKartas.setBooleanPreferenceValue(getApplicationContext(),"9", true);
+            }
+        }
+
+       pinigeliai = PirmoKartoActivity.alga;
+       Vartotojas.SetInvesting(pinigeliai);
 
         tekstoPakeitejas.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,9 +91,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
     public void NextActivity(View v)
     {
         Intent i = new Intent(this,MenesiuActivity.class);
         startActivity(i);
     }
+    public void FirstTImeactivity()
+    {
+        Intent first = new Intent(this,PirmoKartoActivity.class);
+        startActivity(first);
+    }
+
 }
