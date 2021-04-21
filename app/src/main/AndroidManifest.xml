@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Saver10">
-        <activity android:name=".DuomenuActivity"></activity>
+        <activity android:name=".PirmoKartoActivity"></activity>
+        <activity android:name=".DuomenuActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

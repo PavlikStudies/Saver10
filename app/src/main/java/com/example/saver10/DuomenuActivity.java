@@ -24,7 +24,6 @@ import java.io.InputStreamReader;
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.jar.Attributes;
 
 public class DuomenuActivity extends AppCompatActivity {
 
@@ -63,6 +62,7 @@ public class DuomenuActivity extends AppCompatActivity {
                     MountData S = new MountData(Name,NumberOfMarks);
                     data.add(S);
                 }
+
             }
         } catch (IOException e) {
             e.printStackTrace();
