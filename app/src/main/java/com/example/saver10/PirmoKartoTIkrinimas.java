@@ -2,9 +2,21 @@ package com.example.saver10;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
-public class PirmoKartoTIkrinimas {
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class PirmoKartoTIkrinimas  {
 
 
         /**
@@ -29,6 +41,7 @@ public class PirmoKartoTIkrinimas {
             SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
             return sp.getBoolean(key, false);
         }
+
 
     }
 

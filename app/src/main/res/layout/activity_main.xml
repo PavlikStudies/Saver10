@@ -23,7 +23,86 @@
             android:layout_marginBottom="86dp"
             android:backgroundTint="@color/ButtonColor"
             android:text="Pereiti į mėnesių meniu" />
+
     </RelativeLayout>
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
+        <TableRow android:background="@color/OldSunday" android:padding="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Rekomendacijos" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Pajamu dalis" />
+        </TableRow>
+        <TableRow android:background="#DAE8FC" android:padding="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Butinos islaidos" />
+
+            <TextView
+                android:id="@+id/KeeSpending"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="KeeSpending" />
+        </TableRow>
+        <TableRow android:background="#DAE8FC" android:padding="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Investavimo islaidos" />
+
+            <TextView
+                android:id="@+id/Investing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Investing" />
+
+        </TableRow>
+        <TableRow android:background="#DAE8FC" android:padding="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Laisvalaikio islaidos" />
+
+            <TextView
+                android:id="@+id/Lavish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Lavish" />
+        </TableRow>
+        <TableRow android:background="#DAE8FC" android:padding="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Santaupoms" />
+
+            <TextView
+                android:id="@+id/Savings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Savings"
+                />
+
+        </TableRow>
+    </TableLayout>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/Text_Changer_Button"
@@ -33,70 +112,10 @@
         android:layout_marginBottom="200dp"
         android:background="@drawable/shapeofbutton"
         android:backgroundTint="@color/ButtonColor"
-        android:text="Įvesti Duomenis"
+        android:text="Atnaujinti Pajamas"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="50dp"
-        android:stretchColumns="0,1"
-
-        >
-        <TableRow>
-            <TextView
-                android:layout_margin="0.5dp"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/Savingai"
-                android:text="Savings"
-                android:gravity="center"
-                android:background="@drawable/cell_shape"
-                 />
-            <TextView
-                android:layout_margin="0.5dp"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:background="@drawable/cell_shape"
-                android:gravity="center"
-                android:id="@+id/Investing"
-                android:text="Investing"
-
-             />
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:layout_margin="0.5dp"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:background="@drawable/cell_shape"
-                android:id="@+id/Lavish"
-                android:text="Lavish"
-                android:gravity="center"
-
-
-                />
-            <TextView
-                android:layout_margin="0.5dp"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:background="@drawable/cell_shape"
-                android:id="@+id/KeeSpending"
-                android:text="KeeSpending"
-                android:gravity="center"
-             />
-        </TableRow>
-    </TableLayout>
-
-
-    <EditText
-        android:id="@+id/Income_Number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
-        android:ems="10"
-        android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/Text_Changer_Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.442"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/duomenu_ivedimas"

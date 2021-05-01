@@ -10,6 +10,13 @@ import android.widget.TextView;
 import android.graphics.Color;
 import android.widget.RelativeLayout;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -42,32 +49,44 @@ public class MainActivity extends AppCompatActivity {
         TextView ivedimo_confirm = (TextView) findViewById(R.id.duomenu_ivedimas);
         TextView keespending = (TextView) findViewById(R.id.KeeSpending);
         TextView investing = (TextView) findViewById(R.id.Investing);
-        TextView Savings = (TextView) findViewById(R.id.Savingai);
+        TextView Savings = (TextView) findViewById(R.id.Savings);
         TextView LavishSpendings = (TextView) findViewById(R.id.Lavish);
         Button tekstoPakeitejas = findViewById(R.id.Text_Changer_Button);
         Button imenesius = findViewById(R.id.button_menesiai);
-       keespending.setText(labas);
+        String filename = "InitialIncome.txt";
+        String filepath = "MyfileDirectory";
+        File PirmoKartoData = new File(getExternalFilesDir(filepath),filename);
+        double PradinesPajamos = GetIncomeData(PirmoKartoData);
+        keespending.setText(String.valueOf(PradinesPajamos*0.3));
+        keespending.append(" €");
+        investing.setText(String.valueOf(PradinesPajamos*0.3));
+        investing.append(" €");
+        Savings.setText(String.valueOf(PradinesPajamos*0.2));
+        Savings.append(" €");
+        LavishSpendings.setText(String.valueOf(PradinesPajamos*0.2));
+        LavishSpendings.append(" €");
+
+
+
 
 
         PirmoKartoTIkrinimas PirmasKartas = new PirmoKartoTIkrinimas();
-       if (!PirmasKartas.getBooleanPreferenceValue(getApplicationContext(),"13"))
+       if (!PirmasKartas.getBooleanPreferenceValue(getApplicationContext(),"24"))
         {
             onStart();
             {
                 FirstTImeactivity();
-                PirmasKartas.setBooleanPreferenceValue(getApplicationContext(),"13", true);
+                PirmasKartas.setBooleanPreferenceValue(getApplicationContext(),"24", true);
+
             }
         }
-       pinigeliai = PirmoKartoActivity.alga;
+
 
 
         tekstoPakeitejas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//             ArrayList<Object> lala =  DuomenuSaugojimas.getListObject("Menesiai",new MenesioData().getClass());
-//             investing.setText(((MenesioData) lala.get(0)).scripts[1]);
-
-                ivedimo_confirm.setText("Data entered succsesfully!");
+              FirstTImeactivity();
 
             }
         });
@@ -89,5 +108,35 @@ public class MainActivity extends AppCompatActivity {
         Intent first = new Intent(this,PirmoKartoActivity.class);
         startActivity(first);
     }
+    public double GetIncomeData(File PaimtasFailas)
+    {
+        String Textedit = "";
+        double Pajamos = 0;
+        FileReader fr =null;
+        try {
+            fr = new FileReader(PaimtasFailas);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        BufferedReader br = new BufferedReader(fr);
+        try {
+            while ((Textedit = br.readLine()) != null)
+            {
+                String[] Lines = Textedit.split(";");
+                for (int i = 0; i < Lines.length; i++)
+                {
+                    String[] parts = Lines[i].split(" ");
+                    String Name = (parts[0]);
+                    Pajamos = Double.parseDouble(parts[1]);
+
+                }
+            }
+            br.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return Pajamos;
+    }
+
 
 }

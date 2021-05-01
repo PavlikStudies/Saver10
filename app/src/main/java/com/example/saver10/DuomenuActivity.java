@@ -177,8 +177,10 @@ public class DuomenuActivity extends AppCompatActivity {
         issaugoti.setOnClickListener(new View.OnClickListener() {
             @Override
 
+
             public void onClick(View v) {
                 RewriteData(MASYVAS,myExternalFile);
+
             }
         });
 
@@ -253,6 +255,11 @@ public class DuomenuActivity extends AppCompatActivity {
     {
         Intent i = new Intent(this,MenesiuActivity.class);
         startActivity(i);
+    }
+    public void BackTOMAIN()
+    {
+        Intent first = new Intent(this,MainActivity.class);
+        startActivity(first);
     }
 }
 
