@@ -2,31 +2,20 @@ package com.example.saver10;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.graphics.Path;
+import android.content.Intent;
 import android.os.Bundle;
-import android.os.Environment;
-import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.Console;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Writer;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-
-import static android.widget.Toast.*;
 
 public class DuomenuActivity extends AppCompatActivity {
     String lapatai="";
@@ -36,17 +25,166 @@ public class DuomenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_duomenu);
-       TextView labas = (TextView) findViewById(R.id.textView);
-        /*TextView labas2 = (TextView) findViewById(R.id.first_Atribute2);*/
-        String filename = "Labas.txt";
+        /// Kiekvienai funcijai po 4 laukus;
+       TextView islaid_taupemoji = (TextView) findViewById(R.id.textView_Taupo);
+        Button islaid_pridet1 = (Button) findViewById(R.id.button2_plius_isl);
+        Button islaid_atimt1 = (Button) findViewById(R.id.button6_min_isl);
+        TextView islaid_number1 = (TextView) findViewById(R.id.editTextNumberDecimal);
+        ///
+        TextView islaid_investavimo  = (TextView) findViewById(R.id.textView2_Investavimo);
+        Button islaid_pridet2 = (Button) findViewById(R.id.button3_plius_isl);
+        Button islaid_atimt2 = (Button) findViewById(R.id.button7_min_isl);
+        TextView islaid_number2 = (TextView) findViewById(R.id.editTextNumberDecimal2);
+        ///
+        TextView islaid_nenumatytu  = (TextView) findViewById(R.id.textView3_Nenuma);
+        Button islaid_pridet3 = (Button) findViewById(R.id.button4_plius_isl);
+        Button islaid_atimt3 = (Button) findViewById(R.id.button8_min_isl);
+        TextView islaid_number3 = (TextView) findViewById(R.id.editTextNumberDecimal3);
+        ///
+        TextView islaid_ButoSas  = (TextView) findViewById(R.id.textView4_Buto);
+        Button islaid_pridet4 = (Button) findViewById(R.id.button5_plius_isl);
+        Button islaid_atimt4 = (Button) findViewById(R.id.button9_min_isl);
+        TextView islaid_number4 = (TextView) findViewById(R.id.editTextNumberDecimal4);
+        ///
+        Button issaugoti = (Button) findViewById(R.id.issaugoti_isl);
+
+        String filename = "JanuaryData.txt";
         String filepath = "MyfileDirectory";
         File myExternalFile = new File(getExternalFilesDir(filepath),filename);
-        RewriteData(MASYVAS,myExternalFile);
-        MASYVAS = GetMounthData(filename,filepath,myExternalFile);
-        labas.setText(MASYVAS.get(0).Label+MASYVAS.get(0).Value + MASYVAS.get(1).Label + MASYVAS.get(1).Value);
+        MASYVAS = GetMounthData(myExternalFile);
+        // Pradines reiksmes kokios yra faile
+        islaid_taupemoji.setText(MASYVAS.get(0).Label+MASYVAS.get(0).Value);
+        islaid_investavimo.setText(MASYVAS.get(1).Label + MASYVAS.get(1).Value);
+        islaid_nenumatytu.setText(MASYVAS.get(2).Label + MASYVAS.get(2).Value);
+        islaid_ButoSas.setText(MASYVAS.get(3).Label + MASYVAS.get(3).Value);
+        //Migtukai pirmo lauko
+        islaid_pridet1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    double number = Double.parseDouble(islaid_number1.getText().toString());
+                    MASYVAS.get(0).SetValue(number);
+                    islaid_taupemoji.setText(MASYVAS.get(0).Label + MASYVAS.get(0).Value);
+                }
+                catch (Exception e)
+                {
+                    MASYVAS.get(0).SetValue(0);
+                }
+            }
+        });
+        islaid_atimt1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    double number = Double.parseDouble(islaid_number1.getText().toString());
+                    MASYVAS.get(0).MinusValue(number);
+                    islaid_taupemoji.setText(MASYVAS.get(0).Label + MASYVAS.get(0).Value);
+                }
+                catch (Exception e)
+                {
+                    MASYVAS.get(0).SetValue(0);
+                }
+            }
+        });
+        //Migtukai antro lauko
+        islaid_pridet2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    double number = Double.parseDouble(islaid_number2.getText().toString());
+                    MASYVAS.get(1).SetValue(number);
+                    islaid_investavimo.setText(MASYVAS.get(1).Label + MASYVAS.get(1).Value);
+                }
+                catch (Exception e)
+                {
+                    MASYVAS.get(1).SetValue(0);
+                }
+            }
+        });
+        islaid_atimt2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    double number = Double.parseDouble(islaid_number2.getText().toString());
+                    MASYVAS.get(1).MinusValue(number);
+                    islaid_investavimo.setText(MASYVAS.get(1).Label + MASYVAS.get(1).Value);
+                }
+                catch (Exception e)
+                {
+                    MASYVAS.get(1).SetValue(0);
+                }
+            }
+        });
+        // Migutkai trecio lauko
+        islaid_pridet3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    double number = Double.parseDouble(islaid_number3.getText().toString());
+                    MASYVAS.get(2).SetValue(number);
+                    islaid_nenumatytu.setText(MASYVAS.get(2).Label + MASYVAS.get(2).Value);
+                }
+                catch (Exception e)
+                {
+                    MASYVAS.get(2).SetValue(0);
+                }
+            }
+        });
+        islaid_atimt3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    double number = Double.parseDouble(islaid_number3.getText().toString());
+                    MASYVAS.get(2).MinusValue(number);
+                    islaid_nenumatytu.setText(MASYVAS.get(2).Label + MASYVAS.get(2).Value);
+                }
+                catch (Exception e)
+                {
+                    MASYVAS.get(2).SetValue(0);
+                }
+            }
+        });
+        //Migtukai ketvirto lauko
+        islaid_pridet4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    double number = Double.parseDouble(islaid_number4.getText().toString());
+                    MASYVAS.get(3).SetValue(number);
+                    islaid_ButoSas.setText(MASYVAS.get(3).Label + MASYVAS.get(3).Value);
+                }
+                catch (Exception e)
+                {
+                    MASYVAS.get(3).SetValue(0);
+                }
+            }
+        });
+        islaid_atimt4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    double number = Double.parseDouble(islaid_number4.getText().toString());
+                    MASYVAS.get(3).MinusValue(number);
+                    islaid_ButoSas.setText(MASYVAS.get(3).Label + MASYVAS.get(3).Value);
+                }
+                catch (Exception e)
+                {
+                    MASYVAS.get(3).SetValue(0);
+                }
+            }
+        });
+        // Isaugoti mygtukas
+        issaugoti.setOnClickListener(new View.OnClickListener() {
+            @Override
+
+            public void onClick(View v) {
+                RewriteData(MASYVAS,myExternalFile);
+            }
+        });
+
     }
 
-    public ArrayList<MountData> GetMounthData(String filepath,String filename,File PaimtasFailas)
+    public ArrayList<MountData> GetMounthData(File PaimtasFailas)
     {
         FileReader fr =null;
         try {
@@ -80,9 +218,16 @@ public class DuomenuActivity extends AppCompatActivity {
     {
         FileOutputStream fos = null;
         try{
-            String text = "January 30;";
-            String text1 ="September 50;";
-            String fileContent = text.trim();
+            String text = "TaupomojiSas "+data.get(0).Value+";";
+            String text1 = "InvestavimoSas "+data.get(1).Value+";";
+            String text2="NenumatytųatvejųSas "+data.get(2).Value+";";
+            String text3="ButosąsSas "+data.get(3).Value+";";
+            String text4="Maistas "+data.get(4).Value+";";
+            String text5="ButosąsSas "+data.get(5).Value+";";
+            /// Investing
+            String text6="Taupomijisaskaita "+data.get(6).Value+";";
+            String text7="Investavimosąskaita "+data.get(7).Value+";";
+           /// String fileContent = text.trim();
             /// RASYMAS SU FILE OUTPUTSTREAM
             /*fos = new FileOutputStream(Paimtasfailas,true);
             fos.write(fileContent.getBytes());
@@ -91,6 +236,12 @@ public class DuomenuActivity extends AppCompatActivity {
             FileWriter Writer = new FileWriter(Paimtasfailas);
             Writer.write(text);
             Writer.write(text1);
+            Writer.write(text2);
+            Writer.write(text3);
+            Writer.write(text4);
+            Writer.write(text5);
+            Writer.write(text6);
+            Writer.write(text7);
             Writer.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -98,4 +249,10 @@ public class DuomenuActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+    public void TakeActiviti()
+    {
+        Intent i = new Intent(this,MenesiuActivity.class);
+        startActivity(i);
+    }
 }
+

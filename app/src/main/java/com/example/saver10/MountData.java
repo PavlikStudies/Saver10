@@ -15,6 +15,7 @@ public class MountData {
     public double GetValue() {return Value;}
 
     public void SetValue(double k) {
-       Value =Value + k;
+       Value = Value + k;
        }
+       public void MinusValue(double k){Value = Value-k;}
 }
