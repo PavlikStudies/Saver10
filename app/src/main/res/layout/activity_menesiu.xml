@@ -8,64 +8,56 @@
     tools:context=".MenesiuActivity">
 
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/OldSunday"
-        tools:context=".MenesiuActivity"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-29dp">
+    <Spinner
+        android:id="@+id/Pasirinkimai_Spinners"
+        android:layout_width="192dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toStartOf="@+id/Button_Pasirinkti"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button_KeySpending_Chart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="51dp"
-            android:layout_marginBottom="32dp"
-            android:backgroundTint="@color/ButtonColor"
-            android:text="Įvesti išlaidas" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_Investing_Chart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="@color/ButtonColor"
+        android:text="Įvesti investavimą"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Investing_Chart" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button_Investing_Chart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="23dp"
-            android:layout_marginBottom="32dp"
-            android:backgroundTint="@color/ButtonColor"
-            android:text="Įvesti investavimą" />
-
-        <Spinner
-            android:id="@+id/Pasirinkimai_Spinners"
-            android:layout_width="187dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="52dp"
-            android:layout_marginTop="56dp"
-            android:layout_marginEnd="125dp" />
-    </RelativeLayout>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_KeySpending_Chart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/ButtonColor"
+        android:text="Įvesti išlaidas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/KeySpending_Chart" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/Button_Pasirinkti"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="24dp"
-        android:text="Pasirinkite mėnesį"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="20dp"
         android:backgroundTint="@color/ButtonColor"
+        android:text="Pasirinkite mėnesį"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/piechart"
-        android:layout_width="303dp"
-        android:layout_height="164dp"
-        android:layout_marginTop="152dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.534"
+        android:layout_width="175dp"
+        android:layout_height="204dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="428dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
@@ -73,31 +65,31 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button"
         android:layout_width="wrap_content"
-        android:backgroundTint="@color/ButtonColor"
         android:layout_height="wrap_content"
-        android:layout_marginTop="328dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/ButtonColor"
         android:text="Įvesti santaupas"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/piechart" />
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/KeySpending_Chart"
+        android:layout_width="355dp"
+        android:layout_height="197dp"
+        android:layout_marginTop="108dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.589"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.github.mikephil.charting.charts.PieChart
-        android:id="@+id/KeySpending_Chart"
-        android:layout_width="196dp"
-        android:layout_height="189dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="112dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/Investing_Chart"
-        android:layout_width="183dp"
-        android:layout_height="185dp"
+        android:layout_width="175dp"
+        android:layout_height="204dp"
+        android:layout_marginTop="428dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="116dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

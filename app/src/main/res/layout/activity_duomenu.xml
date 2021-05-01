@@ -1,14 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DuomenuActivity">
 
+    <Button
+        android:id="@+id/button9_min_isl"
+        android:layout_width="73dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="38dp"
+        android:text="-"
+        app:layout_constraintStart_toEndOf="@+id/editTextNumberDecimal4"
+        app:layout_constraintTop_toBottomOf="@+id/button8_min_isl" />
+
+    <EditText
+        android:id="@+id/editTextNumberDecimal4"
+        android:layout_width="73dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="52dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toEndOf="@+id/button5_plius_isl"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal3" />
+
+    <Button
+        android:id="@+id/button8_min_isl"
+        android:layout_width="73dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="40dp"
+        android:text="-"
+        app:layout_constraintStart_toEndOf="@+id/editTextNumberDecimal3"
+        app:layout_constraintTop_toBottomOf="@+id/button7_min_isl" />
+
+    <EditText
+        android:id="@+id/editTextNumberDecimal3"
+        android:layout_width="72dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="44dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toEndOf="@+id/button4_plius_isl"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal2" />
+
+    <EditText
+        android:id="@+id/editTextNumberDecimal2"
+        android:layout_width="76dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="48dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toEndOf="@+id/button3_plius_isl"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal" />
+
+    <Button
+        android:id="@+id/button6_min_isl"
+        android:layout_width="73dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="112dp"
+        android:text="-"
+        app:layout_constraintStart_toEndOf="@+id/editTextNumberDecimal"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button7_min_isl"
+        android:layout_width="73dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="40dp"
+        android:text="-"
+        app:layout_constraintStart_toEndOf="@+id/editTextNumberDecimal2"
+        app:layout_constraintTop_toBottomOf="@+id/button6_min_isl" />
+
+    <Button
+        android:id="@+id/button5_plius_isl"
+        android:layout_width="73dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:text="+"
+        app:layout_constraintStart_toEndOf="@+id/textView4_Buto"
+        app:layout_constraintTop_toBottomOf="@+id/button4_plius_isl" />
+
+    <Button
+        android:id="@+id/button4_plius_isl"
+        android:layout_width="73dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:text="+"
+        app:layout_constraintStart_toEndOf="@+id/textView3_Nenuma"
+        app:layout_constraintTop_toBottomOf="@+id/button3_plius_isl" />
+
+    <Button
+        android:id="@+id/button3_plius_isl"
+        android:layout_width="73dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:text="+"
+        app:layout_constraintStart_toEndOf="@+id/textView2_Investavimo"
+        app:layout_constraintTop_toBottomOf="@+id/button2_plius_isl" />
+
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="53dp"
+        android:id="@+id/textView4_Buto"
+        android:layout_width="136dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="52dp"
         android:layout_weight="1"
-        android:text="TextView" />
-</LinearLayout>
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3_Nenuma" />
+
+    <TextView
+        android:id="@+id/textView3_Nenuma"
+        android:layout_width="136dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="48dp"
+        android:layout_weight="1"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2_Investavimo" />
+
+    <TextView
+        android:id="@+id/textView_Taupo"
+        android:layout_width="136dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="112dp"
+        android:layout_weight="1"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2_Investavimo"
+        android:layout_width="136dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="52dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_Taupo" />
+
+    <Button
+        android:id="@+id/button2_plius_isl"
+        android:layout_width="73dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="112dp"
+        android:text="+"
+        app:layout_constraintStart_toEndOf="@+id/textView_Taupo"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextNumberDecimal"
+        android:layout_width="72dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="110dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toEndOf="@+id/button2_plius_isl"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/issaugoti_isl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="Issaugoti"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button5_plius_isl"
+        app:layout_constraintVertical_bias="0.035" />
+</androidx.constraintlayout.widget.ConstraintLayout>
