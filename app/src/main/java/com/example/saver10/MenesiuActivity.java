@@ -41,6 +41,7 @@ public class MenesiuActivity extends AppCompatActivity {
         myAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         MySpinner.setAdapter(myAdapter);
         Button buttonofpasirinkimai = findViewById(R.id.Button_Pasirinkti);
+        Button button_KeySpending_Chart =findViewById(R.id.button_KeySpending_Chart);
         PieChart Savings_Chart = findViewById(R.id.piechart);
         ArrayList<PieEntry> Savings = new ArrayList<>();
         PieChart KeySpending_Chart = findViewById(R.id.KeySpending_Chart);
@@ -55,15 +56,15 @@ public class MenesiuActivity extends AppCompatActivity {
         data = GetMounthData(datafile);
             ///
         /*Pradiniai duomenys ar rodo*/
-        for (int i=0; i<2;i++)
+        for (int i=0; i<3;i++)
         {Savings.add(new PieEntry
                 (Integer.parseInt(String.valueOf(Math.round(data.get(i).Value))),data.get(i).Label));}
-        for (int i=2 ;i<6; i++)
+        for (int i=3 ;i<7; i++)
         {
             Keyspending.add(new PieEntry
                     (Integer.parseInt(String.valueOf(Math.round(data.get(i).Value))),data.get(i).Label));
         }
-        for (int i=6 ;i<8; i++)
+        for (int i=7 ;i<11; i++)
         {
             Investing.add(new PieEntry
                     (Integer.parseInt(String.valueOf(Math.round(data.get(i).Value))),data.get(i).Label));
@@ -104,10 +105,19 @@ public class MenesiuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                NextActivity(v);
+                NextActivityTo(v);
 
             }
         });
+
+        button_KeySpending_Chart.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NextActivityToKeySpending(v);
+            }
+        });
+
+
 
 
        buttonofpasirinkimai.setOnClickListener(new OnClickListener() {
@@ -128,7 +138,7 @@ public class MenesiuActivity extends AppCompatActivity {
                     File myExternalFile = new File(getExternalFilesDir(filepath),filename);
                     ArrayList<MountData> SavingsL = new ArrayList<MountData>();
                     SavingsL = GetMounthData(myExternalFile);
-                    for (int i=0 ;i<2; i++)
+                    for (int i=0; i<3;i++)
                     {
                         Savings.add(new PieEntry
                                 (Integer.parseInt(String.valueOf(Math.round(SavingsL.get(i).Value))),SavingsL.get(i).Label));
@@ -144,7 +154,7 @@ public class MenesiuActivity extends AppCompatActivity {
                     Savings_Chart.animate();
                     Savings_Chart.invalidate();
                     ///
-                    for (int i=2 ;i<6; i++)
+                    for (int i=3 ;i<7; i++)
                     {
                         Keyspending.add(new PieEntry
                                 (Integer.parseInt(String.valueOf(Math.round(SavingsL.get(i).Value))),SavingsL.get(i).Label));
@@ -160,7 +170,7 @@ public class MenesiuActivity extends AppCompatActivity {
                     KeySpending_Chart.animate();
                     KeySpending_Chart.invalidate();
                     ///
-                    for (int i=6 ;i<8; i++)
+                    for (int i=7 ;i<11; i++)
                     {
                         Investing.add(new PieEntry
                                 (Integer.parseInt(String.valueOf(Math.round(SavingsL.get(i).Value))),SavingsL.get(i).Label));
@@ -190,9 +200,11 @@ public class MenesiuActivity extends AppCompatActivity {
                    File myExternalFile = new File(getExternalFilesDir(filepath),filename);
                    ArrayList<MountData> Data = new ArrayList<MountData>();
                    Data = GetMounthData(myExternalFile);
-                   for (int i=0; i<2;i++)
-                   {Savings.add(new PieEntry
-                           (Integer.parseInt(String.valueOf(Math.round(Data.get(i).Value))),Data.get(i).Label));}
+                   for (int i=0; i<3;i++)
+                   {
+                       Savings.add(new PieEntry
+                               (Integer.parseInt(String.valueOf(Math.round(Data.get(i).Value))),Data.get(i).Label));
+                   }
                    PieDataSet pie = new PieDataSet(Savings,"");
                    pie.setColors(ColorTemplate.COLORFUL_COLORS);
                    pie.setValueTextColor(Color.BLACK);
@@ -204,9 +216,11 @@ public class MenesiuActivity extends AppCompatActivity {
                    Savings_Chart.animate();
                    Savings_Chart.invalidate();
                    ///
-                   for (int i=2 ;i<6; i++)
-                   {Keyspending.add(new PieEntry
-                           (Integer.parseInt(String.valueOf(Math.round(Data.get(i).Value))),Data.get(i).Label));}
+                   for (int i=3 ;i<7; i++)
+                   {
+                       Keyspending.add(new PieEntry
+                               (Integer.parseInt(String.valueOf(Math.round(Data.get(i).Value))),Data.get(i).Label));
+                   }
                    PieDataSet pie1 = new PieDataSet(Keyspending,"");
                    pie1.setColors(ColorTemplate.COLORFUL_COLORS);
                    pie1.setValueTextColor(Color.BLACK);
@@ -218,7 +232,7 @@ public class MenesiuActivity extends AppCompatActivity {
                    KeySpending_Chart.animate();
                    KeySpending_Chart.invalidate();
                    ///
-                   for (int i=6 ;i<8; i++)
+                   for (int i=7 ;i<11; i++)
                    {Investing.add(new PieEntry
                            (Integer.parseInt(String.valueOf(Math.round(Data.get(i).Value))),Data.get(i).Label));}
                    PieDataSet pie2 = new PieDataSet(Investing,"");
@@ -238,8 +252,19 @@ public class MenesiuActivity extends AppCompatActivity {
                     Keyspending.clear();
                     Investing.clear();
                     ///
-                    Savings.add(new PieEntry (968,""));
-                    Savings.add(new PieEntry(1589,""));;
+                    String filename = "MarchData.txt";
+                    String filepath = "MyfileDirectory";
+                    File PathFile = new File(getExternalFilesDir(filepath),filenameofredingfile);
+                    Modification(PathFile,filename);
+
+                    File myExternalFile = new File(getExternalFilesDir(filepath),filename);
+                    ArrayList<MountData> Data = new ArrayList<MountData>();
+                    Data = GetMounthData(myExternalFile);
+                    for (int i=0; i<3;i++)
+                    {
+                        Savings.add(new PieEntry
+                                (Integer.parseInt(String.valueOf(Math.round(Data.get(i).Value))),Data.get(i).Label));
+                    }
                     PieDataSet pie = new PieDataSet(Savings,"");
                     pie.setColors(ColorTemplate.COLORFUL_COLORS);
                     pie.setValueTextColor(Color.BLACK);
@@ -251,8 +276,11 @@ public class MenesiuActivity extends AppCompatActivity {
                     Savings_Chart.animate();
                     Savings_Chart.invalidate();
                     ///
-                    Keyspending.add(new PieEntry (459,""));
-                    Keyspending.add(new PieEntry(783,""));
+                    for (int i=3 ;i<7; i++)
+                    {
+                        Keyspending.add(new PieEntry
+                                (Integer.parseInt(String.valueOf(Math.round(Data.get(i).Value))),Data.get(i).Label));
+                    }
                     PieDataSet pie1 = new PieDataSet(Keyspending,"");
                     pie1.setColors(ColorTemplate.COLORFUL_COLORS);
                     pie1.setValueTextColor(Color.BLACK);
@@ -264,8 +292,9 @@ public class MenesiuActivity extends AppCompatActivity {
                     KeySpending_Chart.animate();
                     KeySpending_Chart.invalidate();
                     ///
-                    Investing.add(new PieEntry(1503,""));
-                    Investing.add(new PieEntry(5820,""));
+                    for (int i=7; i<11; i++)
+                    {Investing.add(new PieEntry
+                            (Integer.parseInt(String.valueOf(Math.round(Data.get(i).Value))),Data.get(i).Label));}
                     PieDataSet pie2 = new PieDataSet(Investing,"");
                     pie2.setColors(ColorTemplate.COLORFUL_COLORS);
                     pie2.setValueTextColor(Color.BLACK);
@@ -276,7 +305,6 @@ public class MenesiuActivity extends AppCompatActivity {
                     Investing_Chart.setCenterText("Investing");
                     Investing_Chart.animate();
                     Investing_Chart.invalidate();
-
                 }
                 if(MySpinner.getSelectedItem().toString().equals("April"))
                 {
@@ -384,7 +412,7 @@ public class MenesiuActivity extends AppCompatActivity {
         }
         return  name;
     }
-    public void NextActivity(View v)
+    public void NextActivityTo(View v)
     {
         Intent i = new Intent(this,DuomenuActivity.class);
         startActivity(i);
@@ -403,6 +431,11 @@ public class MenesiuActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public void NextActivityToKeySpending(View v)
+    {
+        Intent i = new Intent(this,KeySpendings.class);
+        startActivity(i);
     }
 
 }
