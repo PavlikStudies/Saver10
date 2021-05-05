@@ -20,27 +20,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    //  static TinyDB DuomenuSaugojimas;
-   //  ArrayList <MenesioData> naujas = new ArrayList<MenesioData>();
-    // TinyDB DuomenuSaugojimas;
      double pinigeliai;
-  //static Users Vartotojas = new Users("Marius",2.0,2.0,2.0,2.0,
-          //new ArrayList<MenesioData>());
-
         RelativeLayout relativeLayout;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-      TinyDB  DuomenuSaugojimas = new TinyDB(this.getApplicationContext());
-        ArrayList<MenesioDataRasyti> TestData = new ArrayList<MenesioDataRasyti>();
-        MenesioDataRasyti Shpempelis  = new MenesioDataRasyti("January",1000,1);
-        TestData.add(Shpempelis);
-        DuomenuSaugojimas.putListObject("PirmasMen",TestData);
-      String labas;
-      labas = DuomenuSaugojimas.getObject("PirmasMen",MenesioDataRasyti.class).getMenesis();
-
         setContentView(R.layout.activity_main);
         relativeLayout = findViewById(R.id.relativeLayout);
         relativeLayout.setBackgroundColor(Color.LTGRAY);
@@ -53,33 +39,34 @@ public class MainActivity extends AppCompatActivity {
         TextView LavishSpendings = (TextView) findViewById(R.id.Lavish);
         Button tekstoPakeitejas = findViewById(R.id.Text_Changer_Button);
         Button imenesius = findViewById(R.id.button_menesiai);
-        String filename = "InitialIncome.txt";
-        String filepath = "MyfileDirectory";
-        File PirmoKartoData = new File(getExternalFilesDir(filepath),filename);
-        double PradinesPajamos = GetIncomeData(PirmoKartoData);
-        keespending.setText(String.valueOf(PradinesPajamos*0.3));
-        keespending.append(" €");
-        investing.setText(String.valueOf(PradinesPajamos*0.3));
-        investing.append(" €");
-        Savings.setText(String.valueOf(PradinesPajamos*0.2));
-        Savings.append(" €");
-        LavishSpendings.setText(String.valueOf(PradinesPajamos*0.2));
-        LavishSpendings.append(" €");
-
-
-
-
-
-        PirmoKartoTIkrinimas PirmasKartas = new PirmoKartoTIkrinimas();
-       if (!PirmasKartas.getBooleanPreferenceValue(getApplicationContext(),"24"))
-        {
-            onStart();
+        try {
+            String filename = "InitialIncome.txt";
+            String filepath = "MyfileDirectory";
+            File PirmoKartoData = new File(getExternalFilesDir(filepath), filename);
+            double PradinesPajamos = GetIncomeData(PirmoKartoData);
+            keespending.setText(String.valueOf(PradinesPajamos * 0.3));
+            keespending.append(" €");
+            investing.setText(String.valueOf(PradinesPajamos * 0.3));
+            investing.append(" €");
+            Savings.setText(String.valueOf(PradinesPajamos * 0.2));
+            Savings.append(" €");
+            LavishSpendings.setText(String.valueOf(PradinesPajamos * 0.2));
+            LavishSpendings.append(" €");
+        } catch (Exception e) {
+            PirmoKartoTIkrinimas PirmasKartas = new PirmoKartoTIkrinimas();
+            if (!PirmasKartas.getBooleanPreferenceValue(getApplicationContext(),"28"))
             {
-                FirstTImeactivity();
-                PirmasKartas.setBooleanPreferenceValue(getApplicationContext(),"24", true);
+                onStart();
+                {
+                    FirstTImeactivity();
+                    PirmasKartas.setBooleanPreferenceValue(getApplicationContext(),"28", true);
 
+                }
             }
         }
+
+
+
 
 
 

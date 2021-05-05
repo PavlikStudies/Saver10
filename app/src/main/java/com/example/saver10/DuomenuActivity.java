@@ -20,6 +20,7 @@ import java.util.ArrayList;
 public class DuomenuActivity extends AppCompatActivity {
     String lapatai="";
     ArrayList<MountData> MASYVAS = new ArrayList<MountData>();
+    String filenameofredingfile = "Modification.txt";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +49,11 @@ public class DuomenuActivity extends AppCompatActivity {
         ///
         Button issaugoti = (Button) findViewById(R.id.issaugoti_isl);
 
-        String filename = "JanuaryData.txt";
+
+
         String filepath = "MyfileDirectory";
+        File PathFile = new File(getExternalFilesDir(filepath),filenameofredingfile);
+        String filename = GetTextFileNameToRead(PathFile);
         File myExternalFile = new File(getExternalFilesDir(filepath),filename);
         MASYVAS = GetMounthData(myExternalFile);
         // Pradines reiksmes kokios yra faile
@@ -260,6 +264,32 @@ public class DuomenuActivity extends AppCompatActivity {
     {
         Intent first = new Intent(this,MainActivity.class);
         startActivity(first);
+    }
+    public String GetTextFileNameToRead(File PaimtasFailas)
+    {
+        String name = "";
+        FileReader fr =null;
+        try {
+            fr = new FileReader(PaimtasFailas);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        BufferedReader br = new BufferedReader(fr);
+        try {
+            while ((lapatai = br.readLine()) != null)
+            {
+                String[] Lines = lapatai.split(";");
+                for (int i = 0; i < Lines.length; i++)
+                {
+                    String[] parts = Lines[i].split(" ");
+                    name = (parts[0]);
+                }
+            }
+            br.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return name;
     }
 }
 
