@@ -54,12 +54,12 @@ public class MainActivity extends AppCompatActivity {
             LavishSpendings.append(" €");
         } catch (Exception e) {
             PirmoKartoTIkrinimas PirmasKartas = new PirmoKartoTIkrinimas();
-            if (!PirmasKartas.getBooleanPreferenceValue(getApplicationContext(),"33"))
+            if (!PirmasKartas.getBooleanPreferenceValue(getApplicationContext(),"34"))
             {
                 onStart();
                 {
                     FirstTImeactivity();
-                    PirmasKartas.setBooleanPreferenceValue(getApplicationContext(),"33", true);
+                    PirmasKartas.setBooleanPreferenceValue(getApplicationContext(),"34", true);
 
                 }
             }

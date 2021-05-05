@@ -77,7 +77,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="340dp"
         android:text="+"
-        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/textView_islaidos"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -87,7 +87,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="268dp"
         android:text="+"
-        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/textView_islaidos"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -97,7 +97,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="176dp"
         android:text="+"
-        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/textView_islaidos"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -111,7 +111,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView_islaidos"
         android:layout_width="136dp"
         android:layout_height="35dp"
         android:layout_marginStart="24dp"
@@ -147,7 +147,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="76dp"
         android:text="+"
-        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/textView_islaidos"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
