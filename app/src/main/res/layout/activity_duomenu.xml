@@ -15,27 +15,6 @@
     </RelativeLayout>
 
     <Button
-        android:id="@+id/button9_min_isl"
-        android:layout_width="73dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="38dp"
-        android:text="-"
-        app:layout_constraintStart_toEndOf="@+id/editTextNumberDecimal4"
-        app:layout_constraintTop_toBottomOf="@+id/button8_min_isl" />
-
-    <EditText
-        android:id="@+id/editTextNumberDecimal4"
-        android:layout_width="73dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="52dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        app:layout_constraintStart_toEndOf="@+id/button5_plius_isl"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal3" />
-
-    <Button
         android:id="@+id/button8_min_isl"
         android:layout_width="73dp"
         android:layout_height="50dp"
@@ -88,23 +67,13 @@
         app:layout_constraintTop_toBottomOf="@+id/button6_min_isl" />
 
     <Button
-        android:id="@+id/button5_plius_isl"
-        android:layout_width="73dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
-        android:text="+"
-        app:layout_constraintStart_toEndOf="@+id/textView4_Buto"
-        app:layout_constraintTop_toBottomOf="@+id/button4_plius_isl" />
-
-    <Button
         android:id="@+id/button4_plius_isl"
         android:layout_width="73dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="40dp"
         android:text="+"
-        app:layout_constraintStart_toEndOf="@+id/textView3_Nenuma"
+        app:layout_constraintStart_toEndOf="@+id/textView3_KeySpending3"
         app:layout_constraintTop_toBottomOf="@+id/button3_plius_isl" />
 
     <Button
@@ -114,22 +83,11 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="40dp"
         android:text="+"
-        app:layout_constraintStart_toEndOf="@+id/textView2_Investavimo"
+        app:layout_constraintStart_toEndOf="@+id/textView2_KeySpending2"
         app:layout_constraintTop_toBottomOf="@+id/button2_plius_isl" />
 
     <TextView
-        android:id="@+id/textView4_Buto"
-        android:layout_width="136dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="52dp"
-        android:layout_weight="1"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3_Nenuma" />
-
-    <TextView
-        android:id="@+id/textView3_Nenuma"
+        android:id="@+id/textView3_KeySpending3"
         android:layout_width="136dp"
         android:layout_height="41dp"
         android:layout_marginStart="16dp"
@@ -137,10 +95,10 @@
         android:layout_weight="1"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2_Investavimo" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2_KeySpending2" />
 
     <TextView
-        android:id="@+id/textView_Taupo"
+        android:id="@+id/textView_KeySpending"
         android:layout_width="136dp"
         android:layout_height="41dp"
         android:layout_marginStart="16dp"
@@ -151,14 +109,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2_Investavimo"
+        android:id="@+id/textView2_KeySpending2"
         android:layout_width="136dp"
         android:layout_height="41dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="52dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_Taupo" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_KeySpending" />
 
     <Button
         android:id="@+id/button2_plius_isl"
@@ -167,7 +125,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="112dp"
         android:text="+"
-        app:layout_constraintStart_toEndOf="@+id/textView_Taupo"
+        app:layout_constraintStart_toEndOf="@+id/textView_KeySpending"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
@@ -185,11 +143,10 @@
         android:id="@+id/issaugoti_isl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginBottom="292dp"
         android:text="Issaugoti"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5_plius_isl"
-        app:layout_constraintVertical_bias="0.035" />
+        app:layout_constraintHorizontal_bias="0.561"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
