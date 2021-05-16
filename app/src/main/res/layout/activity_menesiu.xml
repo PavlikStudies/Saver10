@@ -7,7 +7,15 @@
     android:exported="true"
     tools:context=".MenesiuActivity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/OldSunday"
+        android:id="@+id/relativeLayout"
+        tools:context=".MainActivity">
 
+
+    </RelativeLayout>
     <Spinner
         android:id="@+id/Pasirinkimai_Spinners"
         android:layout_width="192dp"

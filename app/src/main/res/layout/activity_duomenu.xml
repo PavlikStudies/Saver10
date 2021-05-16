@@ -5,6 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DuomenuActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/OldSunday"
+        android:id="@+id/relativeLayout"
+        tools:context=".MainActivity">
+
+    </RelativeLayout>
 
     <Button
         android:id="@+id/button8_min_isl"
