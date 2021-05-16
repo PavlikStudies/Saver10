@@ -29,10 +29,10 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
         TextView ivedimo_confirm = (TextView) findViewById(R.id.duomenu_ivedimas);
-        TextView keespending = (TextView) findViewById(R.id.KeeSpending);
-        TextView investing = (TextView) findViewById(R.id.Investing_Person);
-        TextView Savings = (TextView) findViewById(R.id.Savings);
-        TextView LavishSpendings = (TextView) findViewById(R.id.Lavish_PersonS);
+        TextView keespending = (TextView) findViewById(R.id.KeeSpending_First_Screen);
+        TextView investing = (TextView) findViewById(R.id.Investin_Screen_First);
+        TextView Savings = (TextView) findViewById(R.id.Savings_First_Screen);
+        TextView LavishSpendings = (TextView) findViewById(R.id.Lavish_First_Screen);
         Button tekstoPakeitejas = findViewById(R.id.Text_Changer_Button);
         Button ataskaitos_button = findViewById(R.id.ataskaita_button);
         Button imenesius = findViewById(R.id.button_menesiai);
