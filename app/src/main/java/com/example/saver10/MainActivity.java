@@ -12,11 +12,8 @@ import android.widget.RelativeLayout;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
      double pinigeliai;
@@ -33,10 +30,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         TextView ivedimo_confirm = (TextView) findViewById(R.id.duomenu_ivedimas);
         TextView keespending = (TextView) findViewById(R.id.KeeSpending);
-        TextView investing = (TextView) findViewById(R.id.Investing);
+        TextView investing = (TextView) findViewById(R.id.Investing_Person);
         TextView Savings = (TextView) findViewById(R.id.Savings);
-        TextView LavishSpendings = (TextView) findViewById(R.id.Lavish);
+        TextView LavishSpendings = (TextView) findViewById(R.id.Lavish_PersonS);
         Button tekstoPakeitejas = findViewById(R.id.Text_Changer_Button);
+        Button ataskaitos_button = findViewById(R.id.ataskaita_button);
         Button imenesius = findViewById(R.id.button_menesiai);
         try {
             String filename = "InitialIncome.txt";
@@ -68,7 +66,12 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
+ataskaitos_button.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        AtaskaitaActivity();
+    }
+});
         tekstoPakeitejas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,6 +96,11 @@ public class MainActivity extends AppCompatActivity {
     {
         Intent first = new Intent(this,PirmoKartoActivity.class);
         startActivity(first);
+    }
+    public  void AtaskaitaActivity()
+    {
+        Intent atask = new Intent(this,ReportActivity.class);
+        startActivity(atask);
     }
     public double GetIncomeData(File PaimtasFailas)
     {

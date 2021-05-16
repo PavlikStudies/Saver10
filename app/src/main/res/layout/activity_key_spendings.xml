@@ -6,16 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".KeySpendings">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/OldSunday"
-        android:id="@+id/relativeLayout"
-        tools:context=".MainActivity">
-
-
-    </RelativeLayout>
-
     <Button
         android:id="@+id/button3_islaidos_min4"
         android:layout_width="68dp"

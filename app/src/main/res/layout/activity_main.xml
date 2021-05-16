@@ -69,7 +69,11 @@
                     android:text="Investavimo islaidos" />
 
                 <TextView
+<<<<<<< HEAD
                     android:id="@+id/Investing"
+=======
+                    android:id="@+id/Investing_Person"
+>>>>>>> 86fc5870dc6f82d4355150ee7e5e175781b420d9
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -88,7 +92,11 @@
                     android:text="Laisvalaikio islaidos" />
 
                 <TextView
+<<<<<<< HEAD
                     android:id="@+id/Lavish"
+=======
+                    android:id="@+id/Lavish_PersonS"
+>>>>>>> 86fc5870dc6f82d4355150ee7e5e175781b420d9
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -121,7 +129,12 @@
         android:id="@+id/Text_Changer_Button"
         android:layout_width="212dp"
         android:layout_height="82dp"
+<<<<<<< HEAD
         android:layout_marginTop="50dp"
+=======
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="209dp"
+>>>>>>> 86fc5870dc6f82d4355150ee7e5e175781b420d9
         android:background="@drawable/shapeofbutton"
         android:backgroundTint="@color/ButtonColor"
         android:text="Atnaujinti Pajamas"
@@ -141,23 +154,48 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+<<<<<<< HEAD
         android:id="@+id/button5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
+=======
+        android:id="@+id/ataskaita_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+>>>>>>> 86fc5870dc6f82d4355150ee7e5e175781b420d9
         android:text="Ataskaita"
         app:layout_constraintBottom_toBottomOf="@+id/relativeLayout"
         app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
         app:layout_constraintStart_toStartOf="@+id/relativeLayout" />
 
     <androidx.appcompat.widget.AppCompatButton
+<<<<<<< HEAD
+=======
+        android:id="@+id/button_menesiai2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="18dp"
+        android:backgroundTint="@color/ButtonColor"
+        android:text="Pereiti į mėnesių meniu"
+        app:layout_constraintBottom_toTopOf="@+id/ataskaita_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+>>>>>>> 86fc5870dc6f82d4355150ee7e5e175781b420d9
         android:id="@+id/button_menesiai"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="18dp"
         android:backgroundTint="@color/ButtonColor"
         android:text="Pereiti į mėnesių meniu"
+<<<<<<< HEAD
         app:layout_constraintBottom_toTopOf="@+id/button5"
+=======
+        app:layout_constraintBottom_toTopOf="@+id/ataskaita_button"
+>>>>>>> 86fc5870dc6f82d4355150ee7e5e175781b420d9
         app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
         app:layout_constraintStart_toStartOf="@+id/relativeLayout" />
 
