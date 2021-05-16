@@ -17,16 +17,10 @@
         android:theme="@style/Theme.Saver10">
         <activity android:name=".InvestingActivity"></activity>
         <activity android:name=".KeySpendings" />
+        <activity android:name=".MenesiuActivity" />
         <activity android:name=".PirmoKartoActivity" />
         <activity android:name=".DuomenuActivity" />
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".MenesiuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

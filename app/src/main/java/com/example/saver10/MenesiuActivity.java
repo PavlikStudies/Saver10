@@ -81,6 +81,7 @@ public class MenesiuActivity extends AppCompatActivity {
         Savings_Chart.setData(pieData);
         Savings_Chart.getDescription().setEnabled(false);
         Savings_Chart.setCenterText("Savings");
+        Savings_Chart.invalidate();
 
         /*AntraDiangrama*/
         PieDataSet pieDataSet1 = new PieDataSet(Keyspending, "");
@@ -91,6 +92,7 @@ public class MenesiuActivity extends AppCompatActivity {
         KeySpending_Chart.setData(pieData1);
         KeySpending_Chart.getDescription().setEnabled(false);
         KeySpending_Chart.setCenterText("Keyspending");
+        KeySpending_Chart.invalidate();
 
         /*TreciaDiagrama*/
         PieDataSet pieDataSet2 = new PieDataSet(Investing, "");
@@ -101,6 +103,7 @@ public class MenesiuActivity extends AppCompatActivity {
         Investing_Chart.setData(pieData2);
         Investing_Chart.getDescription().setEnabled(false);
         Investing_Chart.setCenterText("Investing");
+        Investing_Chart.invalidate();
 
         IvedimasDuomenu.setOnClickListener(new OnClickListener() {
             @Override
@@ -318,8 +321,20 @@ public class MenesiuActivity extends AppCompatActivity {
                     Keyspending.clear();
                     Investing.clear();
                     ///
-                    Savings.add(new PieEntry (1245,""));
-                    Savings.add(new PieEntry(2502,""));;
+
+                    String filename = "AprilData.txt";
+                    String filepath = "MyfileDirectory";
+                    File PathFile = new File(getExternalFilesDir(filepath),filenameofredingfile);
+                    Modification(PathFile,filename);
+
+                    File myExternalFile = new File(getExternalFilesDir(filepath),filename);
+                    ArrayList<MountData> SavingsL = new ArrayList<MountData>();
+                    SavingsL = GetMounthData(myExternalFile);
+                    for (int i=0; i<3;i++)
+                    {
+                        Savings.add(new PieEntry
+                                (Integer.parseInt(String.valueOf(Math.round(SavingsL.get(i).Value))),SavingsL.get(i).Label));
+                    }
                     PieDataSet pie = new PieDataSet(Savings,"");
                     pie.setColors(ColorTemplate.COLORFUL_COLORS);
                     pie.setValueTextColor(Color.BLACK);
@@ -331,9 +346,11 @@ public class MenesiuActivity extends AppCompatActivity {
                     Savings_Chart.animate();
                     Savings_Chart.invalidate();
                     ///
-                    Keyspending.add(new PieEntry (2646,""));
-                    Keyspending.add(new PieEntry(548,""));
-                    Keyspending.add(new PieEntry(1000,""));
+                    for (int i=3 ;i<7; i++)
+                    {
+                        Keyspending.add(new PieEntry
+                                (Integer.parseInt(String.valueOf(Math.round(SavingsL.get(i).Value))),SavingsL.get(i).Label));
+                    }
                     PieDataSet pie1 = new PieDataSet(Keyspending,"");
                     pie1.setColors(ColorTemplate.COLORFUL_COLORS);
                     pie1.setValueTextColor(Color.BLACK);
@@ -345,9 +362,11 @@ public class MenesiuActivity extends AppCompatActivity {
                     KeySpending_Chart.animate();
                     KeySpending_Chart.invalidate();
                     ///
-                    Investing.add(new PieEntry(2154,""));
-                    Investing.add(new PieEntry(478,""));
-                    Investing.add(new PieEntry(589,""));
+                    for (int i=7 ;i<11; i++)
+                    {
+                        Investing.add(new PieEntry
+                                (Integer.parseInt(String.valueOf(Math.round(SavingsL.get(i).Value))),SavingsL.get(i).Label));
+                    }
                     PieDataSet pie2 = new PieDataSet(Investing,"");
                     pie2.setColors(ColorTemplate.COLORFUL_COLORS);
                     pie2.setValueTextColor(Color.BLACK);
@@ -359,7 +378,510 @@ public class MenesiuActivity extends AppCompatActivity {
                     Investing_Chart.animate();
                     Investing_Chart.invalidate();
                 }
+                if(MySpinner.getSelectedItem().toString().equals("May"))
+                {
+                    Savings.clear();
+                    Keyspending.clear();
+                    Investing.clear();
+                    ///
 
+                    String filename = "MayData.txt";
+                    String filepath = "MyfileDirectory";
+                    File PathFile = new File(getExternalFilesDir(filepath),filenameofredingfile);
+                    Modification(PathFile,filename);
+
+                    File myExternalFile = new File(getExternalFilesDir(filepath),filename);
+                    ArrayList<MountData> SavingsL = new ArrayList<MountData>();
+                    SavingsL = GetMounthData(myExternalFile);
+                    for (int i=0; i<3;i++)
+                    {
+                        Savings.add(new PieEntry
+                                (Integer.parseInt(String.valueOf(Math.round(SavingsL.get(i).Value))),SavingsL.get(i).Label));
+                    }
+                    PieDataSet pie = new PieDataSet(Savings,"");
+                    pie.setColors(ColorTemplate.COLORFUL_COLORS);
+                    pie.setValueTextColor(Color.BLACK);
+                    pie.setValueTextSize(8f);
+                    PieData data = new PieData(pie);
+                    Savings_Chart.setData(data);
+                    Savings_Chart.getDescription().setEnabled(false);
+                    Savings_Chart.setCenterText("Savings");
+                    Savings_Chart.animate();
+                    Savings_Chart.invalidate();
+                    ///
+                    for (int i=3 ;i<7; i++)
+                    {
+                        Keyspending.add(new PieEntry
+                                (Integer.parseInt(String.valueOf(Math.round(SavingsL.get(i).Value))),SavingsL.get(i).Label));
+                    }
+                    PieDataSet pie1 = new PieDataSet(Keyspending,"");
+                    pie1.setColors(ColorTemplate.COLORFUL_COLORS);
+                    pie1.setValueTextColor(Color.BLACK);
+                    pie1.setValueTextSize(8f);
+                    PieData data1 = new PieData(pie1);
+                    KeySpending_Chart.setData(data1);
+                    KeySpending_Chart.getDescription().setEnabled(false);
+                    KeySpending_Chart.setCenterText("Keyspending");
+                    KeySpending_Chart.animate();
+                    KeySpending_Chart.invalidate();
+                    ///
+                    for (int i=7 ;i<11; i++)
+                    {
+                        Investing.add(new PieEntry
+                                (Integer.parseInt(String.valueOf(Math.round(SavingsL.get(i).Value))),SavingsL.get(i).Label));
+                    }
+                    PieDataSet pie2 = new PieDataSet(Investing,"");
+                    pie2.setColors(ColorTemplate.COLORFUL_COLORS);
+                    pie2.setValueTextColor(Color.BLACK);
+                    pie2.setValueTextSize(8f);
+                    PieData data2 = new PieData(pie2);
+                    Investing_Chart.setData(data2);
+                    Investing_Chart.getDescription().setEnabled(false);
+                    Investing_Chart.setCenterText("Investing");
+                    Investing_Chart.animate();
+                    Investing_Chart.invalidate();
+                }
+                if(MySpinner.getSelectedItem().toString().equals("June"))
+                {
+                    Savings.clear();
+                    Keyspending.clear();
+                    Investing.clear();
+                    ///
+
+                    String filename = "JuneData.txt";
+                    String filepath = "MyfileDirectory";
+                    File PathFile = new File(getExternalFilesDir(filepath),filenameofredingfile);
+                    Modification(PathFile,filename);
+
+                    File myExternalFile = new File(getExternalFilesDir(filepath),filename);
+                    ArrayList<MountData> SavingsL = new ArrayList<MountData>();
+                    SavingsL = GetMounthData(myExternalFile);
+                    for (int i=0; i<3;i++)
+                    {
+                        Savings.add(new PieEntry
+                                (Integer.parseInt(String.valueOf(Math.round(SavingsL.get(i).Value))),SavingsL.get(i).Label));
+                    }
+                    PieDataSet pie = new PieDataSet(Savings,"");
+                    pie.setColors(ColorTemplate.COLORFUL_COLORS);
+                    pie.setValueTextColor(Color.BLACK);
+                    pie.setValueTextSize(8f);
+                    PieData data = new PieData(pie);
+                    Savings_Chart.setData(data);
+                    Savings_Chart.getDescription().setEnabled(false);
+                    Savings_Chart.setCenterText("Savings");
+                    Savings_Chart.animate();
+                    Savings_Chart.invalidate();
+                    ///
+                    for (int i=3 ;i<7; i++)
+                    {
+                        Keyspending.add(new PieEntry
+                                (Integer.parseInt(String.valueOf(Math.round(SavingsL.get(i).Value))),SavingsL.get(i).Label));
+                    }
+                    PieDataSet pie1 = new PieDataSet(Keyspending,"");
+                    pie1.setColors(ColorTemplate.COLORFUL_COLORS);
+                    pie1.setValueTextColor(Color.BLACK);
+                    pie1.setValueTextSize(8f);
+                    PieData data1 = new PieData(pie1);
+                    KeySpending_Chart.setData(data1);
+                    KeySpending_Chart.getDescription().setEnabled(false);
+                    KeySpending_Chart.setCenterText("Keyspending");
+                    KeySpending_Chart.animate();
+                    KeySpending_Chart.invalidate();
+                    ///
+                    for (int i=7 ;i<11; i++)
+                    {
+                        Investing.add(new PieEntry
+                                (Integer.parseInt(String.valueOf(Math.round(SavingsL.get(i).Value))),SavingsL.get(i).Label));
+                    }
+                    PieDataSet pie2 = new PieDataSet(Investing,"");
+                    pie2.setColors(ColorTemplate.COLORFUL_COLORS);
+                    pie2.setValueTextColor(Color.BLACK);
+                    pie2.setValueTextSize(8f);
+                    PieData data2 = new PieData(pie2);
+                    Investing_Chart.setData(data2);
+                    Investing_Chart.getDescription().setEnabled(false);
+                    Investing_Chart.setCenterText("Investing");
+                    Investing_Chart.animate();
+                    Investing_Chart.invalidate();
+                }
+                if(MySpinner.getSelectedItem().toString().equals("July"))
+                {
+                    Savings.clear();
+                    Keyspending.clear();
+                    Investing.clear();
+                    ///
+
+                    String filename = "JulyData.txt";
+                    String filepath = "MyfileDirectory";
+                    File PathFile = new File(getExternalFilesDir(filepath),filenameofredingfile);
+                    Modification(PathFile,filename);
+
+                    File myExternalFile = new File(getExternalFilesDir(filepath),filename);
+                    ArrayList<MountData> SavingsL = new ArrayList<MountData>();
+                    SavingsL = GetMounthData(myExternalFile);
+                    for (int i=0; i<3;i++)
+                    {
+                        Savings.add(new PieEntry
+                                (Integer.parseInt(String.valueOf(Math.round(SavingsL.get(i).Value))),SavingsL.get(i).Label));
+                    }
+                    PieDataSet pie = new PieDataSet(Savings,"");
+                    pie.setColors(ColorTemplate.COLORFUL_COLORS);
+                    pie.setValueTextColor(Color.BLACK);
+                    pie.setValueTextSize(8f);
+                    PieData data = new PieData(pie);
+                    Savings_Chart.setData(data);
+                    Savings_Chart.getDescription().setEnabled(false);
+                    Savings_Chart.setCenterText("Savings");
+                    Savings_Chart.animate();
+                    Savings_Chart.invalidate();
+                    ///
+                    for (int i=3 ;i<7; i++)
+                    {
+                        Keyspending.add(new PieEntry
+                                (Integer.parseInt(String.valueOf(Math.round(SavingsL.get(i).Value))),SavingsL.get(i).Label));
+                    }
+                    PieDataSet pie1 = new PieDataSet(Keyspending,"");
+                    pie1.setColors(ColorTemplate.COLORFUL_COLORS);
+                    pie1.setValueTextColor(Color.BLACK);
+                    pie1.setValueTextSize(8f);
+                    PieData data1 = new PieData(pie1);
+                    KeySpending_Chart.setData(data1);
+                    KeySpending_Chart.getDescription().setEnabled(false);
+                    KeySpending_Chart.setCenterText("Keyspending");
+                    KeySpending_Chart.animate();
+                    KeySpending_Chart.invalidate();
+                    ///
+                    for (int i=7 ;i<11; i++)
+                    {
+                        Investing.add(new PieEntry
+                                (Integer.parseInt(String.valueOf(Math.round(SavingsL.get(i).Value))),SavingsL.get(i).Label));
+                    }
+                    PieDataSet pie2 = new PieDataSet(Investing,"");
+                    pie2.setColors(ColorTemplate.COLORFUL_COLORS);
+                    pie2.setValueTextColor(Color.BLACK);
+                    pie2.setValueTextSize(8f);
+                    PieData data2 = new PieData(pie2);
+                    Investing_Chart.setData(data2);
+                    Investing_Chart.getDescription().setEnabled(false);
+                    Investing_Chart.setCenterText("Investing");
+                    Investing_Chart.animate();
+                    Investing_Chart.invalidate();
+                }
+                if(MySpinner.getSelectedItem().toString().equals("August"))
+                {
+                    Savings.clear();
+                    Keyspending.clear();
+                    Investing.clear();
+                    ///
+
+                    String filename = "AugustData.txt";
+                    String filepath = "MyfileDirectory";
+                    File PathFile = new File(getExternalFilesDir(filepath),filenameofredingfile);
+                    Modification(PathFile,filename);
+
+                    File myExternalFile = new File(getExternalFilesDir(filepath),filename);
+                    ArrayList<MountData> SavingsL = new ArrayList<MountData>();
+                    SavingsL = GetMounthData(myExternalFile);
+                    for (int i=0; i<3;i++)
+                    {
+                        Savings.add(new PieEntry
+                                (Integer.parseInt(String.valueOf(Math.round(SavingsL.get(i).Value))),SavingsL.get(i).Label));
+                    }
+                    PieDataSet pie = new PieDataSet(Savings,"");
+                    pie.setColors(ColorTemplate.COLORFUL_COLORS);
+                    pie.setValueTextColor(Color.BLACK);
+                    pie.setValueTextSize(8f);
+                    PieData data = new PieData(pie);
+                    Savings_Chart.setData(data);
+                    Savings_Chart.getDescription().setEnabled(false);
+                    Savings_Chart.setCenterText("Savings");
+                    Savings_Chart.animate();
+                    Savings_Chart.invalidate();
+                    ///
+                    for (int i=3 ;i<7; i++)
+                    {
+                        Keyspending.add(new PieEntry
+                                (Integer.parseInt(String.valueOf(Math.round(SavingsL.get(i).Value))),SavingsL.get(i).Label));
+                    }
+                    PieDataSet pie1 = new PieDataSet(Keyspending,"");
+                    pie1.setColors(ColorTemplate.COLORFUL_COLORS);
+                    pie1.setValueTextColor(Color.BLACK);
+                    pie1.setValueTextSize(8f);
+                    PieData data1 = new PieData(pie1);
+                    KeySpending_Chart.setData(data1);
+                    KeySpending_Chart.getDescription().setEnabled(false);
+                    KeySpending_Chart.setCenterText("Keyspending");
+                    KeySpending_Chart.animate();
+                    KeySpending_Chart.invalidate();
+                    ///
+                    for (int i=7 ;i<11; i++)
+                    {
+                        Investing.add(new PieEntry
+                                (Integer.parseInt(String.valueOf(Math.round(SavingsL.get(i).Value))),SavingsL.get(i).Label));
+                    }
+                    PieDataSet pie2 = new PieDataSet(Investing,"");
+                    pie2.setColors(ColorTemplate.COLORFUL_COLORS);
+                    pie2.setValueTextColor(Color.BLACK);
+                    pie2.setValueTextSize(8f);
+                    PieData data2 = new PieData(pie2);
+                    Investing_Chart.setData(data2);
+                    Investing_Chart.getDescription().setEnabled(false);
+                    Investing_Chart.setCenterText("Investing");
+                    Investing_Chart.animate();
+                    Investing_Chart.invalidate();
+                }
+                if(MySpinner.getSelectedItem().toString().equals("September"))
+                {
+                    Savings.clear();
+                    Keyspending.clear();
+                    Investing.clear();
+                    ///
+
+                    String filename = "SeptemberData.txt";
+                    String filepath = "MyfileDirectory";
+                    File PathFile = new File(getExternalFilesDir(filepath),filenameofredingfile);
+                    Modification(PathFile,filename);
+
+                    File myExternalFile = new File(getExternalFilesDir(filepath),filename);
+                    ArrayList<MountData> SavingsL = new ArrayList<MountData>();
+                    SavingsL = GetMounthData(myExternalFile);
+                    for (int i=0; i<3;i++)
+                    {
+                        Savings.add(new PieEntry
+                                (Integer.parseInt(String.valueOf(Math.round(SavingsL.get(i).Value))),SavingsL.get(i).Label));
+                    }
+                    PieDataSet pie = new PieDataSet(Savings,"");
+                    pie.setColors(ColorTemplate.COLORFUL_COLORS);
+                    pie.setValueTextColor(Color.BLACK);
+                    pie.setValueTextSize(8f);
+                    PieData data = new PieData(pie);
+                    Savings_Chart.setData(data);
+                    Savings_Chart.getDescription().setEnabled(false);
+                    Savings_Chart.setCenterText("Savings");
+                    Savings_Chart.animate();
+                    Savings_Chart.invalidate();
+                    ///
+                    for (int i=3 ;i<7; i++)
+                    {
+                        Keyspending.add(new PieEntry
+                                (Integer.parseInt(String.valueOf(Math.round(SavingsL.get(i).Value))),SavingsL.get(i).Label));
+                    }
+                    PieDataSet pie1 = new PieDataSet(Keyspending,"");
+                    pie1.setColors(ColorTemplate.COLORFUL_COLORS);
+                    pie1.setValueTextColor(Color.BLACK);
+                    pie1.setValueTextSize(8f);
+                    PieData data1 = new PieData(pie1);
+                    KeySpending_Chart.setData(data1);
+                    KeySpending_Chart.getDescription().setEnabled(false);
+                    KeySpending_Chart.setCenterText("Keyspending");
+                    KeySpending_Chart.animate();
+                    KeySpending_Chart.invalidate();
+                    ///
+                    for (int i=7 ;i<11; i++)
+                    {
+                        Investing.add(new PieEntry
+                                (Integer.parseInt(String.valueOf(Math.round(SavingsL.get(i).Value))),SavingsL.get(i).Label));
+                    }
+                    PieDataSet pie2 = new PieDataSet(Investing,"");
+                    pie2.setColors(ColorTemplate.COLORFUL_COLORS);
+                    pie2.setValueTextColor(Color.BLACK);
+                    pie2.setValueTextSize(8f);
+                    PieData data2 = new PieData(pie2);
+                    Investing_Chart.setData(data2);
+                    Investing_Chart.getDescription().setEnabled(false);
+                    Investing_Chart.setCenterText("Investing");
+                    Investing_Chart.animate();
+                    Investing_Chart.invalidate();
+                }
+                if(MySpinner.getSelectedItem().toString().equals("October"))
+                {
+                    Savings.clear();
+                    Keyspending.clear();
+                    Investing.clear();
+                    ///
+
+                    String filename = "OctoberData.txt";
+                    String filepath = "MyfileDirectory";
+                    File PathFile = new File(getExternalFilesDir(filepath),filenameofredingfile);
+                    Modification(PathFile,filename);
+
+                    File myExternalFile = new File(getExternalFilesDir(filepath),filename);
+                    ArrayList<MountData> SavingsL = new ArrayList<MountData>();
+                    SavingsL = GetMounthData(myExternalFile);
+                    for (int i=0; i<3;i++)
+                    {
+                        Savings.add(new PieEntry
+                                (Integer.parseInt(String.valueOf(Math.round(SavingsL.get(i).Value))),SavingsL.get(i).Label));
+                    }
+                    PieDataSet pie = new PieDataSet(Savings,"");
+                    pie.setColors(ColorTemplate.COLORFUL_COLORS);
+                    pie.setValueTextColor(Color.BLACK);
+                    pie.setValueTextSize(8f);
+                    PieData data = new PieData(pie);
+                    Savings_Chart.setData(data);
+                    Savings_Chart.getDescription().setEnabled(false);
+                    Savings_Chart.setCenterText("Savings");
+                    Savings_Chart.animate();
+                    Savings_Chart.invalidate();
+                    ///
+                    for (int i=3 ;i<7; i++)
+                    {
+                        Keyspending.add(new PieEntry
+                                (Integer.parseInt(String.valueOf(Math.round(SavingsL.get(i).Value))),SavingsL.get(i).Label));
+                    }
+                    PieDataSet pie1 = new PieDataSet(Keyspending,"");
+                    pie1.setColors(ColorTemplate.COLORFUL_COLORS);
+                    pie1.setValueTextColor(Color.BLACK);
+                    pie1.setValueTextSize(8f);
+                    PieData data1 = new PieData(pie1);
+                    KeySpending_Chart.setData(data1);
+                    KeySpending_Chart.getDescription().setEnabled(false);
+                    KeySpending_Chart.setCenterText("Keyspending");
+                    KeySpending_Chart.animate();
+                    KeySpending_Chart.invalidate();
+                    ///
+                    for (int i=7 ;i<11; i++)
+                    {
+                        Investing.add(new PieEntry
+                                (Integer.parseInt(String.valueOf(Math.round(SavingsL.get(i).Value))),SavingsL.get(i).Label));
+                    }
+                    PieDataSet pie2 = new PieDataSet(Investing,"");
+                    pie2.setColors(ColorTemplate.COLORFUL_COLORS);
+                    pie2.setValueTextColor(Color.BLACK);
+                    pie2.setValueTextSize(8f);
+                    PieData data2 = new PieData(pie2);
+                    Investing_Chart.setData(data2);
+                    Investing_Chart.getDescription().setEnabled(false);
+                    Investing_Chart.setCenterText("Investing");
+                    Investing_Chart.animate();
+                    Investing_Chart.invalidate();
+                }
+                if(MySpinner.getSelectedItem().toString().equals("November"))
+                {
+                    Savings.clear();
+                    Keyspending.clear();
+                    Investing.clear();
+                    ///
+
+                    String filename = "NovemberData.txt";
+                    String filepath = "MyfileDirectory";
+                    File PathFile = new File(getExternalFilesDir(filepath),filenameofredingfile);
+                    Modification(PathFile,filename);
+
+                    File myExternalFile = new File(getExternalFilesDir(filepath),filename);
+                    ArrayList<MountData> SavingsL = new ArrayList<MountData>();
+                    SavingsL = GetMounthData(myExternalFile);
+                    for (int i=0; i<3;i++)
+                    {
+                        Savings.add(new PieEntry
+                                (Integer.parseInt(String.valueOf(Math.round(SavingsL.get(i).Value))),SavingsL.get(i).Label));
+                    }
+                    PieDataSet pie = new PieDataSet(Savings,"");
+                    pie.setColors(ColorTemplate.COLORFUL_COLORS);
+                    pie.setValueTextColor(Color.BLACK);
+                    pie.setValueTextSize(8f);
+                    PieData data = new PieData(pie);
+                    Savings_Chart.setData(data);
+                    Savings_Chart.getDescription().setEnabled(false);
+                    Savings_Chart.setCenterText("Savings");
+                    Savings_Chart.animate();
+                    Savings_Chart.invalidate();
+                    ///
+                    for (int i=3 ;i<7; i++)
+                    {
+                        Keyspending.add(new PieEntry
+                                (Integer.parseInt(String.valueOf(Math.round(SavingsL.get(i).Value))),SavingsL.get(i).Label));
+                    }
+                    PieDataSet pie1 = new PieDataSet(Keyspending,"");
+                    pie1.setColors(ColorTemplate.COLORFUL_COLORS);
+                    pie1.setValueTextColor(Color.BLACK);
+                    pie1.setValueTextSize(8f);
+                    PieData data1 = new PieData(pie1);
+                    KeySpending_Chart.setData(data1);
+                    KeySpending_Chart.getDescription().setEnabled(false);
+                    KeySpending_Chart.setCenterText("Keyspending");
+                    KeySpending_Chart.animate();
+                    KeySpending_Chart.invalidate();
+                    ///
+                    for (int i=7 ;i<11; i++)
+                    {
+                        Investing.add(new PieEntry
+                                (Integer.parseInt(String.valueOf(Math.round(SavingsL.get(i).Value))),SavingsL.get(i).Label));
+                    }
+                    PieDataSet pie2 = new PieDataSet(Investing,"");
+                    pie2.setColors(ColorTemplate.COLORFUL_COLORS);
+                    pie2.setValueTextColor(Color.BLACK);
+                    pie2.setValueTextSize(8f);
+                    PieData data2 = new PieData(pie2);
+                    Investing_Chart.setData(data2);
+                    Investing_Chart.getDescription().setEnabled(false);
+                    Investing_Chart.setCenterText("Investing");
+                    Investing_Chart.animate();
+                    Investing_Chart.invalidate();
+                }
+                if(MySpinner.getSelectedItem().toString().equals("December"))
+                {
+                    Savings.clear();
+                    Keyspending.clear();
+                    Investing.clear();
+                    ///
+
+                    String filename = "DecemberData.txt";
+                    String filepath = "MyfileDirectory";
+                    File PathFile = new File(getExternalFilesDir(filepath),filenameofredingfile);
+                    Modification(PathFile,filename);
+
+                    File myExternalFile = new File(getExternalFilesDir(filepath),filename);
+                    ArrayList<MountData> SavingsL = new ArrayList<MountData>();
+                    SavingsL = GetMounthData(myExternalFile);
+                    for (int i=0; i<3;i++)
+                    {
+                        Savings.add(new PieEntry
+                                (Integer.parseInt(String.valueOf(Math.round(SavingsL.get(i).Value))),SavingsL.get(i).Label));
+                    }
+                    PieDataSet pie = new PieDataSet(Savings,"");
+                    pie.setColors(ColorTemplate.COLORFUL_COLORS);
+                    pie.setValueTextColor(Color.BLACK);
+                    pie.setValueTextSize(8f);
+                    PieData data = new PieData(pie);
+                    Savings_Chart.setData(data);
+                    Savings_Chart.getDescription().setEnabled(false);
+                    Savings_Chart.setCenterText("Savings");
+                    Savings_Chart.animate();
+                    Savings_Chart.invalidate();
+                    ///
+                    for (int i=3 ;i<7; i++)
+                    {
+                        Keyspending.add(new PieEntry
+                                (Integer.parseInt(String.valueOf(Math.round(SavingsL.get(i).Value))),SavingsL.get(i).Label));
+                    }
+                    PieDataSet pie1 = new PieDataSet(Keyspending,"");
+                    pie1.setColors(ColorTemplate.COLORFUL_COLORS);
+                    pie1.setValueTextColor(Color.BLACK);
+                    pie1.setValueTextSize(8f);
+                    PieData data1 = new PieData(pie1);
+                    KeySpending_Chart.setData(data1);
+                    KeySpending_Chart.getDescription().setEnabled(false);
+                    KeySpending_Chart.setCenterText("Keyspending");
+                    KeySpending_Chart.animate();
+                    KeySpending_Chart.invalidate();
+                    ///
+                    for (int i=7 ;i<11; i++)
+                    {
+                        Investing.add(new PieEntry
+                                (Integer.parseInt(String.valueOf(Math.round(SavingsL.get(i).Value))),SavingsL.get(i).Label));
+                    }
+                    PieDataSet pie2 = new PieDataSet(Investing,"");
+                    pie2.setColors(ColorTemplate.COLORFUL_COLORS);
+                    pie2.setValueTextColor(Color.BLACK);
+                    pie2.setValueTextSize(8f);
+                    PieData data2 = new PieData(pie2);
+                    Investing_Chart.setData(data2);
+                    Investing_Chart.getDescription().setEnabled(false);
+                    Investing_Chart.setCenterText("Investing");
+                    Investing_Chart.animate();
+                    Investing_Chart.invalidate();
+                }
             }
         });
     }
