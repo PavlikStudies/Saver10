@@ -24,6 +24,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.security.Key;
 import java.util.ArrayList;
 
 public class MenesiuActivity extends AppCompatActivity {
@@ -82,6 +83,7 @@ public class MenesiuActivity extends AppCompatActivity {
         Savings_Chart.getDescription().setEnabled(false);
         Savings_Chart.setCenterText("Savings");
         Savings_Chart.invalidate();
+        Savings_Chart.getLegend().setEnabled(false);
 
         /*AntraDiangrama*/
         PieDataSet pieDataSet1 = new PieDataSet(Keyspending, "");
@@ -93,6 +95,7 @@ public class MenesiuActivity extends AppCompatActivity {
         KeySpending_Chart.getDescription().setEnabled(false);
         KeySpending_Chart.setCenterText("Keyspending");
         KeySpending_Chart.invalidate();
+        KeySpending_Chart.getLegend().setEnabled(false);
 
         /*TreciaDiagrama*/
         PieDataSet pieDataSet2 = new PieDataSet(Investing, "");
@@ -104,6 +107,7 @@ public class MenesiuActivity extends AppCompatActivity {
         Investing_Chart.getDescription().setEnabled(false);
         Investing_Chart.setCenterText("Investing");
         Investing_Chart.invalidate();
+        Investing_Chart.getLegend().setEnabled(false);
 
         IvedimasDuomenu.setOnClickListener(new OnClickListener() {
             @Override
