@@ -7,115 +7,129 @@
     tools:context=".MainActivity">
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/OldSunday"
         android:id="@+id/relativeLayout"
+        android:layout_width="413dp"
+        android:layout_height="733dp"
+        android:background="@color/OldSunday"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:context=".MainActivity">
 
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button_menesiai"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="127dp"
-            android:layout_marginBottom="86dp"
-            android:backgroundTint="@color/ButtonColor"
-            android:text="Pereiti į mėnesių meniu" />
+        <TableLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="match_parent"
+            android:layout_height="161dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+            <TableRow
+                android:background="@color/OldSunday"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Rekomendacijos" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Pajamu dalis" />
+            </TableRow>
+
+            <TableRow
+                android:background="#DAE8FC"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Butinos islaidos" />
+
+                <TextView
+                    android:id="@+id/KeeSpending"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="KeeSpending" />
+            </TableRow>
+
+            <TableRow
+                android:background="#DAE8FC"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Investavimo islaidos" />
+
+                <TextView
+                    android:id="@+id/Investing_Person"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Investing" />
+
+            </TableRow>
+
+            <TableRow
+                android:background="#DAE8FC"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Laisvalaikio islaidos" />
+
+                <TextView
+                    android:id="@+id/Lavish_PersonS"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Lavish" />
+            </TableRow>
+
+            <TableRow
+                android:background="#DAE8FC"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Santaupoms" />
+
+                <TextView
+                    android:id="@+id/Savings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Savings" />
+
+            </TableRow>
+        </TableLayout>
 
     </RelativeLayout>
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="100dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp" >
-        <TableRow android:background="@color/OldSunday" android:padding="5dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Rekomendacijos" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Pajamu dalis" />
-        </TableRow>
-        <TableRow android:background="#DAE8FC" android:padding="5dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Butinos islaidos" />
-
-            <TextView
-                android:id="@+id/KeeSpending"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="KeeSpending" />
-        </TableRow>
-        <TableRow android:background="#DAE8FC" android:padding="5dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Investavimo islaidos" />
-
-            <TextView
-                android:id="@+id/Investing"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Investing" />
-
-        </TableRow>
-        <TableRow android:background="#DAE8FC" android:padding="5dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Laisvalaikio islaidos" />
-
-            <TextView
-                android:id="@+id/Lavish"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Lavish" />
-        </TableRow>
-        <TableRow android:background="#DAE8FC" android:padding="5dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Santaupoms" />
-
-            <TextView
-                android:id="@+id/Savings"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Savings"
-                />
-
-        </TableRow>
-    </TableLayout>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/Text_Changer_Button"
         android:layout_width="212dp"
         android:layout_height="82dp"
-        android:layout_marginEnd="116dp"
-        android:layout_marginBottom="200dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="209dp"
         android:background="@drawable/shapeofbutton"
         android:backgroundTint="@color/ButtonColor"
         android:text="Atnaujinti Pajamas"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/relativeLayout"
+        app:layout_constraintTop_toBottomOf="@+id/duomenu_ivedimas" />
 
 
     <TextView
@@ -126,6 +140,38 @@
         android:layout_marginEnd="128dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/ataskaita_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:text="Ataskaita"
+        app:layout_constraintBottom_toBottomOf="@+id/relativeLayout"
+        app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
+        app:layout_constraintStart_toStartOf="@+id/relativeLayout" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_menesiai2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="18dp"
+        android:backgroundTint="@color/ButtonColor"
+        android:text="Pereiti į mėnesių meniu"
+        app:layout_constraintBottom_toTopOf="@+id/ataskaita_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_menesiai"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="18dp"
+        android:backgroundTint="@color/ButtonColor"
+        android:text="Pereiti į mėnesių meniu"
+        app:layout_constraintBottom_toTopOf="@+id/ataskaita_button"
+        app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
+        app:layout_constraintStart_toStartOf="@+id/relativeLayout" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
