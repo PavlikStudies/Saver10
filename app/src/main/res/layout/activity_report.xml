@@ -17,6 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <Spinner
         android:id="@+id/pasirinkimai_Spinners_ataskaita"
         android:layout_width="192dp"
@@ -77,14 +78,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="KeeSpending" />
+               />
 
             <TextView
                 android:id="@+id/MounhtKeeSpending"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Menesio duomenys" />
+                 />
         </TableRow>
 
         <TableRow
@@ -102,14 +103,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Investing" />
+                 />
 
             <TextView
                 android:id="@+id/MounhtInvesti"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Menesio duomenys" />
+              />
 
         </TableRow>
 
@@ -128,14 +129,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Lavish" />
+                 />
 
             <TextView
                 android:id="@+id/MounthSavings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Menesio duomenys" />
+               />
         </TableRow>
 
     </TableLayout>

@@ -41,30 +41,30 @@ public class MainActivity extends AppCompatActivity {
             String filepath = "MyfileDirectory";
             File PirmoKartoData = new File(getExternalFilesDir(filepath), filename);
             double PradinesPajamos = GetIncomeData(PirmoKartoData);
-            keespending.setText(String.valueOf(PradinesPajamos * 0.3));
+            keespending.setText(String.valueOf(Math.round(PradinesPajamos*0.5)));
             keespending.append(" €");
-            investing.setText(String.valueOf(PradinesPajamos * 0.3));
+            investing.setText(String.valueOf(Math.round(PradinesPajamos*0.2)));
             investing.append(" €");
-            Savings.setText(String.valueOf(PradinesPajamos * 0.2));
+            Savings.setText(String.valueOf(Math.round(PradinesPajamos*0.1)));
             Savings.append(" €");
-            LavishSpendings.setText(String.valueOf(PradinesPajamos * 0.2));
+            LavishSpendings.setText(String.valueOf(Math.round(PradinesPajamos*0.2)));
             LavishSpendings.append(" €");
         } catch (Exception e) {
             PirmoKartoTIkrinimas PirmasKartas = new PirmoKartoTIkrinimas();
-<<<<<<< HEAD
-            if (!PirmasKartas.getBooleanPreferenceValue(getApplicationContext(),"36"))
-=======
-            if (!PirmasKartas.getBooleanPreferenceValue(getApplicationContext(),"35"))
->>>>>>> d26b0e72381aa2b68b4bb1c42a645a88eae33f3a
+
+            if (!PirmasKartas.getBooleanPreferenceValue(getApplicationContext(),"37"))
+
+
+
             {
                 onStart();
                 {
                     FirstTImeactivity();
-<<<<<<< HEAD
-                    PirmasKartas.setBooleanPreferenceValue(getApplicationContext(),"36", true);
-=======
-                    PirmasKartas.setBooleanPreferenceValue(getApplicationContext(),"35", true);
->>>>>>> d26b0e72381aa2b68b4bb1c42a645a88eae33f3a
+
+                    PirmasKartas.setBooleanPreferenceValue(getApplicationContext(),"37", true);
+
+
+
 
                 }
             }

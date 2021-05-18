@@ -151,17 +151,6 @@
         app:layout_constraintStart_toStartOf="@+id/relativeLayout" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_menesiai2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="18dp"
-        android:backgroundTint="@color/ButtonColor"
-        android:text="Pereiti į mėnesių meniu"
-        app:layout_constraintBottom_toTopOf="@+id/ataskaita_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_menesiai"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
