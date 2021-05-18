@@ -1,7 +1,6 @@
 package com.example.saver10;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,11 +12,8 @@ import android.widget.RelativeLayout;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
      double pinigeliai;
@@ -33,11 +29,12 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
         TextView ivedimo_confirm = (TextView) findViewById(R.id.duomenu_ivedimas);
-        TextView keespending = (TextView) findViewById(R.id.KeeSpending);
-        TextView investing = (TextView) findViewById(R.id.Investing);
-        TextView Savings = (TextView) findViewById(R.id.Savings);
-        TextView LavishSpendings = (TextView) findViewById(R.id.Lavish);
+        TextView keespending = (TextView) findViewById(R.id.KeeSpending_First_Screen);
+        TextView investing = (TextView) findViewById(R.id.Investin_Screen_First);
+        TextView Savings = (TextView) findViewById(R.id.Savings_First_Screen);
+        TextView LavishSpendings = (TextView) findViewById(R.id.Lavish_First_Screen);
         Button tekstoPakeitejas = findViewById(R.id.Text_Changer_Button);
+        Button ataskaitos_button = findViewById(R.id.ataskaita_button);
         Button imenesius = findViewById(R.id.button_menesiai);
         try {
             String filename = "InitialIncome.txt";
@@ -54,12 +51,20 @@ public class MainActivity extends AppCompatActivity {
             LavishSpendings.append(" €");
         } catch (Exception e) {
             PirmoKartoTIkrinimas PirmasKartas = new PirmoKartoTIkrinimas();
+<<<<<<< HEAD
             if (!PirmasKartas.getBooleanPreferenceValue(getApplicationContext(),"36"))
+=======
+            if (!PirmasKartas.getBooleanPreferenceValue(getApplicationContext(),"35"))
+>>>>>>> d26b0e72381aa2b68b4bb1c42a645a88eae33f3a
             {
                 onStart();
                 {
                     FirstTImeactivity();
+<<<<<<< HEAD
                     PirmasKartas.setBooleanPreferenceValue(getApplicationContext(),"36", true);
+=======
+                    PirmasKartas.setBooleanPreferenceValue(getApplicationContext(),"35", true);
+>>>>>>> d26b0e72381aa2b68b4bb1c42a645a88eae33f3a
 
                 }
             }
@@ -69,7 +74,12 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
+ataskaitos_button.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        AtaskaitaActivity();
+    }
+});
         tekstoPakeitejas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,6 +104,11 @@ public class MainActivity extends AppCompatActivity {
     {
         Intent first = new Intent(this,PirmoKartoActivity.class);
         startActivity(first);
+    }
+    public  void AtaskaitaActivity()
+    {
+        Intent atask = new Intent(this,ReportActivity.class);
+        startActivity(atask);
     }
     public double GetIncomeData(File PaimtasFailas)
     {

@@ -25,7 +25,7 @@
             android:layout_marginEnd="157dp"
             android:layout_marginBottom="138dp"
             android:backgroundTint="@color/ButtonColor"
-            android:text="Enter data"
+            android:text="Išsaugoti"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -39,17 +39,30 @@
             android:layout_marginEnd="105dp"
             android:ems="10"
             android:inputType="textPersonName" />
+
     </RelativeLayout>
 
     <TextView
         android:id="@+id/Prasymas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="196dp"
-        android:text="Please enter your income"
+        android:layout_marginTop="200dp"
+        android:text="Įveskite savo mėnesines pajamas"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="SAVER 1.0"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
+        app:layout_constraintStart_toStartOf="@+id/relativeLayout"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
