@@ -30,7 +30,7 @@ public class DuomenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_duomenu);
         /// Kiekvienai funcijai po 4 laukus;
-       TextView islaid_taupemoji = (TextView) findViewById(R.id.textView_KeySpending);
+        TextView islaid_taupemoji = (TextView) findViewById(R.id.textView_KeySpending);
         Button islaid_pridet1 = (Button) findViewById(R.id.button2_plius_isl);
         Button islaid_atimt1 = (Button) findViewById(R.id.button6_min_isl);
         TextView islaid_number1 = (TextView) findViewById(R.id.editTextNumberDecimal);

@@ -62,8 +62,8 @@ public class PirmoKartoActivity extends AppCompatActivity {
                     AllMounthsData(november);
                     File december = new File(getExternalFilesDir(filepath),"DecemberData.txt");
                     AllMounthsData(december);
-
-
+                    File SAVINGS = new File(getExternalFilesDir(filepath),"Savings.txt");
+                    SavingsofMounth(SAVINGS);
                     /// Sukuria kuri duomenu faila reikia modufikuoti
                     File modifications = new File(getExternalFilesDir(filepath),"Modification.txt");
                     Modification(modifications);
@@ -147,6 +147,56 @@ public class PirmoKartoActivity extends AppCompatActivity {
             String text = "JanuaryData.txt;";
             FileWriter Writer = new FileWriter(Paimtasfailas);
             Writer.write(text);
+            Writer.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void SavingsofMounth(File Paimtasfailas)
+    {
+        FileOutputStream fos = null;
+        try{
+            /// Savings
+            String text1 ="0;";
+            String text2="0;";
+            String text3="0;";
+            ///Keyspending
+            String text4="0;";
+            String text5="0;";
+            String text6="0;";
+            String text7="0;";
+            /// Investing
+            String text8="0;";
+            String text9="0;";
+            String text10="0;";
+            String text11="0;";
+            String text12="0;";
+           /* String text = "TaupomojiSas "+data.get(0).Value+";";
+            String text1 = "InvestavimoSas "+data.get(1).Value+";";
+            String text2="NenumatytųatvejųSas "+data.get(2).Value+";";
+            String text3="ButosąsSas "+data.get(3).Value+";";*/
+            /// String fileContent = text.trim();
+            /// RASYMAS SU FILE OUTPUTSTREAM
+            /*fos = new FileOutputStream(Paimtasfailas,true);
+            fos.write(fileContent.getBytes());
+            fos.close();
+             */
+            FileWriter Writer = new FileWriter(Paimtasfailas);
+            Writer.write(text1);
+            Writer.write(text2);
+            Writer.write(text3);
+            Writer.write(text4);
+            Writer.write(text5);
+            Writer.write(text6);
+            Writer.write(text7);
+            Writer.write(text8);
+            Writer.write(text9);
+            Writer.write(text10);
+            Writer.write(text11);
+            Writer.write(text12);
             Writer.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
