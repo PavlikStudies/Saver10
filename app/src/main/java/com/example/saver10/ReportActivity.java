@@ -78,7 +78,7 @@ public class ReportActivity extends AppCompatActivity {
                     double Savings = GetSUMofMounthByIndex(SavingsL,0,3);
                     double Keyspending = GetSUMofMounthByIndex(SavingsL,3,7);
                     double Investing = GetSUMofMounthByIndex(SavingsL,7,11);
-
+                
 
 
                     Text_KeySpending.setText(String.valueOf(Math.round(Keyspending)));
