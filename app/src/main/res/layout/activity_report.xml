@@ -17,6 +17,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/BackToMainButton"
+        android:layout_width="85dp"
+        android:layout_height="51dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="160dp"
+        android:layout_marginBottom="44dp"
+        android:background="@drawable/shapeofbutton"
+        android:backgroundTint="@color/ButtonColor"
+        android:text="Return to main"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Spinner
         android:id="@+id/pasirinkimai_Spinners_ataskaita"
@@ -29,10 +42,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="414dp"
-        android:layout_height="151dp"
+        android:layout_height="200dp"
         android:layout_marginBottom="364dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
@@ -155,8 +169,36 @@
 
                />
         </TableRow>
+        <TableRow
+            android:background="#DAE8FC"
+            android:padding="6dp">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Savings"
+                android:textAlignment="center"/>
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                />
+
+            <TextView
+                android:id="@+id/ContSavings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="center"
+
+                />
+        </TableRow>
     </TableLayout>
+
 
     <TextView
         android:id="@+id/Patarimas"

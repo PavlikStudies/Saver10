@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="413dp"
@@ -22,28 +23,27 @@
             android:layout_height="181dp"
             android:paddingLeft="7dp"
 
-          >
+            >
 
             <TableRow
                 android:background="@color/OldSunday"
-                android:padding="4dp"
-                >
+                android:padding="4dp">
 
                 <TextView
                     android:layout_width="128dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
                     android:text="Recommendations"
-                    android:textStyle="italic"
-                    android:textAlignment="center"/>
+                    android:textAlignment="center"
+                    android:textStyle="italic" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
                     android:text="Part of income"
-                    android:textStyle="italic"
-                    android:textAlignment="center"/>
+                    android:textAlignment="center"
+                    android:textStyle="italic" />
             </TableRow>
 
             <TableRow
@@ -55,8 +55,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Key Expenses"
-                    android:textAlignment="center"
-                    />
+                    android:textAlignment="center" />
 
                 <TextView
                     android:id="@+id/KeeSpending_First_Screen"
@@ -64,7 +63,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="KeeSpending"
-                    android:textAlignment="center"/>
+                    android:textAlignment="center" />
             </TableRow>
 
             <TableRow
@@ -76,7 +75,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Investing budget"
-                    android:textAlignment="center"/>
+                    android:textAlignment="center" />
 
                 <TextView
                     android:id="@+id/Investin_Screen_First"
@@ -84,7 +83,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Investing"
-                    android:textAlignment="center"/>
+                    android:textAlignment="center" />
 
             </TableRow>
 
@@ -97,7 +96,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Lavish spendings"
-                    android:textAlignment="center"/>
+                    android:textAlignment="center" />
 
                 <TextView
                     android:id="@+id/Lavish_First_Screen"
@@ -105,7 +104,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Lavish"
-                    android:textAlignment="center"/>
+                    android:textAlignment="center" />
             </TableRow>
 
         </TableLayout>
@@ -116,36 +115,38 @@
             android:layout_height="69dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="130dp"
-            android:layout_marginBottom="168dp"
+            android:layout_marginEnd="213dp"
+            android:layout_marginBottom="201dp"
+            android:background="@drawable/shapeofbutton"
             android:backgroundTint="@color/ButtonColor"
             android:text="Visual representation" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/ataskaita_button"
-            android:layout_width="181dp"
-            android:layout_height="83dp"
+            android:layout_width="wrap_content"
+            android:layout_height="71dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="121dp"
-            android:layout_marginBottom="54dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="200dp"
+            android:background="@drawable/shapeofbutton"
+            android:backgroundTint="@color/ButtonColor"
             android:text="Monthly expenses report" />
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/Text_Changer_Button"
+            android:layout_width="212dp"
+            android:layout_height="82dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="94dp"
+            android:layout_marginBottom="320dp"
+            android:background="@drawable/shapeofbutton"
+            android:backgroundTint="@color/ButtonColor"
+            android:text="Update income"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
     </RelativeLayout>
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/Text_Changer_Button"
-        android:layout_width="212dp"
-        android:layout_height="82dp"
-        android:layout_marginBottom="209dp"
-        android:background="@drawable/shapeofbutton"
-        android:backgroundTint="@color/ButtonColor"
-        android:text="Update income"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/relativeLayout"
-        app:layout_constraintTop_toBottomOf="@+id/duomenu_ivedimas" />
-
 
     <TextView
         android:id="@+id/duomenu_ivedimas"

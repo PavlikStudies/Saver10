@@ -19,13 +19,35 @@
             android:id="@+id/ReturnButton"
             android:layout_width="63dp"
             android:layout_height="30dp"
+            android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="183dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginTop="651dp"
+            android:layout_marginEnd="174dp"
             android:background="@drawable/shapeofbutton"
             android:backgroundTint="@color/ButtonColor"
             android:text="Return to main" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button"
+            android:layout_width="130dp"
+            android:layout_height="66dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="250dp"
+            android:layout_marginBottom="30dp"
+            android:backgroundTint="@color/ButtonColor"
+            android:text="ENter lavish expenses" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_Investing_Chart"
+            android:layout_width="130dp"
+            android:layout_height="66dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="26dp"
+            android:layout_marginBottom="30dp"
+            android:backgroundTint="@color/ButtonColor"
+            android:text="Enter Investing budget" />
     </RelativeLayout>
     <Spinner
         android:id="@+id/Pasirinkimai_Spinners"
@@ -39,25 +61,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_Investing_Chart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/ButtonColor"
-        android:text="Įvesti investavimą"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/Investing_Chart"
-        app:layout_constraintStart_toStartOf="@+id/Investing_Chart"
-        app:layout_constraintTop_toBottomOf="@+id/Investing_Chart" />
-
-    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_KeySpending_Chart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:backgroundTint="@color/ButtonColor"
-        android:text="Įvesti išlaidas"
+        android:text="Enter key expenses"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/KeySpending_Chart" />
@@ -68,7 +77,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         android:backgroundTint="@color/ButtonColor"
-        android:text="Pasirinkite mėnesį"
+        android:text="Select month"
         app:layout_constraintBottom_toBottomOf="@+id/Pasirinkimai_Spinners"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/Pasirinkimai_Spinners" />
@@ -82,18 +91,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_KeySpending_Chart"
         tools:visibility="visible" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/ButtonColor"
-        android:text="Įvesti santaupas"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/piechart"
-        app:layout_constraintStart_toStartOf="@+id/piechart"
-        app:layout_constraintTop_toBottomOf="@+id/piechart" />
 
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/KeySpending_Chart"

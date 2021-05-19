@@ -13,19 +13,22 @@
         android:layout_height="match_parent"
         android:background="@color/OldSunday"
         tools:context=".MainActivity"
-        tools:layout_editor_absoluteX="182dp"
+        tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/PirmoKartoivedimas"
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="157dp"
-            android:layout_marginBottom="138dp"
+            android:layout_marginEnd="145dp"
+            android:layout_marginBottom="139dp"
+            android:background="@drawable/shapeofbutton"
             android:backgroundTint="@color/ButtonColor"
-            android:text="Išsaugoti"
+            android:text="submit"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -35,24 +38,22 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="375dp"
-            android:layout_marginEnd="105dp"
+            android:layout_marginTop="415dp"
+            android:layout_marginEnd="71dp"
             android:ems="10"
             android:inputType="textPersonName" />
 
-    </RelativeLayout>
+        <TextView
+            android:id="@+id/Prasymas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="200dp"
+            android:layout_marginEnd="77dp"
+            android:text="Enter your monthly income"
+            android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/Prasymas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:text="Įveskite savo mėnesines pajamas"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/textView3"

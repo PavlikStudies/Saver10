@@ -87,27 +87,7 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
             PirmoKartoTIkrinimas PirmasKartas = new PirmoKartoTIkrinimas();
 
-<<<<<<< HEAD
-
             if (!PirmasKartas.getBooleanPreferenceValue(getApplicationContext(),"39"))
-=======
-<<<<<<< HEAD
-            if (!PirmasKartas.getBooleanPreferenceValue(getApplicationContext(),"39"))
-=======
-            if (!PirmasKartas.getBooleanPreferenceValue(getApplicationContext(),"38"))
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> f889662d8b1f9e4e73a7bd56b199cbffb1f0491f
->>>>>>> 60903654f7eb1408941cc31379894d320898debf
-
-
-
->>>>>>> 0737e385fb312b2cc33984b9fdf116ad58b59d7a
->>>>>>> 56f3e966809b8a74e7b9330b371e6070d80796b5
 
             {
                 onStart();
@@ -115,26 +95,6 @@ public class MainActivity extends AppCompatActivity {
                     FirstTImeactivity();
 
                     PirmasKartas.setBooleanPreferenceValue(getApplicationContext(),"39", true);
-<<<<<<< HEAD
-
-=======
-=======
-                    PirmasKartas.setBooleanPreferenceValue(getApplicationContext(),"38", true);
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> f889662d8b1f9e4e73a7bd56b199cbffb1f0491f
-
-
-
->>>>>>> e6d0bc95edca26f5693e3b28b52ff0f47b4f6c28
->>>>>>> 60903654f7eb1408941cc31379894d320898debf
->>>>>>> 0737e385fb312b2cc33984b9fdf116ad58b59d7a
->>>>>>> 56f3e966809b8a74e7b9330b371e6070d80796b5
 
                 }
             }
