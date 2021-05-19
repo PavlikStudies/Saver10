@@ -98,9 +98,9 @@ public class PirmoKartoActivity extends AppCompatActivity {
         FileOutputStream fos = null;
         try{
             /// Savings
-            String text1 ="Home,0;";
-            String text2="Internet,0;";
-            String text3="Bank,0;";
+            String text1 ="EatingOut,0;";
+            String text2="Entertainment,0;";
+            String text3="Addictions,0;";
             ///Keyspending
             String text4="Rent,0;";
             String text5="Fuel,0;";
