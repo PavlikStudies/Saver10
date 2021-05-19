@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
             PirmoKartoTIkrinimas PirmasKartas = new PirmoKartoTIkrinimas();
 
-            if (!PirmasKartas.getBooleanPreferenceValue(getApplicationContext(),"38"))
+            if (!PirmasKartas.getBooleanPreferenceValue(getApplicationContext(),"39"))
 
 
 
@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     FirstTImeactivity();
 
-                    PirmasKartas.setBooleanPreferenceValue(getApplicationContext(),"38", true);
+                    PirmasKartas.setBooleanPreferenceValue(getApplicationContext(),"39", true);
 
 
 
