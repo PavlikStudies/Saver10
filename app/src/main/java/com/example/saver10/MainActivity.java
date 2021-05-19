@@ -42,18 +42,21 @@ public class MainActivity extends AppCompatActivity {
         //NOTIFICATIONS//NOTIFICATIONS//NOTIFICATIONS//NOTIFICATIONS//NOTIFICATIONS//NOTIFICATIONS//NOTIFICATIONS
 
         createNotificationChannel();
+
+
+
         Intent intent = new Intent(MainActivity.this, ReminderReport.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, intent, 0);
 
         AlarmManager alarmManager =(AlarmManager)  getSystemService(ALARM_SERVICE);
-       // Date currentTime = Calendar.getInstance().getTime();
+
         Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.DAY_OF_MONTH, 1);
+        calendar.setTimeInMillis(System.currentTimeMillis());
         calendar.set(Calendar.HOUR_OF_DAY, 8);
         calendar.set(Calendar.MINUTE, 0);
         calendar.set(Calendar.SECOND, 1);
 
-        alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
 
 
 
