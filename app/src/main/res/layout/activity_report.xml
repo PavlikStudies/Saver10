@@ -8,12 +8,12 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_Pasirinkti_ataskaita"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="110dp"
+        android:layout_height="47dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="20dp"
         android:backgroundTint="@color/ButtonColor"
-        android:text="Pasirinkite mėnesį"
+        android:text="Set month"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -48,19 +48,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Rekomendacijos" />
+                android:text="Recomendations"
+                android:textStyle="italic"
+                android:textAlignment="center"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Pajamu dalis" />
+                android:text="Part of income"
+                android:textStyle="italic"
+                android:textAlignment="center"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Menesio duomenys" />
+                android:text="Month data"
+                android:textStyle="italic"
+                android:textAlignment="center"/>
         </TableRow>
 
         <TableRow
@@ -71,13 +77,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Butinos islaidos" />
+                android:text="Key expenses"
+
+                android:textAlignment="center"/>
 
             <TextView
                 android:id="@+id/Spending_Person"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textAlignment="center"
                />
 
             <TextView
@@ -85,6 +94,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textAlignment="center"
                  />
         </TableRow>
 
@@ -96,13 +106,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Investavimo islaidos" />
+                android:text="Investing budget"
+                android:textAlignment="center"/>
 
             <TextView
                 android:id="@+id/Investing_Person"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textAlignment="center"
                  />
 
             <TextView
@@ -110,6 +122,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textAlignment="center"
               />
 
         </TableRow>
@@ -122,13 +135,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Laisvalaikio islaidos" />
+                android:text="Lavish spendings"
+                android:textAlignment="center"/>
 
             <TextView
                 android:id="@+id/Lavish_PersonS"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textAlignment="center"
                  />
 
             <TextView
@@ -136,6 +151,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textAlignment="center"
+
                />
         </TableRow>
 
