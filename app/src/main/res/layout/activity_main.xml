@@ -19,25 +19,27 @@
         <TableLayout
             android:id="@+id/tableLayout"
             android:layout_width="match_parent"
-            android:layout_height="161dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp">
+            android:layout_height="181dp"
+            android:paddingLeft="7dp"
+
+          >
 
             <TableRow
                 android:background="@color/OldSunday"
-                android:padding="5dp">
+                android:padding="4dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="128dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="Recommendations" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Rekomendacijos" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Pajamu dalis" />
+                    android:layout_weight="0.5"
+                    android:text="Part of income" />
             </TableRow>
 
             <TableRow
@@ -48,7 +50,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Butinos islaidos" />
+                    android:text="Key Expenses" />
 
                 <TextView
                     android:id="@+id/KeeSpending_First_Screen"
@@ -66,7 +68,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Investavimo islaidos" />
+                    android:text="Investing expenses" />
 
                 <TextView
                     android:id="@+id/Investin_Screen_First"
@@ -85,7 +87,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Laisvalaikio islaidos" />
+                    android:text="Lavish spendings" />
 
                 <TextView
                     android:id="@+id/Lavish_First_Screen"
@@ -106,7 +108,7 @@
         android:layout_marginBottom="209dp"
         android:background="@drawable/shapeofbutton"
         android:backgroundTint="@color/ButtonColor"
-        android:text="Atnaujinti Pajamas"
+        android:text="Update income"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/relativeLayout"
@@ -124,21 +126,21 @@
 
     <Button
         android:id="@+id/ataskaita_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="134dp"
+        android:layout_height="45dp"
         android:layout_marginBottom="50dp"
-        android:text="Ataskaita"
+        android:text="Monthly expenses report"
         app:layout_constraintBottom_toBottomOf="@+id/relativeLayout"
         app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
         app:layout_constraintStart_toStartOf="@+id/relativeLayout" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_menesiai"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="160dp"
+        android:layout_height="69dp"
         android:layout_marginBottom="18dp"
         android:backgroundTint="@color/ButtonColor"
-        android:text="Pereiti į mėnesių meniu"
+        android:text="Visual representation"
         app:layout_constraintBottom_toTopOf="@+id/ataskaita_button"
         app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
         app:layout_constraintStart_toStartOf="@+id/relativeLayout" />

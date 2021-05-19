@@ -78,24 +78,55 @@ public class MainActivity extends AppCompatActivity {
             String filepath = "MyfileDirectory";
             File PirmoKartoData = new File(getExternalFilesDir(filepath), filename);
             double PradinesPajamos = GetIncomeData(PirmoKartoData);
-            keespending.setText(String.format("%.2f",(PradinesPajamos * 0.5) ));
+            keespending.setText(String.format("%.2f",(PradinesPajamos * 0.5)));
             keespending.append(" €");
-            investing.setText(String.format("%.2f",(PradinesPajamos * 0.3) ));
+            investing.setText(String.format("%.2f",(PradinesPajamos * 0.3)));
             investing.append(" €");
-            LavishSpendings.setText(String.format("%.2f",(PradinesPajamos * 0.2) ));
+            LavishSpendings.setText(String.format("%.2f",(PradinesPajamos * 0.2)));
             LavishSpendings.append(" €");
         } catch (Exception e) {
             PirmoKartoTIkrinimas PirmasKartas = new PirmoKartoTIkrinimas();
 
+<<<<<<< HEAD
+            if (!PirmasKartas.getBooleanPreferenceValue(getApplicationContext(),"39"))
+=======
             if (!PirmasKartas.getBooleanPreferenceValue(getApplicationContext(),"38"))
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> f889662d8b1f9e4e73a7bd56b199cbffb1f0491f
+>>>>>>> 60903654f7eb1408941cc31379894d320898debf
+
+
+
+>>>>>>> 0737e385fb312b2cc33984b9fdf116ad58b59d7a
 
             {
                 onStart();
                 {
                     FirstTImeactivity();
 
+<<<<<<< HEAD
+                    PirmasKartas.setBooleanPreferenceValue(getApplicationContext(),"39", true);
+=======
                     PirmasKartas.setBooleanPreferenceValue(getApplicationContext(),"38", true);
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> f889662d8b1f9e4e73a7bd56b199cbffb1f0491f
+
+
+
+>>>>>>> e6d0bc95edca26f5693e3b28b52ff0f47b4f6c28
+>>>>>>> 60903654f7eb1408941cc31379894d320898debf
+>>>>>>> 0737e385fb312b2cc33984b9fdf116ad58b59d7a
 
                 }
             }
