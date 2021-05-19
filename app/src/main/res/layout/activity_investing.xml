@@ -12,8 +12,8 @@
         android:layout_height="match_parent"
         android:background="@color/OldSunday"
         tools:context=".MainActivity"
-        tools:layout_editor_absoluteX="-84dp"
-        tools:layout_editor_absoluteY="-39dp">
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="0dp">
 
     </RelativeLayout>
 
@@ -22,6 +22,7 @@
         android:layout_width="77dp"
         android:layout_height="wrap_content"
         android:text="-"
+        android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="@+id/editTextNumberDecimal6"
         app:layout_constraintStart_toStartOf="@+id/button4_investing_min"
         app:layout_constraintTop_toTopOf="@+id/editTextNumberDecimal6" />
@@ -31,14 +32,15 @@
         android:layout_width="77dp"
         android:layout_height="wrap_content"
         android:text="-"
+        android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="@+id/editTextNumberDecimal5"
         app:layout_constraintStart_toStartOf="@+id/button3"
         app:layout_constraintTop_toTopOf="@+id/editTextNumberDecimal5" />
 
     <EditText
         android:id="@+id/editTextNumberDecimal7"
-        android:layout_width="81dp"
-        android:layout_height="38dp"
+        android:layout_width="92dp"
+        android:layout_height="39dp"
         android:ems="10"
         android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="@+id/button5_investing"
@@ -47,8 +49,8 @@
 
     <EditText
         android:id="@+id/editTextNumberDecimal6"
-        android:layout_width="81dp"
-        android:layout_height="38dp"
+        android:layout_width="93dp"
+        android:layout_height="48dp"
         android:ems="10"
         android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="@+id/button4_investing"
@@ -57,8 +59,8 @@
 
     <EditText
         android:id="@+id/editTextNumberDecimal5"
-        android:layout_width="81dp"
-        android:layout_height="38dp"
+        android:layout_width="95dp"
+        android:layout_height="48dp"
         android:ems="10"
         android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="@+id/button3_investing"
@@ -71,6 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:text="+"
+        android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView5_investing"
         app:layout_constraintStart_toEndOf="@+id/textView2_investing"
         app:layout_constraintTop_toTopOf="@+id/textView5_investing" />
@@ -79,8 +82,9 @@
         android:id="@+id/button4_investing"
         android:layout_width="77dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="10dp"
         android:text="+"
+        android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView4_investing"
         app:layout_constraintStart_toEndOf="@+id/textView2_investing"
         app:layout_constraintTop_toTopOf="@+id/textView4_investing" />
@@ -91,14 +95,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:text="+"
+        android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView3_investing"
         app:layout_constraintStart_toEndOf="@+id/textView2_investing"
         app:layout_constraintTop_toTopOf="@+id/textView3_investing" />
 
     <TextView
         android:id="@+id/textView2_investing"
-        android:layout_width="115dp"
-        android:layout_height="35dp"
+        android:layout_width="118dp"
+        android:layout_height="55dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="200dp"
         android:text="TextView"
@@ -107,8 +112,8 @@
 
     <TextView
         android:id="@+id/textView3_investing"
-        android:layout_width="115dp"
-        android:layout_height="35dp"
+        android:layout_width="120dp"
+        android:layout_height="49dp"
         android:layout_marginTop="20dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="@+id/textView2_investing"
@@ -116,8 +121,8 @@
 
     <TextView
         android:id="@+id/textView4_investing"
-        android:layout_width="115dp"
-        android:layout_height="35dp"
+        android:layout_width="116dp"
+        android:layout_height="53dp"
         android:layout_marginTop="20dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="@+id/textView3_investing"
@@ -125,8 +130,8 @@
 
     <TextView
         android:id="@+id/textView5_investing"
-        android:layout_width="115dp"
-        android:layout_height="35dp"
+        android:layout_width="118dp"
+        android:layout_height="55dp"
         android:layout_marginTop="20dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="@+id/textView4_investing"
@@ -138,14 +143,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:text="+"
+        android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView2_investing"
         app:layout_constraintStart_toEndOf="@+id/textView2_investing"
         app:layout_constraintTop_toTopOf="@+id/textView2_investing" />
 
     <EditText
         android:id="@+id/editTextNumberDecimal4"
-        android:layout_width="81dp"
-        android:layout_height="38dp"
+        android:layout_width="93dp"
+        android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:ems="10"
         android:inputType="numberDecimal"
@@ -159,6 +165,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:text="-"
+        android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="@+id/editTextNumberDecimal4"
         app:layout_constraintStart_toEndOf="@+id/editTextNumberDecimal4"
         app:layout_constraintTop_toTopOf="@+id/editTextNumberDecimal4" />
@@ -168,6 +175,7 @@
         android:layout_width="77dp"
         android:layout_height="wrap_content"
         android:text="-"
+        android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="@+id/editTextNumberDecimal7"
         app:layout_constraintStart_toStartOf="@+id/button5_investing_min"
         app:layout_constraintTop_toTopOf="@+id/editTextNumberDecimal7" />

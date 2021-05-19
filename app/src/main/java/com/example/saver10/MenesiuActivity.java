@@ -58,7 +58,7 @@ public class MenesiuActivity extends AppCompatActivity {
         Button button_Investing_Chart = findViewById(R.id.button_Investing_Chart);
             ///
         /*Pradiniai duomenys ar rodo*/
-        for (int i=0; i<3;i++)
+        /*for (int i=0; i<3;i++)
         {Savings.add(new PieEntry
                 (Integer.parseInt(String.valueOf(Math.round(data.get(i).Value))),data.get(i).Label));}
         for (int i=3 ;i<7; i++)
@@ -70,7 +70,7 @@ public class MenesiuActivity extends AppCompatActivity {
         {
             Investing.add(new PieEntry
                     (Integer.parseInt(String.valueOf(Math.round(data.get(i).Value))),data.get(i).Label));
-        }
+        }*/
 
 
         /*Pirma diagrama*/
@@ -905,7 +905,7 @@ public class MenesiuActivity extends AppCompatActivity {
                 String[] Lines = lapatai.split(";");
                 for (int i = 0; i < Lines.length; i++)
                 {
-                    String[] parts = Lines[i].split(" ");
+                    String[] parts = Lines[i].split(",");
                     String Name = (parts[0]);
                     double NumberOfMarks = Double.parseDouble(parts[1]);
                     MountData S = new MountData(Name,NumberOfMarks);

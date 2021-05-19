@@ -171,7 +171,7 @@ public class DuomenuActivity extends AppCompatActivity {
                 String[] Lines = lapatai.split(";");
                 for (int i = 0; i < Lines.length; i++)
                 {
-                    String[] parts = Lines[i].split(" ");
+                    String[] parts = Lines[i].split(",");
                     String Name = (parts[0]);
                     double NumberOfMarks = Double.parseDouble(parts[1]);
                     MountData S = new MountData(Name,NumberOfMarks);
@@ -189,21 +189,21 @@ public class DuomenuActivity extends AppCompatActivity {
     {
         FileOutputStream fos = null;
         try{
-            String text1 = "Namuose "+data.get(0).Value+";";
-            String text2="Internete "+data.get(1).Value+";";
-            String text3="Banke "+data.get(2).Value+";";
+            String text1 ="Home,"+data.get(0).Value+";";
+            String text2="Internet,"+data.get(1).Value+";";
+            String text3="Bank,"+data.get(2).Value+";";
 
             //////
-            String text4="Nuoma "+data.get(3).Value+";";
-            String text5="Kuras "+data.get(4).Value+";";
-            String text6="Maistas "+data.get(5).Value+";";
-            String text7="Mokesciai "+data.get(6).Value+";";
+            String text4="Rent,"+data.get(3).Value+";";
+            String text5="Fuel,"+data.get(4).Value+";";
+            String text6="Food,"+data.get(5).Value+";";
+            String text7="Taxes,"+data.get(6).Value+";";
 
             ////
-            String text8 ="AkcijuBirza "+data.get(7).Value+";";
-            String text9="Investiciniaifondai "+data.get(8).Value+";";
-            String text10="Pencijufondai "+data.get(9).Value+";";
-            String text11="Nekilnojamasturtas "+data.get(10).Value+";";
+            String text8 ="Stock Market,"+data.get(7).Value+";";
+            String text9="Investment funds,"+data.get(8).Value+";";
+            String text10="Pension funds,"+data.get(9).Value+";";
+            String text11="Real estate,"+data.get(10).Value+";";
             /// String fileContent = text.trim();
             /// RASYMAS SU FILE OUTPUTSTREAM
             /*fos = new FileOutputStream(Paimtasfailas,true);

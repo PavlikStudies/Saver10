@@ -566,7 +566,7 @@ public class ReportActivity extends AppCompatActivity {
                 String[] Lines = lapatai.split(";");
                 for (int i = 0; i < Lines.length; i++)
                 {
-                    String[] parts = Lines[i].split(" ");
+                    String[] parts = Lines[i].split(",");
                     String Name = (parts[0]);
                     double NumberOfMarks = Double.parseDouble(parts[1]);
                     MountData S = new MountData(Name,NumberOfMarks);

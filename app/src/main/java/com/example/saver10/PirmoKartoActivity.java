@@ -98,19 +98,19 @@ public class PirmoKartoActivity extends AppCompatActivity {
         FileOutputStream fos = null;
         try{
             /// Savings
-            String text1 ="Namuose 0;";
-            String text2="Internete 0;";
-            String text3="Banke 0;";
+            String text1 ="Home,0;";
+            String text2="Internet,0;";
+            String text3="Bank,0;";
             ///Keyspending
-            String text4="Nuoma 0;";
-            String text5="Kuras 0;";
-            String text6="Maistas 0;";
-            String text7="Mokesciai 0;";
+            String text4="Rent,0;";
+            String text5="Fuel,0;";
+            String text6="Food,0;";
+            String text7="Taxes,0;";
             /// Investing
-            String text8="AkcijuBirza 0;";
-            String text9="Investiciniaifondai 0;";
-            String text10="Pencijufondai 0;";
-            String text11="Nekilnojamasturtas 0;";
+            String text8="Stock Market,0;";
+            String text9="Investment funds,0;";
+            String text10="Pension funds,0;";
+            String text11="Real estate,0;";
            /* String text = "TaupomojiSas "+data.get(0).Value+";";
             String text1 = "InvestavimoSas "+data.get(1).Value+";";
             String text2="NenumatytųatvejųSas "+data.get(2).Value+";";
