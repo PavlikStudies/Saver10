@@ -328,7 +328,7 @@ public class InvestingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 RewriteData(MASYVAS,myExternalFile);
-
+                TakeActiviti();
             }
         });
 
@@ -368,9 +368,9 @@ public class InvestingActivity extends AppCompatActivity {
     {
         FileOutputStream fos = null;
         try{
-            String text1 ="Home,"+data.get(0).Value+";";
-            String text2="Internet,"+data.get(1).Value+";";
-            String text3="Bank,"+data.get(2).Value+";";
+            String text1 ="EatingOut,"+data.get(0).Value+";";
+            String text2= "Entertainment,"+data.get(1).Value+";";
+            String text3="Addictions,"+data.get(2).Value+";";
 
             //////
             String text4="Rent,"+data.get(3).Value+";";
@@ -383,12 +383,7 @@ public class InvestingActivity extends AppCompatActivity {
             String text9="Investment funds,"+data.get(8).Value+";";
             String text10="Pension funds,"+data.get(9).Value+";";
             String text11="Real estate,"+data.get(10).Value+";";
-            /// String fileContent = text.trim();
-            /// RASYMAS SU FILE OUTPUTSTREAM
-            /*fos = new FileOutputStream(Paimtasfailas,true);
-            fos.write(fileContent.getBytes());
-            fos.close();
-             */
+
             FileWriter Writer = new FileWriter(Paimtasfailas);
             Writer.write(text1);
             Writer.write(text2);

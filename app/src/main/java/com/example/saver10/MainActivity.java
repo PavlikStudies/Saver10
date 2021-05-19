@@ -88,6 +88,11 @@ public class MainActivity extends AppCompatActivity {
             PirmoKartoTIkrinimas PirmasKartas = new PirmoKartoTIkrinimas();
 
             if (!PirmasKartas.getBooleanPreferenceValue(getApplicationContext(),"38"))
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> e6d0bc95edca26f5693e3b28b52ff0f47b4f6c28
 
             {
                 onStart();
@@ -95,6 +100,12 @@ public class MainActivity extends AppCompatActivity {
                     FirstTImeactivity();
 
                     PirmasKartas.setBooleanPreferenceValue(getApplicationContext(),"38", true);
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> e6d0bc95edca26f5693e3b28b52ff0f47b4f6c28
 
                 }
             }
