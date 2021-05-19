@@ -69,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
         TextView ivedimo_confirm = (TextView) findViewById(R.id.duomenu_ivedimas);
         TextView keespending = (TextView) findViewById(R.id.KeeSpending_First_Screen);
         TextView investing = (TextView) findViewById(R.id.Investin_Screen_First);
-        TextView Savings = (TextView) findViewById(R.id.Savings_First_Screen);
         TextView LavishSpendings = (TextView) findViewById(R.id.Lavish_First_Screen);
         Button tekstoPakeitejas = findViewById(R.id.Text_Changer_Button);
         Button ataskaitos_button = findViewById(R.id.ataskaita_button);
@@ -79,30 +78,42 @@ public class MainActivity extends AppCompatActivity {
             String filepath = "MyfileDirectory";
             File PirmoKartoData = new File(getExternalFilesDir(filepath), filename);
             double PradinesPajamos = GetIncomeData(PirmoKartoData);
-            keespending.setText(String.valueOf(Math.round(PradinesPajamos*0.5)));
+            keespending.setText(String.format("%.2f",(PradinesPajamos * 0.5) ));
             keespending.append(" €");
-            investing.setText(String.valueOf(Math.round(PradinesPajamos*0.2)));
+            investing.setText(String.format("%.2f",(PradinesPajamos * 0.3) ));
             investing.append(" €");
-            Savings.setText(String.valueOf(Math.round(PradinesPajamos*0.1)));
-            Savings.append(" €");
-            LavishSpendings.setText(String.valueOf(Math.round(PradinesPajamos*0.2)));
+            LavishSpendings.setText(String.format("%.2f",(PradinesPajamos * 0.2) ));
             LavishSpendings.append(" €");
         } catch (Exception e) {
             PirmoKartoTIkrinimas PirmasKartas = new PirmoKartoTIkrinimas();
 
+<<<<<<< HEAD
             if (!PirmasKartas.getBooleanPreferenceValue(getApplicationContext(),"39"))
+=======
+            if (!PirmasKartas.getBooleanPreferenceValue(getApplicationContext(),"38"))
+<<<<<<< HEAD
+=======
+>>>>>>> f889662d8b1f9e4e73a7bd56b199cbffb1f0491f
 
 
+>>>>>>> e6d0bc95edca26f5693e3b28b52ff0f47b4f6c28
 
             {
                 onStart();
                 {
                     FirstTImeactivity();
 
+<<<<<<< HEAD
                     PirmasKartas.setBooleanPreferenceValue(getApplicationContext(),"39", true);
+=======
+                    PirmasKartas.setBooleanPreferenceValue(getApplicationContext(),"38", true);
+<<<<<<< HEAD
+=======
+>>>>>>> f889662d8b1f9e4e73a7bd56b199cbffb1f0491f
 
 
 
+>>>>>>> e6d0bc95edca26f5693e3b28b52ff0f47b4f6c28
 
                 }
             }
