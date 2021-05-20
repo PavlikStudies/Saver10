@@ -94,60 +94,33 @@ public class MainActivity extends AppCompatActivity {
             double[] Data = GetSavings(AntroKartoData);
             double SUMFINAL = 0;
             SUMFINAL=AllSum(Data,PradinesPajamos);
-            if(SUMFINAL>0)
+            if(SUMFINAL>=0)
             {ivedimo_confirm.setText("You saved: "+String.format("%.2f",(SUMFINAL)));
             ivedimo_confirm.setBackgroundColor(getColor(R.color.SavingsGreen));
+            ivedimo_confirm.append(" €");
             }
             else
-            {ivedimo_confirm.setText("You lost: "+String.format("%.2f",(SUMFINAL)));
+            {ivedimo_confirm.setText("You lost: "+String.format("%.2f",(SUMFINAL*(-1))));
             ivedimo_confirm.setBackgroundColor(getColor(R.color.SavingsRed));
+                ivedimo_confirm.append(" €");
             }
 
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> c0a77eb0e85da7e31e757b9173e272b8505a43a9
-            if (!PirmasKartas.getBooleanPreferenceValue(getApplicationContext(),"39"))
-
-
-            if (!PirmasKartas.getBooleanPreferenceValue(getApplicationContext(),"38"))
->>>>>>> 28d0491652758a7748932ca2582674d8c8d57687
-
         } catch (Exception e) {
+
             PirmoKartoTIkrinimas PirmasKartas = new PirmoKartoTIkrinimas();
 
-<<<<<<< HEAD
-            if (!PirmasKartas.getBooleanPreferenceValue(getApplicationContext(),"39"))
-=======
-
->>>>>>> 28d0491652758a7748932ca2582674d8c8d57687
+            if (!PirmasKartas.getBooleanPreferenceValue(getApplicationContext(),"IFINAS"))
 
             {
                 onStart();
                 {
                     FirstTImeactivity();
 
-                    PirmasKartas.setBooleanPreferenceValue(getApplicationContext(),"39", true);
+                    PirmasKartas.setBooleanPreferenceValue(getApplicationContext(),"IFINAS", true);
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-
-
-
-
-=======
->>>>>>> c0a77eb0e85da7e31e757b9173e272b8505a43a9
->>>>>>> 28d0491652758a7748932ca2582674d8c8d57687
                 }
             }
         }
-
-
-
 
 
 ataskaitos_button.setOnClickListener(new View.OnClickListener() {
