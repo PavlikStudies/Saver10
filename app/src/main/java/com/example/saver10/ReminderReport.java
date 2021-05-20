@@ -25,7 +25,7 @@ public class ReminderReport extends BroadcastReceiver {
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, channel_ID)
                 .setSmallIcon(R.drawable.ic_stat_notification)
-                .setContentTitle("Saver 1.0").setContentText("Time to check Your monthly report!")
+                .setContentTitle("Saver 1.0").setContentText("Time to enter Your daily spendings!")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true);

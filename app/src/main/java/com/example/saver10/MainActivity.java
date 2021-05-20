@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY, 8);
+        calendar.set(Calendar.HOUR_OF_DAY, 21);
         calendar.set(Calendar.MINUTE, 0);
         calendar.set(Calendar.SECOND, 1);
 
@@ -103,12 +103,27 @@ public class MainActivity extends AppCompatActivity {
             ivedimo_confirm.setBackgroundColor(getColor(R.color.SavingsRed));
             }
 
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> c0a77eb0e85da7e31e757b9173e272b8505a43a9
+            if (!PirmasKartas.getBooleanPreferenceValue(getApplicationContext(),"39"))
+
+
+            if (!PirmasKartas.getBooleanPreferenceValue(getApplicationContext(),"38"))
+>>>>>>> 28d0491652758a7748932ca2582674d8c8d57687
 
         } catch (Exception e) {
             PirmoKartoTIkrinimas PirmasKartas = new PirmoKartoTIkrinimas();
 
+<<<<<<< HEAD
             if (!PirmasKartas.getBooleanPreferenceValue(getApplicationContext(),"39"))
+=======
+
+>>>>>>> 28d0491652758a7748932ca2582674d8c8d57687
 
             {
                 onStart();
@@ -117,6 +132,16 @@ public class MainActivity extends AppCompatActivity {
 
                     PirmasKartas.setBooleanPreferenceValue(getApplicationContext(),"39", true);
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+
+
+
+=======
+>>>>>>> c0a77eb0e85da7e31e757b9173e272b8505a43a9
+>>>>>>> 28d0491652758a7748932ca2582674d8c8d57687
                 }
             }
         }
