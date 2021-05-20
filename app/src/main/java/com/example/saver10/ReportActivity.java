@@ -778,7 +778,7 @@ public class ReportActivity extends AppCompatActivity {
             while ((Textedit = br.readLine()) != null) {
                 String[] Lines = Textedit.split(";");
                 for (int i = 0; i < Lines.length; i++) {
-                    String[] parts = Lines[i].split("");
+                    String[] parts = Lines[i].split(" ");
                     double Name = (Double.parseDouble(parts[0]));
                     op[i] = Name;
                 }

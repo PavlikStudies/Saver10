@@ -21,7 +21,8 @@ import java.util.ArrayList;
 
 public class InvestingActivity extends AppCompatActivity {
     String lapatai="";
-    double maxdigitvalue = 9999;
+    int maxdigitvalue = 7;
+    double max =9999999;
     ArrayList<MountData> MASYVAS = new ArrayList<MountData>();
     String filenameofredingfile = "Modification.txt";
     @Override
@@ -57,10 +58,10 @@ public class InvestingActivity extends AppCompatActivity {
         File myExternalFile = new File(getExternalFilesDir(filepath),filename);
         MASYVAS = GetMounthData(myExternalFile);
         // Pradines reiksmes kokios yra faile
-        islaid_taupemoji.setText(MASYVAS.get(7).Label+"\n"+MASYVAS.get(7).Value);
-        islaid_investavimo.setText(MASYVAS.get(8).Label + "\n"+ MASYVAS.get(8).Value);
-        islaid_nenumatytu.setText(MASYVAS.get(9).Label + "\n"+ MASYVAS.get(9).Value);
-        islaid_ButoSas.setText(MASYVAS.get(10).Label +  "\n"+ MASYVAS.get(10).Value);
+        islaid_taupemoji.setText(MASYVAS.get(7).Label+"\n"+String.format("%.2f",MASYVAS.get(7).Value));
+        islaid_investavimo.setText(MASYVAS.get(8).Label + "\n"+ String.format("%.2f",MASYVAS.get(8).Value));
+        islaid_nenumatytu.setText(MASYVAS.get(9).Label + "\n"+ String.format("%.2f",MASYVAS.get(9).Value));
+        islaid_ButoSas.setText(MASYVAS.get(10).Label +  "\n"+ String.format("%.2f",MASYVAS.get(10).Value));
 
 
         //Migtukai pirmo lauko
@@ -69,25 +70,36 @@ public class InvestingActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     double number = Double.parseDouble(islaid_number1.getText().toString());
-                    if(number > maxdigitvalue) {
-                        Context context = getApplicationContext();
-                        CharSequence text = "Don't input more than 4 digit value!";
-                        int duration = Toast.LENGTH_SHORT;
-                        Toast toast = Toast.makeText(context,text,duration);
-                        toast.show();
-                    }
-                    else {
-                        double tmp = MASYVAS.get(7).Value + number;
-                        if (tmp > maxdigitvalue) {
+                    String textofnumber = Double.toString(Math.abs(number));
+                    int integerPlaces = textofnumber.indexOf('.');
+                    int decimalPlaces = textofnumber.length() - integerPlaces - 1;
+                    if(decimalPlaces < 3) {
+                        if (integerPlaces > maxdigitvalue) {
                             Context context = getApplicationContext();
-                            CharSequence text = "It will be more than 4 digit number";
+                            CharSequence text = "Don't input more than 7 digit value!";
                             int duration = Toast.LENGTH_SHORT;
                             Toast toast = Toast.makeText(context, text, duration);
                             toast.show();
                         } else {
-                            MASYVAS.get(7).SetValue(number);
-                            islaid_taupemoji.setText(MASYVAS.get(7).Label + "\n"+ MASYVAS.get(7).Value);
+                            double tmp = MASYVAS.get(7).Value + number;
+                            if (tmp > max) {
+                                Context context = getApplicationContext();
+                                CharSequence text = "If we add it will be more than 7 digit number" +"\n"+"You don't need to save money :)";
+                                int duration = Toast.LENGTH_SHORT;
+                                Toast toast = Toast.makeText(context, text, duration);
+                                toast.show();
+                            } else {
+                                MASYVAS.get(7).SetValue(number);
+                                islaid_taupemoji.setText(MASYVAS.get(7).Label + "\n" + String.format("%.2f",(MASYVAS.get(7).Value )));
+                            }
                         }
+                    }
+                    else {
+                        Context context = getApplicationContext();
+                        CharSequence text = "There are to many decimal places!";
+                        int duration = Toast.LENGTH_SHORT;
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
                     }
                 }
                 catch (Exception e)
@@ -101,26 +113,39 @@ public class InvestingActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     double number = Double.parseDouble(islaid_number1.getText().toString());
-                    if(number > maxdigitvalue) {
-                        Context context = getApplicationContext();
-                        CharSequence text = "Don't input more than 4 digit value!";
-                        int duration = Toast.LENGTH_SHORT;
-                        Toast toast = Toast.makeText(context,text,duration);
-                        toast.show();
-                    }
-                    else {
-                        double tmp = MASYVAS.get(7).Value - number;
-                        if (tmp < 0) {
+                    String textformthenumber = Double.toString(Math.abs(number));
+                    int integerPlaces = textformthenumber.indexOf('.');
+                    int decimalPlaces = textformthenumber.length() - integerPlaces - 1;
+                    if(decimalPlaces < 3) {
+                        if (integerPlaces > maxdigitvalue) {
                             Context context = getApplicationContext();
-                            CharSequence text = "It can't be negative value";
+                            CharSequence text = "Don't input more than 7 digit value!";
                             int duration = Toast.LENGTH_SHORT;
                             Toast toast = Toast.makeText(context, text, duration);
                             toast.show();
                         } else {
-                            MASYVAS.get(7).MinusValue(number);
-                            islaid_taupemoji.setText(MASYVAS.get(7).Label + "\n"+ MASYVAS.get(7).Value);
+                            double tmp = MASYVAS.get(7).Value - number;
+                            if (tmp < 0) {
+                                Context context = getApplicationContext();
+                                CharSequence text = "It can't be negative value";
+                                int duration = Toast.LENGTH_SHORT;
+                                Toast toast = Toast.makeText(context, text, duration);
+                                toast.show();
+                            } else {
+                                MASYVAS.get(7).MinusValue(number);
+                                islaid_taupemoji.setText(MASYVAS.get(7).Label + "\n" + String.format("%.2f",MASYVAS.get(7).Value));
+                            }
+
                         }
                     }
+                    else {
+                        Context context = getApplicationContext();
+                        CharSequence text = "There are to many decimal places!";
+                        int duration = Toast.LENGTH_SHORT;
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
+                    }
+
                 }
                 catch (Exception e)
                 {
@@ -134,25 +159,36 @@ public class InvestingActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     double number = Double.parseDouble(islaid_number2.getText().toString());
-                    if(number > maxdigitvalue) {
-                        Context context = getApplicationContext();
-                        CharSequence text = "Don't input more than 4 digit value!";
-                        int duration = Toast.LENGTH_SHORT;
-                        Toast toast = Toast.makeText(context,text,duration);
-                        toast.show();
-                    }
-                    else {
-                        double tmp = MASYVAS.get(8).Value + number;
-                        if (tmp > maxdigitvalue) {
+                    String textofnumber = Double.toString(Math.abs(number));
+                    int integerPlaces = textofnumber.indexOf('.');
+                    int decimalPlaces = textofnumber.length() - integerPlaces - 1;
+                    if(decimalPlaces < 3) {
+                        if (integerPlaces > maxdigitvalue) {
                             Context context = getApplicationContext();
-                            CharSequence text = "It will be more than 4 digit number";
+                            CharSequence text = "Don't input more than 7 digit value!";
                             int duration = Toast.LENGTH_SHORT;
                             Toast toast = Toast.makeText(context, text, duration);
                             toast.show();
                         } else {
-                            MASYVAS.get(8).SetValue(number);
-                            islaid_investavimo.setText(MASYVAS.get(8).Label +"\n"+ MASYVAS.get(8).Value);
+                            double tmp = MASYVAS.get(8).Value + number;
+                            if (tmp > max) {
+                                Context context = getApplicationContext();
+                                CharSequence text = "If we add it will be more than 7 digit number" +"\n"+"You don't need to save money :)";
+                                int duration = Toast.LENGTH_SHORT;
+                                Toast toast = Toast.makeText(context, text, duration);
+                                toast.show();
+                            } else {
+                                MASYVAS.get(8).SetValue(number);
+                                islaid_investavimo.setText(MASYVAS.get(8).Label + "\n" + String.format("%.2f",(MASYVAS.get(8).Value )));
+                            }
                         }
+                    }
+                    else {
+                        Context context = getApplicationContext();
+                        CharSequence text = "There are to many decimal places!";
+                        int duration = Toast.LENGTH_SHORT;
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
                     }
                 }
                 catch (Exception e)
@@ -166,26 +202,39 @@ public class InvestingActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     double number = Double.parseDouble(islaid_number2.getText().toString());
-                    if(number > maxdigitvalue) {
-                        Context context = getApplicationContext();
-                        CharSequence text = "Don't input more than 4 digit value!";
-                        int duration = Toast.LENGTH_SHORT;
-                        Toast toast = Toast.makeText(context,text,duration);
-                        toast.show();
-                    }
-                    else {
-                        double tmp = MASYVAS.get(8).Value - number;
-                        if (tmp < 0) {
+                    String textformthenumber = Double.toString(Math.abs(number));
+                    int integerPlaces = textformthenumber.indexOf('.');
+                    int decimalPlaces = textformthenumber.length() - integerPlaces - 1;
+                    if(decimalPlaces < 3) {
+                        if (integerPlaces > maxdigitvalue) {
                             Context context = getApplicationContext();
-                            CharSequence text = "It can't be negative value";
+                            CharSequence text = "Don't input more than 7 digit value!";
                             int duration = Toast.LENGTH_SHORT;
                             Toast toast = Toast.makeText(context, text, duration);
                             toast.show();
                         } else {
-                            MASYVAS.get(8).MinusValue(number);
-                            islaid_investavimo.setText(MASYVAS.get(8).Label +"\n"+ MASYVAS.get(8).Value);
+                            double tmp = MASYVAS.get(8).Value - number;
+                            if (tmp < 0) {
+                                Context context = getApplicationContext();
+                                CharSequence text = "It can't be negative value";
+                                int duration = Toast.LENGTH_SHORT;
+                                Toast toast = Toast.makeText(context, text, duration);
+                                toast.show();
+                            } else {
+                                MASYVAS.get(8).MinusValue(number);
+                                islaid_investavimo.setText(MASYVAS.get(8).Label + "\n" + String.format("%.2f", MASYVAS.get(8).Value));
+                            }
+
                         }
                     }
+                    else {
+                        Context context = getApplicationContext();
+                        CharSequence text = "There are to many decimal places!";
+                        int duration = Toast.LENGTH_SHORT;
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
+                    }
+
                 }
                 catch (Exception e)
                 {
@@ -199,30 +248,41 @@ public class InvestingActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     double number = Double.parseDouble(islaid_number3.getText().toString());
-                    if(number > maxdigitvalue) {
-                        Context context = getApplicationContext();
-                        CharSequence text = "Don't input more than 4 digit value!";
-                        int duration = Toast.LENGTH_SHORT;
-                        Toast toast = Toast.makeText(context,text,duration);
-                        toast.show();
-                    }
-                    else {
-                        double tmp = MASYVAS.get(9).Value + number;
-                        if (tmp > maxdigitvalue) {
+                    String textofnumber = Double.toString(Math.abs(number));
+                    int integerPlaces = textofnumber.indexOf('.');
+                    int decimalPlaces = textofnumber.length() - integerPlaces - 1;
+                    if(decimalPlaces < 3) {
+                        if (integerPlaces > maxdigitvalue) {
                             Context context = getApplicationContext();
-                            CharSequence text = "It will be more than 4 digit number";
+                            CharSequence text = "Don't input more than 7 digit value!";
                             int duration = Toast.LENGTH_SHORT;
                             Toast toast = Toast.makeText(context, text, duration);
                             toast.show();
                         } else {
-                            MASYVAS.get(9).SetValue(number);
-                            islaid_nenumatytu.setText(MASYVAS.get(9).Label +"\n"+MASYVAS.get(9).Value);
+                            double tmp = MASYVAS.get(9).Value + number;
+                            if (tmp > max) {
+                                Context context = getApplicationContext();
+                                CharSequence text = "If we add it will be more than 7 digit number" + "\n" + "You don't need to save money :)";
+                                int duration = Toast.LENGTH_SHORT;
+                                Toast toast = Toast.makeText(context, text, duration);
+                                toast.show();
+                            } else {
+                                MASYVAS.get(9).SetValue(number);
+                                islaid_nenumatytu.setText(MASYVAS.get(9).Label + "\n" + String.format("%.2f", (MASYVAS.get(9).Value)));
+                            }
                         }
+                    }
+                    else {
+                        Context context = getApplicationContext();
+                        CharSequence text = "There are to many decimal places!";
+                        int duration = Toast.LENGTH_SHORT;
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
                     }
                 }
                 catch (Exception e)
                 {
-                    MASYVAS.get(9).SetValue(0);
+                    MASYVAS.get(5).SetValue(0);
                 }
             }
         });
@@ -231,30 +291,42 @@ public class InvestingActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     double number = Double.parseDouble(islaid_number3.getText().toString());
-                    if(number > maxdigitvalue) {
-                        Context context = getApplicationContext();
-                        CharSequence text = "Don't input more than 4 digit value!";
-                        int duration = Toast.LENGTH_SHORT;
-                        Toast toast = Toast.makeText(context,text,duration);
-                        toast.show();
-                    }
-                    else {
-                        double tmp = MASYVAS.get(9).Value - number;
-                        if (tmp < 0) {
+                    String textformthenumber = Double.toString(Math.abs(number));
+                    int integerPlaces = textformthenumber.indexOf('.');
+                    int decimalPlaces = textformthenumber.length() - integerPlaces - 1;
+                    if(decimalPlaces < 3) {
+                        if (integerPlaces > maxdigitvalue) {
                             Context context = getApplicationContext();
-                            CharSequence text = "It can't be negative value";
+                            CharSequence text = "Don't input more than 7 digit value!";
                             int duration = Toast.LENGTH_SHORT;
                             Toast toast = Toast.makeText(context, text, duration);
                             toast.show();
                         } else {
-                            MASYVAS.get(9).MinusValue(number);
-                            islaid_nenumatytu.setText(MASYVAS.get(9).Label +"\n"+MASYVAS.get(9).Value);
+                            double tmp = MASYVAS.get(9).Value - number;
+                            if (tmp < 0) {
+                                Context context = getApplicationContext();
+                                CharSequence text = "It can't be negative value";
+                                int duration = Toast.LENGTH_SHORT;
+                                Toast toast = Toast.makeText(context, text, duration);
+                                toast.show();
+                            } else {
+                                MASYVAS.get(9).MinusValue(number);
+                                islaid_nenumatytu.setText(MASYVAS.get(9).Label + "\n" + String.format("%.2f", MASYVAS.get(9).Value));
+                            }
+
                         }
+                    }
+                    else {
+                        Context context = getApplicationContext();
+                        CharSequence text = "There are to many decimal places!";
+                        int duration = Toast.LENGTH_SHORT;
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
                     }
                 }
                 catch (Exception e)
                 {
-                    MASYVAS.get(9).SetValue(0);
+                    MASYVAS.get(5).SetValue(0);
                 }
             }
         });
@@ -264,25 +336,36 @@ public class InvestingActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     double number = Double.parseDouble(islaid_number4.getText().toString());
-                    if(number > maxdigitvalue) {
-                        Context context = getApplicationContext();
-                        CharSequence text = "Don't input more than 4 digit value!";
-                        int duration = Toast.LENGTH_SHORT;
-                        Toast toast = Toast.makeText(context,text,duration);
-                        toast.show();
-                    }
-                    else {
-                        double tmp = MASYVAS.get(10).Value + number;
-                        if (tmp > maxdigitvalue) {
+                    String textofnumber = Double.toString(Math.abs(number));
+                    int integerPlaces = textofnumber.indexOf('.');
+                    int decimalPlaces = textofnumber.length() - integerPlaces - 1;
+                    if(decimalPlaces < 3) {
+                        if (integerPlaces > maxdigitvalue) {
                             Context context = getApplicationContext();
-                            CharSequence text = "It will be more than 4 digit number";
+                            CharSequence text = "Don't input more than 7 digit value!";
                             int duration = Toast.LENGTH_SHORT;
                             Toast toast = Toast.makeText(context, text, duration);
                             toast.show();
                         } else {
-                            MASYVAS.get(10).SetValue(number);
-                            islaid_ButoSas.setText(MASYVAS.get(10).Label + "\n" +MASYVAS.get(10).Value);
+                            double tmp = MASYVAS.get(10).Value + number;
+                            if (tmp > max) {
+                                Context context = getApplicationContext();
+                                CharSequence text = "If we add it will be more than 7 digit number" + "\n" + "You don't need to save money :)";
+                                int duration = Toast.LENGTH_SHORT;
+                                Toast toast = Toast.makeText(context, text, duration);
+                                toast.show();
+                            } else {
+                                MASYVAS.get(10).SetValue(number);
+                                islaid_ButoSas.setText(MASYVAS.get(10).Label + "\n" + String.format("%.2f", (MASYVAS.get(10).Value)));
+                            }
                         }
+                    }
+                    else {
+                        Context context = getApplicationContext();
+                        CharSequence text = "There are to many decimal places!";
+                        int duration = Toast.LENGTH_SHORT;
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
                     }
                 }
                 catch (Exception e)
@@ -296,25 +379,37 @@ public class InvestingActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     double number = Double.parseDouble(islaid_number4.getText().toString());
-                    if(number > maxdigitvalue) {
-                        Context context = getApplicationContext();
-                        CharSequence text = "Don't input more than 4 digit value!";
-                        int duration = Toast.LENGTH_SHORT;
-                        Toast toast = Toast.makeText(context,text,duration);
-                        toast.show();
-                    }
-                    else {
-                        double tmp = MASYVAS.get(10).Value - number;
-                        if (tmp < 0) {
+                    String textformthenumber = Double.toString(Math.abs(number));
+                    int integerPlaces = textformthenumber.indexOf('.');
+                    int decimalPlaces = textformthenumber.length() - integerPlaces - 1;
+                    if(decimalPlaces < 3) {
+                        if (integerPlaces > maxdigitvalue) {
                             Context context = getApplicationContext();
-                            CharSequence text = "It can't be negative value";
+                            CharSequence text = "Don't input more than 7 digit value!";
                             int duration = Toast.LENGTH_SHORT;
                             Toast toast = Toast.makeText(context, text, duration);
                             toast.show();
                         } else {
-                            MASYVAS.get(10).MinusValue(number);
-                            islaid_ButoSas.setText(MASYVAS.get(10).Label + "\n" + MASYVAS.get(10).Value);
+                            double tmp = MASYVAS.get(10).Value - number;
+                            if (tmp < 0) {
+                                Context context = getApplicationContext();
+                                CharSequence text = "It can't be negative value";
+                                int duration = Toast.LENGTH_SHORT;
+                                Toast toast = Toast.makeText(context, text, duration);
+                                toast.show();
+                            } else {
+                                MASYVAS.get(10).MinusValue(number);
+                                islaid_ButoSas.setText(MASYVAS.get(10).Label + "\n" + String.format("%.2f", MASYVAS.get(10).Value));
+                            }
+
                         }
+                    }
+                    else {
+                        Context context = getApplicationContext();
+                        CharSequence text = "There are to many decimal places!";
+                        int duration = Toast.LENGTH_SHORT;
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
                     }
                 }
                 catch (Exception e)
