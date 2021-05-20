@@ -130,11 +130,11 @@ public class ReportActivity extends AppCompatActivity {
                         Text_Investing.setBackgroundColor(getColor(R.color.SavingsGreen));
                     }
                     else  Text_Investing.setBackgroundColor(getColor(R.color.SavingsRed));
-                    if (Savings <= Math.round(PradinesPajamos*0.2))
+                    if (Savings <= (PradinesPajamos*0.2))
                     {
                        Text_Savings.setBackgroundColor(getColor(R.color.SavingsGreen));
                     }
-                    else Text_Investing.setBackgroundColor(getColor(R.color.SavingsRed));
+                    else Text_Savings.setBackgroundColor(getColor(R.color.SavingsRed));
                 }
                 if(MySpinner.getSelectedItem().toString().equals("February"))
                 {
@@ -189,7 +189,7 @@ public class ReportActivity extends AppCompatActivity {
                     {
                         Text_Savings.setBackgroundColor(getColor(R.color.SavingsGreen));
                     }
-                    else Text_Investing.setBackgroundColor(getColor(R.color.SavingsRed));
+                    else Text_Savings.setBackgroundColor(getColor(R.color.SavingsRed));
                 }
                 if(MySpinner.getSelectedItem().toString().equals("March"))
                 {
@@ -245,7 +245,7 @@ public class ReportActivity extends AppCompatActivity {
                     {
                         Text_Savings.setBackgroundColor(getColor(R.color.SavingsGreen));
                     }
-                    else Text_Investing.setBackgroundColor(getColor(R.color.SavingsRed));
+                    else Text_Savings.setBackgroundColor(getColor(R.color.SavingsRed));
                 }
                 if(MySpinner.getSelectedItem().toString().equals("April"))
                 {
@@ -301,7 +301,7 @@ public class ReportActivity extends AppCompatActivity {
                     {
                         Text_Savings.setBackgroundColor(getColor(R.color.SavingsGreen));
                     }
-                    else Text_Investing.setBackgroundColor(getColor(R.color.SavingsRed));
+                    else Text_Savings.setBackgroundColor(getColor(R.color.SavingsRed));
                 }
                 if(MySpinner.getSelectedItem().toString().equals("May"))
                 {
@@ -357,7 +357,7 @@ public class ReportActivity extends AppCompatActivity {
                     {
                         Text_Savings.setBackgroundColor(getColor(R.color.SavingsGreen));
                     }
-                    else Text_Investing.setBackgroundColor(getColor(R.color.SavingsRed));
+                    else Text_Savings.setBackgroundColor(getColor(R.color.SavingsRed));
                 }
                 if(MySpinner.getSelectedItem().toString().equals("June"))
                 {
@@ -413,7 +413,7 @@ public class ReportActivity extends AppCompatActivity {
                     {
                         Text_Savings.setBackgroundColor(getColor(R.color.SavingsGreen));
                     }
-                    else Text_Investing.setBackgroundColor(getColor(R.color.SavingsRed));
+                    else Text_Savings.setBackgroundColor(getColor(R.color.SavingsRed));
                 }
                 if(MySpinner.getSelectedItem().toString().equals("July"))
                 {
@@ -467,7 +467,7 @@ public class ReportActivity extends AppCompatActivity {
                     {
                         Text_Savings.setBackgroundColor(getColor(R.color.SavingsGreen));
                     }
-                    else Text_Investing.setBackgroundColor(getColor(R.color.SavingsRed));
+                    else Text_Savings.setBackgroundColor(getColor(R.color.SavingsRed));
                 }
                 if(MySpinner.getSelectedItem().toString().equals("August"))
                 {
@@ -523,7 +523,7 @@ public class ReportActivity extends AppCompatActivity {
                     {
                         Text_Savings.setBackgroundColor(getColor(R.color.SavingsGreen));
                     }
-                    else Text_Investing.setBackgroundColor(getColor(R.color.SavingsRed));
+                    else Text_Savings.setBackgroundColor(getColor(R.color.SavingsRed));
                 }
                 if(MySpinner.getSelectedItem().toString().equals("September"))
                 {
@@ -579,7 +579,7 @@ public class ReportActivity extends AppCompatActivity {
                     {
                         Text_Savings.setBackgroundColor(getColor(R.color.SavingsGreen));
                     }
-                    else Text_Investing.setBackgroundColor(getColor(R.color.SavingsRed));
+                    else Text_Savings.setBackgroundColor(getColor(R.color.SavingsRed));
                 }
                 if(MySpinner.getSelectedItem().toString().equals("October"))
                 {
@@ -633,7 +633,7 @@ public class ReportActivity extends AppCompatActivity {
                     {
                         Text_Savings.setBackgroundColor(getColor(R.color.SavingsGreen));
                     }
-                    else Text_Investing.setBackgroundColor(getColor(R.color.SavingsRed));
+                    else Text_Savings.setBackgroundColor(getColor(R.color.SavingsRed));
                 }
                 if(MySpinner.getSelectedItem().toString().equals("November"))
                 {
@@ -689,7 +689,7 @@ public class ReportActivity extends AppCompatActivity {
                     {
                         Text_Savings.setBackgroundColor(getColor(R.color.SavingsGreen));
                     }
-                    else Text_Investing.setBackgroundColor(getColor(R.color.SavingsRed));
+                    else Text_Savings.setBackgroundColor(getColor(R.color.SavingsRed));
                 }
                 if(MySpinner.getSelectedItem().toString().equals("December"))
                 {
@@ -745,7 +745,7 @@ public class ReportActivity extends AppCompatActivity {
                     {
                         Text_Savings.setBackgroundColor(getColor(R.color.SavingsGreen));
                     }
-                    else Text_Investing.setBackgroundColor(getColor(R.color.SavingsRed));
+                    else Text_Savings.setBackgroundColor(getColor(R.color.SavingsRed));
                 }
 
             }
