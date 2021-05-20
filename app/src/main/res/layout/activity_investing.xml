@@ -18,6 +18,7 @@
     </RelativeLayout>
 
     <Button
+        android:background="@drawable/ic_action_arrowminus"
         android:id="@+id/button5_investing_min"
         android:layout_width="77dp"
         android:layout_height="wrap_content"
@@ -28,6 +29,7 @@
         app:layout_constraintTop_toTopOf="@+id/editTextNumberDecimal6" />
 
     <Button
+        android:background="@drawable/ic_action_arrowminus"
         android:id="@+id/button4_investing_min"
         android:layout_width="77dp"
         android:layout_height="wrap_content"
@@ -39,8 +41,8 @@
 
     <EditText
         android:id="@+id/editTextNumberDecimal7"
-        android:layout_width="92dp"
-        android:layout_height="39dp"
+        android:layout_width="93dp"
+        android:layout_height="50dp"
         android:ems="10"
         android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="@+id/button5_investing"
@@ -50,7 +52,7 @@
     <EditText
         android:id="@+id/editTextNumberDecimal6"
         android:layout_width="93dp"
-        android:layout_height="48dp"
+        android:layout_height="50dp"
         android:ems="10"
         android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="@+id/button4_investing"
@@ -59,8 +61,8 @@
 
     <EditText
         android:id="@+id/editTextNumberDecimal5"
-        android:layout_width="95dp"
-        android:layout_height="48dp"
+        android:layout_width="93dp"
+        android:layout_height="50dp"
         android:ems="10"
         android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="@+id/button3_investing"
@@ -71,7 +73,8 @@
         android:id="@+id/button5_investing"
         android:layout_width="77dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="5dp"
+        android:background="@drawable/ic_action_arrowup"
         android:text="+"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView5_investing"
@@ -82,7 +85,8 @@
         android:id="@+id/button4_investing"
         android:layout_width="77dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="5dp"
+        android:background="@drawable/ic_action_arrowup"
         android:text="+"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView4_investing"
@@ -93,7 +97,8 @@
         android:id="@+id/button3_investing"
         android:layout_width="77dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="5dp"
+        android:background="@drawable/ic_action_arrowup"
         android:text="+"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView3_investing"
@@ -112,8 +117,8 @@
 
     <TextView
         android:id="@+id/textView3_investing"
-        android:layout_width="120dp"
-        android:layout_height="49dp"
+        android:layout_width="117dp"
+        android:layout_height="51dp"
         android:layout_marginTop="20dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="@+id/textView2_investing"
@@ -141,7 +146,8 @@
         android:id="@+id/button2_investing"
         android:layout_width="77dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="5dp"
+        android:background="@drawable/ic_action_arrowup"
         android:text="+"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView2_investing"
@@ -152,7 +158,7 @@
         android:id="@+id/editTextNumberDecimal4"
         android:layout_width="93dp"
         android:layout_height="50dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="4dp"
         android:ems="10"
         android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="@+id/button2_investing"
@@ -163,7 +169,8 @@
         android:id="@+id/button3"
         android:layout_width="77dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="2dp"
+        android:background="@drawable/ic_action_arrowminus"
         android:text="-"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="@+id/editTextNumberDecimal4"
@@ -171,6 +178,7 @@
         app:layout_constraintTop_toTopOf="@+id/editTextNumberDecimal4" />
 
     <Button
+        android:background="@drawable/ic_action_arrowminus"
         android:id="@+id/button7_investing_min"
         android:layout_width="77dp"
         android:layout_height="wrap_content"

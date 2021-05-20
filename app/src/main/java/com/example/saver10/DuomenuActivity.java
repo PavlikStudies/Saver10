@@ -55,9 +55,9 @@ public class DuomenuActivity extends AppCompatActivity {
         File myExternalFile = new File(getExternalFilesDir(filepath),filename);
         MASYVAS = GetMounthData(myExternalFile);
         // Pradines reiksmes kokios yra faile
-        islaid_taupemoji.setText(MASYVAS.get(0).Label+"\n"+MASYVAS.get(0).Value);
-        islaid_investavimo.setText(MASYVAS.get(1).Label +"\n" + MASYVAS.get(1).Value);
-        islaid_nenumatytu.setText(MASYVAS.get(2).Label +"\n" + MASYVAS.get(2).Value);
+        islaid_taupemoji.setText(MASYVAS.get(0).Label+"\n"+String.format("%.2f",MASYVAS.get(0).Value));
+        islaid_investavimo.setText(MASYVAS.get(1).Label +"\n" + String.format("%.2f",MASYVAS.get(1).Value));
+        islaid_nenumatytu.setText(MASYVAS.get(2).Label +"\n" + String.format("%.2f",MASYVAS.get(2).Value));
         //Migtukai pirmo lauko
         islaid_pridet1.setOnClickListener(new View.OnClickListener() {
             @Override

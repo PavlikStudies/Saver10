@@ -20,16 +20,19 @@ import android.widget.RelativeLayout;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
      double pinigeliai;
      String channel_ID = "0";
         RelativeLayout relativeLayout;
-
+        String lapatai="";
 
 
     @Override
@@ -84,18 +87,28 @@ public class MainActivity extends AppCompatActivity {
             investing.append(" €");
             LavishSpendings.setText(String.format("%.2f",(PradinesPajamos * 0.2)));
             LavishSpendings.append(" €");
+            String filename1="Savings.txt";
+            File AntroKartoData = new File(getExternalFilesDir(filepath), filename1);
+            double[] ex = GenerateSavingsoftheMounth();
+            RewriteData(ex,AntroKartoData);
+            double[] Data = GetSavings(AntroKartoData);
+            double SUMFINAL = 0;
+            SUMFINAL=AllSum(Data,PradinesPajamos);
+            if(SUMFINAL>0)
+            {ivedimo_confirm.setText("You saved: "+String.format("%.2f",(SUMFINAL)));
+            ivedimo_confirm.setBackgroundColor(getColor(R.color.SavingsGreen));
+            }
+            else
+            {ivedimo_confirm.setText("You lost: "+String.format("%.2f",(SUMFINAL)));
+            ivedimo_confirm.setBackgroundColor(getColor(R.color.SavingsRed));
+            }
+
+
+
         } catch (Exception e) {
             PirmoKartoTIkrinimas PirmasKartas = new PirmoKartoTIkrinimas();
 
-<<<<<<< HEAD
             if (!PirmasKartas.getBooleanPreferenceValue(getApplicationContext(),"39"))
-=======
-
-            if (!PirmasKartas.getBooleanPreferenceValue(getApplicationContext(),"38"))
-
-            if (!PirmasKartas.getBooleanPreferenceValue(getApplicationContext(),"39"))
-
->>>>>>> 446641848f0a502d2db0026fe338a4182a564904
 
             {
                 onStart();
@@ -104,12 +117,6 @@ public class MainActivity extends AppCompatActivity {
 
                     PirmasKartas.setBooleanPreferenceValue(getApplicationContext(),"39", true);
 
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> 446641848f0a502d2db0026fe338a4182a564904
                 }
             }
         }
@@ -183,7 +190,155 @@ ataskaitos_button.setOnClickListener(new View.OnClickListener() {
         }
         return Pajamos;
     }
+    public double[] GetSavings(File PaimtasFailas) {
+        String Textedit = "";
+        FileReader fr = null;
+        double[] op = new double[12];
+        try {
+            fr = new FileReader(PaimtasFailas);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        BufferedReader br = new BufferedReader(fr);
+        try {
+            while ((Textedit = br.readLine()) != null) {
+                String[] Lines = Textedit.split(";");
+                for (int i = 0; i < Lines.length; i++) {
+                    String[] parts = Lines[i].split(" ");
+                    double Name = (Double.parseDouble(parts[0]));
+                    op[i] = Name;
+                }
+            }
+            br.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return op;
+    }
+    public double[] GenerateSavingsoftheMounth()
+    {
+        double[] generateddata = new double[12];
+        double SUM=0;
+        String filename1 = "InitialIncome.txt";
+        String filepath = "MyfileDirectory";
+        String [] Mounths = {"JanuaryData.txt","FeabuaryData.txt","MarchData.txt","AprilData.txt","MayData.txt",
+                "JuneData.txt","JulyData.txt","AugustData.txt","SeptemberData.txt","OctoberData.txt","NovemberData.txt","DecemberData.txt"};
+        File PirmoKartoData = new File(getExternalFilesDir(filepath), filename1);
+        double PradinesPajamos = GetIncomeData(PirmoKartoData);
+        for (int i=0; i<11; i++) {
+            String filename = Mounths[i];
+            SUM = GenerateASUM(filename, filepath, PradinesPajamos);
+            generateddata[i] = SUM;
+        }
 
+        return generateddata;
+    }
+
+    public double AllSum(double[] data,double pradinesincome)
+    {
+        double sum = 0;
+        for (int i=0 ; i<11; i++)
+        {
+            if(pradinesincome != data[i])
+            sum = sum + data[i];
+        }
+        return sum;
+    }
+
+    public  double GenerateASUM(String filename, String filepath, double PradinesPajamos)
+    {
+        double SUM = 0;
+        File myExternalFile = new File(getExternalFilesDir(filepath),filename);
+        ArrayList<MountData> SavingsL;
+        SavingsL = GetMounthData(myExternalFile);
+        double Savings = GetSUMofMounthByIndex(SavingsL,0,3);
+        double Keyspending = GetSUMofMounthByIndex(SavingsL,3,7);
+        double Investing = GetSUMofMounthByIndex(SavingsL,7,11);
+        SUM = (PradinesPajamos*0.5 - Keyspending)+(PradinesPajamos*0.3 - Investing)+(PradinesPajamos*0.2 - Savings);
+        return SUM;
+    }
+    public void RewriteData (double[] data,File Paimtasfailas)
+    {
+        FileOutputStream fos = null;
+        try{
+            String text1 =data[0]+";";
+            String text2 =data[1]+";";
+            String text3 =data[2]+";";
+
+            //////
+            String text4=data[3]+";";
+            String text5=data[4]+";";
+            String text6=data[5]+";";
+            String text7=data[6]+";";
+
+            ////
+            String text8 =data[7]+";";
+            String text9 =data[8]+";";
+            String text10=data[9]+";";;
+            String text11=data[10]+";";
+            String text12=data[11]+";";
+
+            FileWriter Writer = new FileWriter(Paimtasfailas);
+            Writer.write(text1);
+            Writer.write(text2);
+            Writer.write(text3);
+            Writer.write(text4);
+            Writer.write(text5);
+            Writer.write(text6);
+            Writer.write(text7);
+            Writer.write(text8);
+            Writer.write(text9);
+            Writer.write(text10);
+            Writer.write(text11);
+            Writer.write(text11);
+
+            Writer.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public ArrayList<MountData> GetMounthData(File PaimtasFailas)
+    {
+        FileReader fr =null;
+        try {
+            fr = new FileReader(PaimtasFailas);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        BufferedReader br = new BufferedReader(fr);
+        ArrayList<MountData> data = new ArrayList<MountData>();
+        try {
+            while ((lapatai = br.readLine()) != null)
+            {
+                String[] Lines = lapatai.split(";");
+                for (int i = 0; i < Lines.length; i++)
+                {
+                    String[] parts = Lines[i].split(",");
+                    String Name = (parts[0]);
+                    double NumberOfMarks = Double.parseDouble(parts[1]);
+                    MountData S = new MountData(Name,NumberOfMarks);
+                    data.add(S);
+                }
+            }
+            br.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return data;
+    }
+
+    public  double GetSUMofMounthByIndex(ArrayList<MountData> Data, int i,int p)
+    {
+        double sum = 0;
+        int k=0;
+        for (k=i;i<p; i++)
+        {
+            sum = sum + Data.get(i).Value;
+        }
+        return sum;
+    }
 
 
 

@@ -18,6 +18,7 @@
     </RelativeLayout>
 
     <Button
+        android:background="@drawable/ic_action_arrowminus"
         android:id="@+id/button8_min_isl"
         android:layout_width="73dp"
         android:layout_height="50dp"
@@ -29,7 +30,7 @@
     <EditText
         android:id="@+id/editTextNumberDecimal3"
         android:layout_width="81dp"
-        android:layout_height="44dp"
+        android:layout_height="48dp"
         android:ems="10"
         android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="@+id/button4_plius_isl"
@@ -39,7 +40,7 @@
     <EditText
         android:id="@+id/editTextNumberDecimal2"
         android:layout_width="81dp"
-        android:layout_height="43dp"
+        android:layout_height="48dp"
         android:ems="10"
         android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="@+id/button3_plius_isl"
@@ -47,6 +48,7 @@
         app:layout_constraintTop_toTopOf="@+id/button3_plius_isl" />
 
     <Button
+        android:background="@drawable/ic_action_arrowminus"
         android:id="@+id/button6_min_isl"
         android:layout_width="73dp"
         android:layout_height="50dp"
@@ -57,6 +59,7 @@
         app:layout_constraintTop_toTopOf="@+id/editTextNumberDecimal" />
 
     <Button
+        android:background="@drawable/ic_action_arrowminus"
         android:id="@+id/button7_min_isl"
         android:layout_width="73dp"
         android:layout_height="50dp"
@@ -66,6 +69,7 @@
         app:layout_constraintTop_toTopOf="@+id/editTextNumberDecimal2" />
 
     <Button
+        android:background="@drawable/ic_action_arrowup"
         android:id="@+id/button4_plius_isl"
         android:layout_width="73dp"
         android:layout_height="50dp"
@@ -75,6 +79,7 @@
         app:layout_constraintTop_toTopOf="@+id/textView3_KeySpending3" />
 
     <Button
+        android:background="@drawable/ic_action_arrowup"
         android:id="@+id/button3_plius_isl"
         android:layout_width="73dp"
         android:layout_height="50dp"
@@ -114,6 +119,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView_KeySpending" />
 
     <Button
+        android:background="@drawable/ic_action_arrowup"
         android:id="@+id/button2_plius_isl"
         android:layout_width="73dp"
         android:layout_height="50dp"
