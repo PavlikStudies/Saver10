@@ -8,15 +8,28 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_Pasirinkti_ataskaita"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="110dp"
+        android:layout_height="47dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="20dp"
         android:backgroundTint="@color/ButtonColor"
-        android:text="Pasirinkite mėnesį"
+        android:text="Set month"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/BackToMainButton"
+        android:layout_width="85dp"
+        android:layout_height="51dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="160dp"
+        android:layout_marginBottom="44dp"
+        android:background="@drawable/shapeofbutton"
+        android:backgroundTint="@color/ButtonColor"
+        android:text="Return to main"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Spinner
         android:id="@+id/pasirinkimai_Spinners_ataskaita"
@@ -29,10 +42,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="414dp"
-        android:layout_height="151dp"
+        android:layout_height="200dp"
         android:layout_marginBottom="364dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
@@ -48,19 +62,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Rekomendacijos" />
+                android:text="Recomendations"
+                android:textStyle="italic"
+                android:textAlignment="center"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Pajamu dalis" />
+                android:text="Part of income"
+                android:textStyle="italic"
+                android:textAlignment="center"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Menesio duomenys" />
+                android:text="Month data"
+                android:textStyle="italic"
+                android:textAlignment="center"/>
         </TableRow>
 
         <TableRow
@@ -71,13 +91,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Butinos islaidos" />
+                android:text="Key expenses"
+
+                android:textAlignment="center"/>
 
             <TextView
                 android:id="@+id/Spending_Person"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textAlignment="center"
                />
 
             <TextView
@@ -85,6 +108,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textAlignment="center"
                  />
         </TableRow>
 
@@ -96,13 +120,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Investavimo islaidos" />
+                android:text="Investing budget"
+                android:textAlignment="center"/>
 
             <TextView
                 android:id="@+id/Investing_Person"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textAlignment="center"
                  />
 
             <TextView
@@ -110,6 +136,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textAlignment="center"
               />
 
         </TableRow>
@@ -122,13 +149,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Laisvalaikio islaidos" />
+                android:text="Lavish spendings"
+                android:textAlignment="center"/>
 
             <TextView
                 android:id="@+id/Lavish_PersonS"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textAlignment="center"
                  />
 
             <TextView
@@ -136,8 +165,47 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textAlignment="center"
+
                />
         </TableRow>
+        <TableRow
+            android:background="#DAE8FC"
+            android:padding="6dp">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Savings"
+                android:textAlignment="center"/>
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                />
+
+            <TextView
+                android:id="@+id/ContSavings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="center"
+
+                />
+        </TableRow>
     </TableLayout>
+
+
+    <TextView
+        android:id="@+id/Patarimas"
+        android:layout_width="336dp"
+        android:layout_height="128dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="112dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

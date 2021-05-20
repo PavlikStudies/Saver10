@@ -11,6 +11,7 @@
         android:layout_width="68dp"
         android:layout_height="59dp"
         android:text="-"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/editTextNumberDecimal8_islaidos"
         app:layout_constraintStart_toStartOf="@+id/button3_islaidos_min3"
         app:layout_constraintTop_toTopOf="@+id/editTextNumberDecimal8_islaidos" />
@@ -20,6 +21,7 @@
         android:layout_width="68dp"
         android:layout_height="59dp"
         android:text="-"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/editTextNumberDecimal7_islaidos"
         app:layout_constraintStart_toStartOf="@+id/button3_islaidos_min2"
         app:layout_constraintTop_toTopOf="@+id/editTextNumberDecimal7_islaidos" />
@@ -29,14 +31,16 @@
         android:layout_width="68dp"
         android:layout_height="59dp"
         android:text="-"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/editTextNumberDecimal6_islaidos"
         app:layout_constraintStart_toStartOf="@+id/button3_islaidos_min"
-        app:layout_constraintTop_toTopOf="@+id/editTextNumberDecimal6_islaidos" />
+        app:layout_constraintTop_toTopOf="@+id/editTextNumberDecimal6_islaidos"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/editTextNumberDecimal8_islaidos"
-        android:layout_width="81dp"
-        android:layout_height="38dp"
+        android:layout_width="87dp"
+        android:layout_height="44dp"
         android:ems="10"
         android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="@+id/button2_islaidos4"
@@ -45,8 +49,8 @@
 
     <EditText
         android:id="@+id/editTextNumberDecimal7_islaidos"
-        android:layout_width="81dp"
-        android:layout_height="38dp"
+        android:layout_width="87dp"
+        android:layout_height="44dp"
         android:ems="10"
         android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="@+id/button2_islaidos3"
@@ -55,20 +59,22 @@
 
     <EditText
         android:id="@+id/editTextNumberDecimal6_islaidos"
-        android:layout_width="81dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="10dp"
+        android:layout_width="87dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="5dp"
         android:ems="10"
         android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="@+id/button2_islaidos2"
         app:layout_constraintStart_toEndOf="@+id/button2_islaidos"
-        app:layout_constraintTop_toTopOf="@+id/button2_islaidos2" />
+        app:layout_constraintTop_toTopOf="@+id/button2_islaidos2"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/button2_islaidos4"
         android:layout_width="77dp"
         android:layout_height="51dp"
         android:text="+"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView4_islaidos"
         app:layout_constraintStart_toStartOf="@+id/button2_islaidos3"
         app:layout_constraintTop_toTopOf="@+id/textView4_islaidos" />
@@ -78,6 +84,7 @@
         android:layout_width="77dp"
         android:layout_height="51dp"
         android:text="+"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView3_islaidos"
         app:layout_constraintStart_toStartOf="@+id/button2_islaidos2"
         app:layout_constraintTop_toTopOf="@+id/textView3_islaidos" />
@@ -87,33 +94,36 @@
         android:layout_width="77dp"
         android:layout_height="51dp"
         android:text="+"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView2_islaidos"
         app:layout_constraintStart_toStartOf="@+id/button2_islaidos"
         app:layout_constraintTop_toTopOf="@+id/textView2_islaidos" />
 
     <TextView
         android:id="@+id/textView2_islaidos"
-        android:layout_width="115dp"
-        android:layout_height="35dp"
+        android:layout_width="111dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="20dp"
         android:text="TextView"
-        app:layout_constraintStart_toStartOf="@+id/textView_islaidos"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_islaidos" />
 
     <TextView
         android:id="@+id/textView_islaidos"
-        android:layout_width="115dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="200dp"
+        android:layout_width="114dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="252dp"
         android:text="TextView"
-        app:layout_constraintStart_toStartOf="@+id/relativeLayout"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        android:textAllCaps="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView3_islaidos"
-        android:layout_width="115dp"
-        android:layout_height="35dp"
+        android:layout_width="111dp"
+        android:layout_height="53dp"
         android:layout_marginTop="20dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="@+id/textView2_islaidos"
@@ -121,9 +131,9 @@
 
     <TextView
         android:id="@+id/textView4_islaidos"
-        android:layout_width="115dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="114dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="16dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="@+id/textView3_islaidos"
         app:layout_constraintTop_toBottomOf="@+id/textView3_islaidos" />
@@ -132,39 +142,44 @@
         android:id="@+id/button2_islaidos"
         android:layout_width="77dp"
         android:layout_height="51dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="12dp"
         android:text="+"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView_islaidos"
         app:layout_constraintStart_toEndOf="@+id/textView_islaidos"
-        app:layout_constraintTop_toTopOf="@+id/textView_islaidos" />
+        app:layout_constraintTop_toTopOf="@+id/textView_islaidos"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/editTextNumberDecimal5_islaidos"
-        android:layout_width="81dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="10dp"
+        android:layout_width="87dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="5dp"
         android:ems="10"
         android:inputType="numberDecimal"
         app:layout_constraintBottom_toTopOf="@+id/button2_islaidos2"
         app:layout_constraintStart_toEndOf="@+id/button2_islaidos"
-        app:layout_constraintTop_toTopOf="@+id/button2_islaidos" />
+        app:layout_constraintTop_toTopOf="@+id/button2_islaidos"
+        app:layout_constraintVertical_bias="0.304" />
 
     <Button
         android:id="@+id/button3_islaidos_min"
         android:layout_width="68dp"
         android:layout_height="59dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="12dp"
         android:text="-"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/editTextNumberDecimal5_islaidos"
         app:layout_constraintStart_toEndOf="@+id/editTextNumberDecimal5_islaidos"
-        app:layout_constraintTop_toTopOf="@+id/editTextNumberDecimal5_islaidos" />
+        app:layout_constraintTop_toTopOf="@+id/editTextNumberDecimal5_islaidos"
+        app:layout_constraintVertical_bias="0.466" />
 
     <Button
         android:id="@+id/button4_isaugoti_isl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="600dp"
-        android:text="Išsaugoti"
+        android:text="Save"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -174,7 +189,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Išlaidų įvedimas"
+        android:text="Enter your expenses"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
         app:layout_constraintStart_toStartOf="@+id/relativeLayout"

@@ -2,6 +2,7 @@ package com.example.saver10;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
@@ -18,6 +20,7 @@ import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.io.BufferedReader;
+import java.io.Console;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -31,6 +34,7 @@ public class MenesiuActivity extends AppCompatActivity {
         ArrayList<MountData> data = new ArrayList<MountData>();
         String lapatai="";
     String filenameofredingfile = "Modification.txt";
+    boolean ifhepickedsomething = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,9 +60,10 @@ public class MenesiuActivity extends AppCompatActivity {
         File datafile = new File(getExternalFilesDir(filepath),namas);
         data = GetMounthData(datafile);
         Button button_Investing_Chart = findViewById(R.id.button_Investing_Chart);
+        Button RetrunBack = findViewById(R.id.ReturnButton);
             ///
         /*Pradiniai duomenys ar rodo*/
-        for (int i=0; i<3;i++)
+        /*for (int i=0; i<3;i++)
         {Savings.add(new PieEntry
                 (Integer.parseInt(String.valueOf(Math.round(data.get(i).Value))),data.get(i).Label));}
         for (int i=3 ;i<7; i++)
@@ -70,7 +75,7 @@ public class MenesiuActivity extends AppCompatActivity {
         {
             Investing.add(new PieEntry
                     (Integer.parseInt(String.valueOf(Math.round(data.get(i).Value))),data.get(i).Label));
-        }
+        }*/
 
 
         /*Pirma diagrama*/
@@ -81,7 +86,7 @@ public class MenesiuActivity extends AppCompatActivity {
         PieData pieData = new PieData(pieDataSet);
         Savings_Chart.setData(pieData);
         Savings_Chart.getDescription().setEnabled(false);
-        Savings_Chart.setCenterText("Savings");
+        Savings_Chart.setCenterText("Lavish");
         Savings_Chart.invalidate();
         Savings_Chart.getLegend().setEnabled(false);
 
@@ -112,8 +117,17 @@ public class MenesiuActivity extends AppCompatActivity {
         IvedimasDuomenu.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                NextActivityTo(v);
+                if(ifhepickedsomething) {
+                    NextActivityTo(v);
+                }
+                else
+                {
+                    Context context = getApplicationContext();
+                    CharSequence text = "First pick a mounth";
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+                }
 
             }
         });
@@ -121,23 +135,48 @@ public class MenesiuActivity extends AppCompatActivity {
         button_KeySpending_Chart.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                NextActivityToKeySpending(v);
+                if(ifhepickedsomething) {
+                    NextActivityToKeySpending(v);
+                }
+                else{
+                    Context context = getApplicationContext();
+                    CharSequence text = "First pick a mounth";
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+                }
             }
         });
 
         button_Investing_Chart.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(ifhepickedsomething){
                 NextActivityToInvesting(v);
+                }
+                else{
+                    Context context = getApplicationContext();
+                    CharSequence text = "First pick a mounth";
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+                }
             }
         });
 
+        RetrunBack.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BackTOMAIN();
+            }
+        });
 
        buttonofpasirinkimai.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                if(MySpinner.getSelectedItem().toString().equals("January"))
                 {
+                    ifhepickedsomething=true;
                     Savings.clear();
                     Keyspending.clear();
                     Investing.clear();
@@ -163,7 +202,6 @@ public class MenesiuActivity extends AppCompatActivity {
                     PieData data = new PieData(pie);
                     Savings_Chart.setData(data);
                     Savings_Chart.getDescription().setEnabled(false);
-                    Savings_Chart.setCenterText("Savings");
                     Savings_Chart.animate();
                     Savings_Chart.invalidate();
                     ///
@@ -201,6 +239,7 @@ public class MenesiuActivity extends AppCompatActivity {
                 }
                if(MySpinner.getSelectedItem().toString().equals("February"))
                {
+                   ifhepickedsomething=true;
                    Savings.clear();
                    Keyspending.clear();
                    Investing.clear();
@@ -225,7 +264,6 @@ public class MenesiuActivity extends AppCompatActivity {
                    PieData data = new PieData(pie);
                    Savings_Chart.setData(data);
                    Savings_Chart.getDescription().setEnabled(false);
-                   Savings_Chart.setCenterText("Savings");
                    Savings_Chart.animate();
                    Savings_Chart.invalidate();
                    ///
@@ -261,6 +299,7 @@ public class MenesiuActivity extends AppCompatActivity {
                }
                 if(MySpinner.getSelectedItem().toString().equals("March"))
                 {
+                    ifhepickedsomething=true;
                     Savings.clear();
                     Keyspending.clear();
                     Investing.clear();
@@ -285,7 +324,7 @@ public class MenesiuActivity extends AppCompatActivity {
                     PieData data = new PieData(pie);
                     Savings_Chart.setData(data);
                     Savings_Chart.getDescription().setEnabled(false);
-                    Savings_Chart.setCenterText("Savings");
+
                     Savings_Chart.animate();
                     Savings_Chart.invalidate();
                     ///
@@ -321,6 +360,7 @@ public class MenesiuActivity extends AppCompatActivity {
                 }
                 if(MySpinner.getSelectedItem().toString().equals("April"))
                 {
+                    ifhepickedsomething=true;
                     Savings.clear();
                     Keyspending.clear();
                     Investing.clear();
@@ -346,7 +386,7 @@ public class MenesiuActivity extends AppCompatActivity {
                     PieData data = new PieData(pie);
                     Savings_Chart.setData(data);
                     Savings_Chart.getDescription().setEnabled(false);
-                    Savings_Chart.setCenterText("Savings");
+
                     Savings_Chart.animate();
                     Savings_Chart.invalidate();
                     ///
@@ -384,6 +424,7 @@ public class MenesiuActivity extends AppCompatActivity {
                 }
                 if(MySpinner.getSelectedItem().toString().equals("May"))
                 {
+                    ifhepickedsomething=true;
                     Savings.clear();
                     Keyspending.clear();
                     Investing.clear();
@@ -409,7 +450,7 @@ public class MenesiuActivity extends AppCompatActivity {
                     PieData data = new PieData(pie);
                     Savings_Chart.setData(data);
                     Savings_Chart.getDescription().setEnabled(false);
-                    Savings_Chart.setCenterText("Savings");
+
                     Savings_Chart.animate();
                     Savings_Chart.invalidate();
                     ///
@@ -447,6 +488,7 @@ public class MenesiuActivity extends AppCompatActivity {
                 }
                 if(MySpinner.getSelectedItem().toString().equals("June"))
                 {
+                    ifhepickedsomething=true;
                     Savings.clear();
                     Keyspending.clear();
                     Investing.clear();
@@ -472,7 +514,6 @@ public class MenesiuActivity extends AppCompatActivity {
                     PieData data = new PieData(pie);
                     Savings_Chart.setData(data);
                     Savings_Chart.getDescription().setEnabled(false);
-                    Savings_Chart.setCenterText("Savings");
                     Savings_Chart.animate();
                     Savings_Chart.invalidate();
                     ///
@@ -510,6 +551,7 @@ public class MenesiuActivity extends AppCompatActivity {
                 }
                 if(MySpinner.getSelectedItem().toString().equals("July"))
                 {
+                    ifhepickedsomething=true;
                     Savings.clear();
                     Keyspending.clear();
                     Investing.clear();
@@ -535,7 +577,6 @@ public class MenesiuActivity extends AppCompatActivity {
                     PieData data = new PieData(pie);
                     Savings_Chart.setData(data);
                     Savings_Chart.getDescription().setEnabled(false);
-                    Savings_Chart.setCenterText("Savings");
                     Savings_Chart.animate();
                     Savings_Chart.invalidate();
                     ///
@@ -573,6 +614,7 @@ public class MenesiuActivity extends AppCompatActivity {
                 }
                 if(MySpinner.getSelectedItem().toString().equals("August"))
                 {
+                    ifhepickedsomething=true;
                     Savings.clear();
                     Keyspending.clear();
                     Investing.clear();
@@ -598,7 +640,6 @@ public class MenesiuActivity extends AppCompatActivity {
                     PieData data = new PieData(pie);
                     Savings_Chart.setData(data);
                     Savings_Chart.getDescription().setEnabled(false);
-                    Savings_Chart.setCenterText("Savings");
                     Savings_Chart.animate();
                     Savings_Chart.invalidate();
                     ///
@@ -636,6 +677,7 @@ public class MenesiuActivity extends AppCompatActivity {
                 }
                 if(MySpinner.getSelectedItem().toString().equals("September"))
                 {
+                    ifhepickedsomething=true;
                     Savings.clear();
                     Keyspending.clear();
                     Investing.clear();
@@ -661,7 +703,6 @@ public class MenesiuActivity extends AppCompatActivity {
                     PieData data = new PieData(pie);
                     Savings_Chart.setData(data);
                     Savings_Chart.getDescription().setEnabled(false);
-                    Savings_Chart.setCenterText("Savings");
                     Savings_Chart.animate();
                     Savings_Chart.invalidate();
                     ///
@@ -699,6 +740,7 @@ public class MenesiuActivity extends AppCompatActivity {
                 }
                 if(MySpinner.getSelectedItem().toString().equals("October"))
                 {
+                    ifhepickedsomething=true;
                     Savings.clear();
                     Keyspending.clear();
                     Investing.clear();
@@ -710,7 +752,7 @@ public class MenesiuActivity extends AppCompatActivity {
                     Modification(PathFile,filename);
 
                     File myExternalFile = new File(getExternalFilesDir(filepath),filename);
-                    ArrayList<MountData> SavingsL = new ArrayList<MountData>();
+                    ArrayList<MountData> SavingsL;
                     SavingsL = GetMounthData(myExternalFile);
                     for (int i=0; i<3;i++)
                     {
@@ -724,7 +766,6 @@ public class MenesiuActivity extends AppCompatActivity {
                     PieData data = new PieData(pie);
                     Savings_Chart.setData(data);
                     Savings_Chart.getDescription().setEnabled(false);
-                    Savings_Chart.setCenterText("Savings");
                     Savings_Chart.animate();
                     Savings_Chart.invalidate();
                     ///
@@ -762,6 +803,7 @@ public class MenesiuActivity extends AppCompatActivity {
                 }
                 if(MySpinner.getSelectedItem().toString().equals("November"))
                 {
+                    ifhepickedsomething=true;
                     Savings.clear();
                     Keyspending.clear();
                     Investing.clear();
@@ -787,7 +829,6 @@ public class MenesiuActivity extends AppCompatActivity {
                     PieData data = new PieData(pie);
                     Savings_Chart.setData(data);
                     Savings_Chart.getDescription().setEnabled(false);
-                    Savings_Chart.setCenterText("Savings");
                     Savings_Chart.animate();
                     Savings_Chart.invalidate();
                     ///
@@ -825,6 +866,7 @@ public class MenesiuActivity extends AppCompatActivity {
                 }
                 if(MySpinner.getSelectedItem().toString().equals("December"))
                 {
+                    ifhepickedsomething=true;
                     Savings.clear();
                     Keyspending.clear();
                     Investing.clear();
@@ -850,7 +892,6 @@ public class MenesiuActivity extends AppCompatActivity {
                     PieData data = new PieData(pie);
                     Savings_Chart.setData(data);
                     Savings_Chart.getDescription().setEnabled(false);
-                    Savings_Chart.setCenterText("Savings");
                     Savings_Chart.animate();
                     Savings_Chart.invalidate();
                     ///
@@ -905,7 +946,7 @@ public class MenesiuActivity extends AppCompatActivity {
                 String[] Lines = lapatai.split(";");
                 for (int i = 0; i < Lines.length; i++)
                 {
-                    String[] parts = Lines[i].split(" ");
+                    String[] parts = Lines[i].split(",");
                     String Name = (parts[0]);
                     double NumberOfMarks = Double.parseDouble(parts[1]);
                     MountData S = new MountData(Name,NumberOfMarks);
@@ -974,6 +1015,11 @@ public class MenesiuActivity extends AppCompatActivity {
     {
         Intent i = new Intent(this, InvestingActivity.class);
         startActivity(i);
+    }
+    public void BackTOMAIN()
+    {
+        Intent first = new Intent(this,MainActivity.class);
+        startActivity(first);
     }
 
 }

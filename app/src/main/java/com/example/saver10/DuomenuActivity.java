@@ -2,11 +2,13 @@ package com.example.saver10;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -21,13 +23,14 @@ public class DuomenuActivity extends AppCompatActivity {
     String lapatai="";
     ArrayList<MountData> MASYVAS = new ArrayList<MountData>();
     String filenameofredingfile = "Modification.txt";
-
+    int maxdigitvalue = 7;
+    double max =9999999;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_duomenu);
         /// Kiekvienai funcijai po 4 laukus;
-       TextView islaid_taupemoji = (TextView) findViewById(R.id.textView_KeySpending);
+        TextView islaid_taupemoji = (TextView) findViewById(R.id.textView_KeySpending);
         Button islaid_pridet1 = (Button) findViewById(R.id.button2_plius_isl);
         Button islaid_atimt1 = (Button) findViewById(R.id.button6_min_isl);
         TextView islaid_number1 = (TextView) findViewById(R.id.editTextNumberDecimal);
@@ -52,17 +55,46 @@ public class DuomenuActivity extends AppCompatActivity {
         File myExternalFile = new File(getExternalFilesDir(filepath),filename);
         MASYVAS = GetMounthData(myExternalFile);
         // Pradines reiksmes kokios yra faile
-        islaid_taupemoji.setText(MASYVAS.get(0).Label+MASYVAS.get(0).Value);
-        islaid_investavimo.setText(MASYVAS.get(1).Label + MASYVAS.get(1).Value);
-        islaid_nenumatytu.setText(MASYVAS.get(2).Label + MASYVAS.get(2).Value);
+        islaid_taupemoji.setText(MASYVAS.get(0).Label+"\n"+MASYVAS.get(0).Value);
+        islaid_investavimo.setText(MASYVAS.get(1).Label +"\n" + MASYVAS.get(1).Value);
+        islaid_nenumatytu.setText(MASYVAS.get(2).Label +"\n" + MASYVAS.get(2).Value);
         //Migtukai pirmo lauko
         islaid_pridet1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
                     double number = Double.parseDouble(islaid_number1.getText().toString());
-                    MASYVAS.get(0).SetValue(number);
-                    islaid_taupemoji.setText(MASYVAS.get(0).Label + MASYVAS.get(0).Value);
+                    String textofnumber = Double.toString(Math.abs(number));
+                    int integerPlaces = textofnumber.indexOf('.');
+                    int decimalPlaces = textofnumber.length() - integerPlaces - 1;
+                    if(decimalPlaces < 3) {
+                        if (integerPlaces > maxdigitvalue) {
+                            Context context = getApplicationContext();
+                            CharSequence text = "Don't input more than 7 digit value!";
+                            int duration = Toast.LENGTH_SHORT;
+                            Toast toast = Toast.makeText(context, text, duration);
+                            toast.show();
+                        } else {
+                            double tmp = MASYVAS.get(0).Value + number;
+                            if (tmp > max) {
+                                Context context = getApplicationContext();
+                                CharSequence text = "If we add it will be more than 7 digit number" +"\n"+"You don't need to save money :)";
+                                int duration = Toast.LENGTH_SHORT;
+                                Toast toast = Toast.makeText(context, text, duration);
+                                toast.show();
+                            } else {
+                                MASYVAS.get(0).SetValue(number);
+                                islaid_taupemoji.setText(MASYVAS.get(0).Label + "\n" + String.format("%.2f",(MASYVAS.get(0).Value )));
+                            }
+                        }
+                    }
+                    else {
+                        Context context = getApplicationContext();
+                        CharSequence text = "There are to many decimal places!";
+                        int duration = Toast.LENGTH_SHORT;
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
+                    }
                 }
                 catch (Exception e)
                 {
@@ -75,8 +107,39 @@ public class DuomenuActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     double number = Double.parseDouble(islaid_number1.getText().toString());
-                    MASYVAS.get(0).MinusValue(number);
-                    islaid_taupemoji.setText(MASYVAS.get(0).Label + MASYVAS.get(0).Value);
+                    String textformthenumber = Double.toString(Math.abs(number));
+                    int integerPlaces = textformthenumber.indexOf('.');
+                    int decimalPlaces = textformthenumber.length() - integerPlaces - 1;
+                    if(decimalPlaces < 3) {
+                        if (integerPlaces > maxdigitvalue) {
+                            Context context = getApplicationContext();
+                            CharSequence text = "Don't input more than 7 digit value!";
+                            int duration = Toast.LENGTH_SHORT;
+                            Toast toast = Toast.makeText(context, text, duration);
+                            toast.show();
+                        } else {
+                            double tmp = MASYVAS.get(0).Value - number;
+                            if (tmp < 0) {
+                                Context context = getApplicationContext();
+                                CharSequence text = "It can't be negative value";
+                                int duration = Toast.LENGTH_SHORT;
+                                Toast toast = Toast.makeText(context, text, duration);
+                                toast.show();
+                            } else {
+                                MASYVAS.get(0).MinusValue(number);
+                                islaid_taupemoji.setText(MASYVAS.get(0).Label + "\n" + String.format("%.2f",MASYVAS.get(0).Value));
+                            }
+
+                        }
+                    }
+                    else {
+                        Context context = getApplicationContext();
+                        CharSequence text = "There are to many decimal places!";
+                        int duration = Toast.LENGTH_SHORT;
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
+                    }
+
                 }
                 catch (Exception e)
                 {
@@ -90,8 +153,37 @@ public class DuomenuActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     double number = Double.parseDouble(islaid_number2.getText().toString());
-                    MASYVAS.get(1).SetValue(number);
-                    islaid_investavimo.setText(MASYVAS.get(1).Label + MASYVAS.get(1).Value);
+                    String textofnumber = Double.toString(Math.abs(number));
+                    int integerPlaces = textofnumber.indexOf('.');
+                    int decimalPlaces = textofnumber.length() - integerPlaces - 1;
+                    if(decimalPlaces < 3) {
+                        if (integerPlaces > maxdigitvalue) {
+                            Context context = getApplicationContext();
+                            CharSequence text = "Don't input more than 7 digit value!";
+                            int duration = Toast.LENGTH_SHORT;
+                            Toast toast = Toast.makeText(context, text, duration);
+                            toast.show();
+                        } else {
+                            double tmp = MASYVAS.get(1).Value + number;
+                            if (tmp > max) {
+                                Context context = getApplicationContext();
+                                CharSequence text = "If we add it will be more than 7 digit number" +"\n"+"You don't need to save money :)";
+                                int duration = Toast.LENGTH_SHORT;
+                                Toast toast = Toast.makeText(context, text, duration);
+                                toast.show();
+                            } else {
+                                MASYVAS.get(1).SetValue(number);
+                                islaid_investavimo.setText(MASYVAS.get(1).Label + "\n" + String.format("%.2f",(MASYVAS.get(1).Value )));
+                            }
+                        }
+                    }
+                    else {
+                        Context context = getApplicationContext();
+                        CharSequence text = "There are to many decimal places!";
+                        int duration = Toast.LENGTH_SHORT;
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
+                    }
                 }
                 catch (Exception e)
                 {
@@ -104,12 +196,43 @@ public class DuomenuActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     double number = Double.parseDouble(islaid_number2.getText().toString());
-                    MASYVAS.get(1).MinusValue(number);
-                    islaid_investavimo.setText(MASYVAS.get(1).Label + MASYVAS.get(1).Value);
+                    String textformthenumber = Double.toString(Math.abs(number));
+                    int integerPlaces = textformthenumber.indexOf('.');
+                    int decimalPlaces = textformthenumber.length() - integerPlaces - 1;
+                    if(decimalPlaces < 3) {
+                        if (integerPlaces > maxdigitvalue) {
+                            Context context = getApplicationContext();
+                            CharSequence text = "Don't input more than 7 digit value!";
+                            int duration = Toast.LENGTH_SHORT;
+                            Toast toast = Toast.makeText(context, text, duration);
+                            toast.show();
+                        } else {
+                            double tmp = MASYVAS.get(1).Value - number;
+                            if (tmp < 0) {
+                                Context context = getApplicationContext();
+                                CharSequence text = "It can't be negative value";
+                                int duration = Toast.LENGTH_SHORT;
+                                Toast toast = Toast.makeText(context, text, duration);
+                                toast.show();
+                            } else {
+                                MASYVAS.get(1).MinusValue(number);
+                                islaid_investavimo.setText(MASYVAS.get(1).Label + "\n" + String.format("%.2f", MASYVAS.get(1).Value));
+                            }
+
+                        }
+                    }
+                    else {
+                        Context context = getApplicationContext();
+                        CharSequence text = "There are to many decimal places!";
+                        int duration = Toast.LENGTH_SHORT;
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
+                    }
+
                 }
                 catch (Exception e)
                 {
-                    MASYVAS.get(1).SetValue(0);
+                    MASYVAS.get(8).SetValue(0);
                 }
             }
         });
@@ -119,8 +242,37 @@ public class DuomenuActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     double number = Double.parseDouble(islaid_number3.getText().toString());
-                    MASYVAS.get(2).SetValue(number);
-                    islaid_nenumatytu.setText(MASYVAS.get(2).Label + MASYVAS.get(2).Value);
+                    String textofnumber = Double.toString(Math.abs(number));
+                    int integerPlaces = textofnumber.indexOf('.');
+                    int decimalPlaces = textofnumber.length() - integerPlaces - 1;
+                    if(decimalPlaces < 3) {
+                        if (integerPlaces > maxdigitvalue) {
+                            Context context = getApplicationContext();
+                            CharSequence text = "Don't input more than 7 digit value!";
+                            int duration = Toast.LENGTH_SHORT;
+                            Toast toast = Toast.makeText(context, text, duration);
+                            toast.show();
+                        } else {
+                            double tmp = MASYVAS.get(2).Value + number;
+                            if (tmp > max) {
+                                Context context = getApplicationContext();
+                                CharSequence text = "If we add it will be more than 7 digit number" + "\n" + "You don't need to save money :)";
+                                int duration = Toast.LENGTH_SHORT;
+                                Toast toast = Toast.makeText(context, text, duration);
+                                toast.show();
+                            } else {
+                                MASYVAS.get(2).SetValue(number);
+                                islaid_nenumatytu.setText(MASYVAS.get(2).Label + "\n" + String.format("%.2f", (MASYVAS.get(2).Value)));
+                            }
+                        }
+                    }
+                    else {
+                        Context context = getApplicationContext();
+                        CharSequence text = "There are to many decimal places!";
+                        int duration = Toast.LENGTH_SHORT;
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
+                    }
                 }
                 catch (Exception e)
                 {
@@ -133,12 +285,42 @@ public class DuomenuActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     double number = Double.parseDouble(islaid_number3.getText().toString());
-                    MASYVAS.get(2).MinusValue(number);
-                    islaid_nenumatytu.setText(MASYVAS.get(2).Label + MASYVAS.get(2).Value);
+                    String textformthenumber = Double.toString(Math.abs(number));
+                    int integerPlaces = textformthenumber.indexOf('.');
+                    int decimalPlaces = textformthenumber.length() - integerPlaces - 1;
+                    if(decimalPlaces < 3) {
+                        if (integerPlaces > maxdigitvalue) {
+                            Context context = getApplicationContext();
+                            CharSequence text = "Don't input more than 7 digit value!";
+                            int duration = Toast.LENGTH_SHORT;
+                            Toast toast = Toast.makeText(context, text, duration);
+                            toast.show();
+                        } else {
+                            double tmp = MASYVAS.get(2).Value - number;
+                            if (tmp < 0) {
+                                Context context = getApplicationContext();
+                                CharSequence text = "It can't be negative value";
+                                int duration = Toast.LENGTH_SHORT;
+                                Toast toast = Toast.makeText(context, text, duration);
+                                toast.show();
+                            } else {
+                                MASYVAS.get(2).MinusValue(number);
+                                islaid_nenumatytu.setText(MASYVAS.get(2).Label + "\n" + String.format("%.2f", MASYVAS.get(2).Value));
+                            }
+
+                        }
+                    }
+                    else {
+                        Context context = getApplicationContext();
+                        CharSequence text = "There are to many decimal places!";
+                        int duration = Toast.LENGTH_SHORT;
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
+                    }
                 }
                 catch (Exception e)
                 {
-                    MASYVAS.get(2).SetValue(0);
+                    MASYVAS.get(5).SetValue(0);
                 }
             }
         });
@@ -149,7 +331,7 @@ public class DuomenuActivity extends AppCompatActivity {
 
             public void onClick(View v) {
                 RewriteData(MASYVAS,myExternalFile);
-
+                TakeActiviti();
             }
         });
 
@@ -171,7 +353,7 @@ public class DuomenuActivity extends AppCompatActivity {
                 String[] Lines = lapatai.split(";");
                 for (int i = 0; i < Lines.length; i++)
                 {
-                    String[] parts = Lines[i].split(" ");
+                    String[] parts = Lines[i].split(",");
                     String Name = (parts[0]);
                     double NumberOfMarks = Double.parseDouble(parts[1]);
                     MountData S = new MountData(Name,NumberOfMarks);
@@ -189,27 +371,22 @@ public class DuomenuActivity extends AppCompatActivity {
     {
         FileOutputStream fos = null;
         try{
-            String text1 = "Namuose "+data.get(0).Value+";";
-            String text2="Internete "+data.get(1).Value+";";
-            String text3="Banke "+data.get(2).Value+";";
+            String text1 ="EatingOut,"+data.get(0).Value+";";
+            String text2= "Entertainment,"+data.get(1).Value+";";
+            String text3="Addictions,"+data.get(2).Value+";";
 
             //////
-            String text4="Nuoma "+data.get(3).Value+";";
-            String text5="Kuras "+data.get(4).Value+";";
-            String text6="Maistas "+data.get(5).Value+";";
-            String text7="Mokesciai "+data.get(6).Value+";";
+            String text4="Rent,"+data.get(3).Value+";";
+            String text5="Fuel,"+data.get(4).Value+";";
+            String text6="Food,"+data.get(5).Value+";";
+            String text7="Taxes,"+data.get(6).Value+";";
 
             ////
-            String text8 ="AkcijuBirza "+data.get(7).Value+";";
-            String text9="Investiciniaifondai "+data.get(8).Value+";";
-            String text10="Pencijufondai "+data.get(9).Value+";";
-            String text11="Nekilnojamasturtas "+data.get(10).Value+";";
-            /// String fileContent = text.trim();
-            /// RASYMAS SU FILE OUTPUTSTREAM
-            /*fos = new FileOutputStream(Paimtasfailas,true);
-            fos.write(fileContent.getBytes());
-            fos.close();
-             */
+            String text8 ="Stock Market,"+data.get(7).Value+";";
+            String text9="Investment funds,"+data.get(8).Value+";";
+            String text10="Pension funds,"+data.get(9).Value+";";
+            String text11="Real estate,"+data.get(10).Value+";";
+
             FileWriter Writer = new FileWriter(Paimtasfailas);
             Writer.write(text1);
             Writer.write(text2);
