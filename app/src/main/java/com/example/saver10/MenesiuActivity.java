@@ -60,6 +60,7 @@ public class MenesiuActivity extends AppCompatActivity {
         File datafile = new File(getExternalFilesDir(filepath),namas);
         data = GetMounthData(datafile);
         Button button_Investing_Chart = findViewById(R.id.button_Investing_Chart);
+        Button RetrunBack = findViewById(R.id.ReturnButton);
             ///
         /*Pradiniai duomenys ar rodo*/
         /*for (int i=0; i<3;i++)
@@ -163,6 +164,12 @@ public class MenesiuActivity extends AppCompatActivity {
             }
         });
 
+        RetrunBack.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BackTOMAIN();
+            }
+        });
 
        buttonofpasirinkimai.setOnClickListener(new OnClickListener() {
             @Override
@@ -1008,6 +1015,11 @@ public class MenesiuActivity extends AppCompatActivity {
     {
         Intent i = new Intent(this, InvestingActivity.class);
         startActivity(i);
+    }
+    public void BackTOMAIN()
+    {
+        Intent first = new Intent(this,MainActivity.class);
+        startActivity(first);
     }
 
 }

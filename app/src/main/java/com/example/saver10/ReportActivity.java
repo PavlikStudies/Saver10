@@ -3,6 +3,7 @@ package com.example.saver10;
 import androidx.annotation.ColorRes;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -56,12 +57,13 @@ public class ReportActivity extends AppCompatActivity {
         TextView Text_Investing = (TextView) findViewById(R.id.MounhtInvesti);
         TextView Text_Savings = (TextView) findViewById(R.id.MounthSavings);
         TextView Text_Patarimas = (TextView) findViewById(R.id.Patarimas);
+        Button baktomain = findViewById(R.id.BackToMainButton);
 
         TextView Person_Text_KeySpending=(TextView) findViewById(R.id.Spending_Person);
         TextView Person_Text_Investing=(TextView) findViewById(R.id.Investing_Person);
         TextView Person_Text_Savings=(TextView) findViewById(R.id.Lavish_PersonS);
 
-
+        TextView Person_Text_ContSavings = findViewById(R.id.ContSavings);
         String filename = "Savings.txt";
         String filepath = "MyfileDirectory";
         File PathFile = new File(getExternalFilesDir(filepath),filename);
@@ -70,7 +72,12 @@ public class ReportActivity extends AppCompatActivity {
         double[] Data = GetSavings(PathFile);
 
 
-
+    baktomain.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+       BackTOMAIN();
+    }
+    });
         buttonofpasirinkimai.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,12 +98,14 @@ public class ReportActivity extends AppCompatActivity {
                     double Keyspending = GetSUMofMounthByIndex(SavingsL,3,7);
                     double Investing = GetSUMofMounthByIndex(SavingsL,7,11);
 
-                    Text_KeySpending.setText(String.valueOf(Math.round(Keyspending)));
+                    Text_KeySpending.setText(String.format("%.2f",(Keyspending)));
                     Text_KeySpending.append(" €");
-                    Text_Investing.setText(String.valueOf(Math.round(Investing)));
+                    Text_Investing.setText(String.format("%.2f",(Investing)));
                     Text_Investing.append(" €");
-                    Text_Savings.setText(String.valueOf(Math.round(Savings)));
+                    Text_Savings.setText(String.format("%.2f",(Savings)));
                     Text_Savings.append(" €");
+                    Person_Text_ContSavings.setText(String.format("%.2f",(Data[0])));
+                    Person_Text_ContSavings.append(" €");
 
                     ///
                     Person_Text_KeySpending.setText(String.format("%.2f",(PradinesPajamos * 0.5)));
@@ -145,12 +154,14 @@ public class ReportActivity extends AppCompatActivity {
 
 
 
-                    Text_KeySpending.setText(String.valueOf(Math.round(Keyspending)));
+                    Text_KeySpending.setText(String.format("%.2f",(Keyspending)));
                     Text_KeySpending.append(" €");
-                    Text_Investing.setText(String.valueOf(Math.round(Investing)));
+                    Text_Investing.setText(String.format("%.2f",(Investing)));
                     Text_Investing.append(" €");
-                    Text_Savings.setText(String.valueOf(Math.round(Savings)));
+                    Text_Savings.setText(String.format("%.2f",(Savings)));
                     Text_Savings.append(" €");
+                    Person_Text_ContSavings.setText(String.format("%.2f",(Data[1])));
+                    Person_Text_ContSavings.append(" €");
 
                     ///
                     Person_Text_KeySpending.setText(String.format("%.2f",(PradinesPajamos * 0.5)));
@@ -198,12 +209,14 @@ public class ReportActivity extends AppCompatActivity {
 
 
 
-                    Text_KeySpending.setText(String.valueOf(Math.round(Keyspending)));
+                    Text_KeySpending.setText(String.format("%.2f",(Keyspending)));
                     Text_KeySpending.append(" €");
-                    Text_Investing.setText(String.valueOf(Math.round(Investing)));
+                    Text_Investing.setText(String.format("%.2f",(Investing)));
                     Text_Investing.append(" €");
-                    Text_Savings.setText(String.valueOf(Math.round(Savings)));
+                    Text_Savings.setText(String.format("%.2f",(Savings)));
                     Text_Savings.append(" €");
+                    Person_Text_ContSavings.setText(String.format("%.2f",(Data[2])));
+                    Person_Text_ContSavings.append(" €");
 
                     ///
                     Person_Text_KeySpending.setText(String.format("%.2f",(PradinesPajamos * 0.5)));
@@ -252,12 +265,14 @@ public class ReportActivity extends AppCompatActivity {
 
 
 
-                    Text_KeySpending.setText(String.valueOf(Math.round(Keyspending)));
+                    Text_KeySpending.setText(String.format("%.2f",(Keyspending)));
                     Text_KeySpending.append(" €");
-                    Text_Investing.setText(String.valueOf(Math.round(Investing)));
+                    Text_Investing.setText(String.format("%.2f",(Investing)));
                     Text_Investing.append(" €");
-                    Text_Savings.setText(String.valueOf(Math.round(Savings)));
+                    Text_Savings.setText(String.format("%.2f",(Savings)));
                     Text_Savings.append(" €");
+                    Person_Text_ContSavings.setText(String.format("%.2f",(Data[3])));
+                    Person_Text_ContSavings.append(" €");
 
                     ///
                     Person_Text_KeySpending.setText(String.format("%.2f",(PradinesPajamos * 0.5)));
@@ -306,12 +321,14 @@ public class ReportActivity extends AppCompatActivity {
 
 
 
-                    Text_KeySpending.setText(String.valueOf(Math.round(Keyspending)));
+                    Text_KeySpending.setText(String.format("%.2f",(Keyspending)));
                     Text_KeySpending.append(" €");
-                    Text_Investing.setText(String.valueOf(Math.round(Investing)));
+                    Text_Investing.setText(String.format("%.2f",(Investing)));
                     Text_Investing.append(" €");
-                    Text_Savings.setText(String.valueOf(Math.round(Savings)));
+                    Text_Savings.setText(String.format("%.2f",(Savings)));
                     Text_Savings.append(" €");
+                    Person_Text_ContSavings.setText(String.format("%.2f",(Data[4])));
+                    Person_Text_ContSavings.append(" €");
 
                     ///
                     Person_Text_KeySpending.setText(String.format("%.2f",(PradinesPajamos * 0.5)));
@@ -360,12 +377,14 @@ public class ReportActivity extends AppCompatActivity {
 
 
 
-                    Text_KeySpending.setText(String.valueOf(Math.round(Keyspending)));
+                    Text_KeySpending.setText(String.format("%.2f",(Keyspending)));
                     Text_KeySpending.append(" €");
-                    Text_Investing.setText(String.valueOf(Math.round(Investing)));
+                    Text_Investing.setText(String.format("%.2f",(Investing)));
                     Text_Investing.append(" €");
-                    Text_Savings.setText(String.valueOf(Math.round(Savings)));
+                    Text_Savings.setText(String.format("%.2f",(Savings)));
                     Text_Savings.append(" €");
+                    Person_Text_ContSavings.setText(String.format("%.2f",(Data[5])));
+                    Person_Text_ContSavings.append(" €");
 
                     ///
                     Person_Text_KeySpending.setText(String.format("%.2f",(PradinesPajamos * 0.5)));
@@ -413,13 +432,14 @@ public class ReportActivity extends AppCompatActivity {
 
 
 
-                    Text_KeySpending.setText(String.valueOf(Math.round(Keyspending)));
+                    Text_KeySpending.setText(String.format("%.2f",(Keyspending)));
                     Text_KeySpending.append(" €");
-                    Text_Investing.setText(String.valueOf(Math.round(Investing)));
+                    Text_Investing.setText(String.format("%.2f",(Investing)));
                     Text_Investing.append(" €");
-                    Text_Savings.setText(String.valueOf(Math.round(Savings)));
+                    Text_Savings.setText(String.format("%.2f",(Savings)));
                     Text_Savings.append(" €");
-
+                    Person_Text_ContSavings.setText(String.format("%.2f",(Data[6])));
+                    Person_Text_ContSavings.append(" €");
                     ///
                     Person_Text_KeySpending.setText(String.format("%.2f",(PradinesPajamos * 0.5)));
                     Person_Text_KeySpending.append(" €");
@@ -467,12 +487,14 @@ public class ReportActivity extends AppCompatActivity {
 
 
 
-                    Text_KeySpending.setText(String.valueOf(Math.round(Keyspending)));
+                    Text_KeySpending.setText(String.format("%.2f",(Keyspending)));
                     Text_KeySpending.append(" €");
-                    Text_Investing.setText(String.valueOf(Math.round(Investing)));
+                    Text_Investing.setText(String.format("%.2f",(Investing)));
                     Text_Investing.append(" €");
-                    Text_Savings.setText(String.valueOf(Math.round(Savings)));
+                    Text_Savings.setText(String.format("%.2f",(Savings)));
                     Text_Savings.append(" €");
+                    Person_Text_ContSavings.setText(String.format("%.2f",(Data[7])));
+                    Person_Text_ContSavings.append(" €");
 
                     ///
                     Person_Text_KeySpending.setText(String.format("%.2f",(PradinesPajamos * 0.5)));
@@ -521,12 +543,14 @@ public class ReportActivity extends AppCompatActivity {
 
 
 
-                    Text_KeySpending.setText(String.valueOf(Math.round(Keyspending)));
+                    Text_KeySpending.setText(String.format("%.2f",(Keyspending)));
                     Text_KeySpending.append(" €");
-                    Text_Investing.setText(String.valueOf(Math.round(Investing)));
+                    Text_Investing.setText(String.format("%.2f",(Investing)));
                     Text_Investing.append(" €");
-                    Text_Savings.setText(String.valueOf(Math.round(Savings)));
+                    Text_Savings.setText(String.format("%.2f",(Savings)));
                     Text_Savings.append(" €");
+                    Person_Text_ContSavings.setText(String.format("%.2f",(Math.round(Data[8]))));
+                    Person_Text_ContSavings.append(" €");
 
                     ///
                     Person_Text_KeySpending.setText(String.format("%.2f",(PradinesPajamos * 0.5)));
@@ -573,12 +597,14 @@ public class ReportActivity extends AppCompatActivity {
                     double Keyspending = GetSUMofMounthByIndex(SavingsL,3,7);
                     double Investing = GetSUMofMounthByIndex(SavingsL,7,11);
 
-                    Text_KeySpending.setText(String.valueOf(Math.round(Keyspending)));
+                    Text_KeySpending.setText(String.format("%.2f",(Keyspending)));
                     Text_KeySpending.append(" €");
-                    Text_Investing.setText(String.valueOf(Math.round(Investing)));
+                    Text_Investing.setText(String.format("%.2f",(Investing)));
                     Text_Investing.append(" €");
-                    Text_Savings.setText(String.valueOf(Math.round(Savings)));
+                    Text_Savings.setText(String.format("%.2f",Savings));
                     Text_Savings.append(" €");
+                    Person_Text_ContSavings.setText(String.format("%.2f",(Data[9])));
+                    Person_Text_ContSavings.append(" €");
 
                     ///
                     Person_Text_KeySpending.setText(String.format("%.2f",(PradinesPajamos * 0.5)));
@@ -627,12 +653,14 @@ public class ReportActivity extends AppCompatActivity {
 
 
 
-                    Text_KeySpending.setText(String.valueOf(Math.round(Keyspending)));
+                    Text_KeySpending.setText(String.format("%.2f",(Keyspending)));
                     Text_KeySpending.append(" €");
-                    Text_Investing.setText(String.valueOf(Math.round(Investing)));
+                    Text_Investing.setText(String.format("%.2f",(Investing)));
                     Text_Investing.append(" €");
-                    Text_Savings.setText(String.valueOf(Math.round(Savings)));
+                    Text_Savings.setText(String.format("%.2f",(Savings)));
                     Text_Savings.append(" €");
+                    Person_Text_ContSavings.setText(String.format("%.2f",(Data[10])));
+                    Person_Text_ContSavings.append(" €");
 
                     ///
                     Person_Text_KeySpending.setText(String.format("%.2f",(PradinesPajamos * 0.5)));
@@ -681,12 +709,14 @@ public class ReportActivity extends AppCompatActivity {
 
 
 
-                    Text_KeySpending.setText(String.valueOf(Math.round(Keyspending)));
+                    Text_KeySpending.setText(String.format("%.2f",(Keyspending)));
                     Text_KeySpending.append(" €");
-                    Text_Investing.setText(String.valueOf(Math.round(Investing)));
+                    Text_Investing.setText(String.format("%.2f",(Investing)));
                     Text_Investing.append(" €");
-                    Text_Savings.setText(String.valueOf(Math.round(Savings)));
+                    Text_Savings.setText(String.format("%.2f",(Savings)));
                     Text_Savings.append(" €");
+                    Person_Text_ContSavings.setText(String.format("%.2f",(Data[11])));
+                    Person_Text_ContSavings.append(" €");
 
                     ///
                     Person_Text_KeySpending.setText(String.format("%.2f",(PradinesPajamos * 0.5)));
@@ -723,6 +753,8 @@ public class ReportActivity extends AppCompatActivity {
 
         });
     }
+
+
     public ArrayList<MountData> GetMounthData(File PaimtasFailas)
     {
         FileReader fr =null;
@@ -892,4 +924,10 @@ public class ReportActivity extends AppCompatActivity {
         }
         return Pajamos;
     }
+    public void BackTOMAIN()
+    {
+        Intent first = new Intent(this,MainActivity.class);
+        startActivity(first);
+    }
+
 }
