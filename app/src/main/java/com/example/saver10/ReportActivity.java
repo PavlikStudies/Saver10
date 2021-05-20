@@ -549,7 +549,7 @@ public class ReportActivity extends AppCompatActivity {
                     Text_Investing.append(" €");
                     Text_Savings.setText(String.format("%.2f",(Savings)));
                     Text_Savings.append(" €");
-                    Person_Text_ContSavings.setText(String.format("%.2f",(Math.round(Data[8]))));
+                    Person_Text_ContSavings.setText(String.format("%.2f",(Data[8])));
                     Person_Text_ContSavings.append(" €");
 
                     ///

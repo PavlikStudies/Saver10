@@ -7,6 +7,7 @@
     tools:context=".KeySpendings">
 
     <Button
+
         android:id="@+id/button3_islaidos_min4"
         android:layout_width="68dp"
         android:layout_height="59dp"
@@ -90,6 +91,7 @@
         app:layout_constraintTop_toTopOf="@+id/textView3_islaidos" />
 
     <Button
+        android:background="@drawable/ic_action_plius"
         android:id="@+id/button2_islaidos2"
         android:layout_width="77dp"
         android:layout_height="51dp"

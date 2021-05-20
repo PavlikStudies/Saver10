@@ -35,75 +35,80 @@ public class PirmoKartoActivity extends AppCompatActivity {
         IvestiPirmas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TextView FirstTimeInocme = findViewById(R.id.PirmaKartaIvedamaAlga);
-                double Pajamos = Double.parseDouble(FirstTimeInocme.getText().toString());
-
-                String textofnumber = Double.toString(Math.abs(Pajamos));
-                int integerPlaces = textofnumber.indexOf('.');
-                int decimalPlaces = textofnumber.length() - integerPlaces - 1;
-                if(decimalPlaces < 3) {
-                    if (integerPlaces > maxdigitvalue) {
-                        Context context = getApplicationContext();
-                        CharSequence text = "Don't input more than 7 digit value!";
-                        int duration = Toast.LENGTH_SHORT;
-                        Toast toast = Toast.makeText(context, text, duration);
-                        toast.show();
-                    } else {
-                        if (Pajamos > max) {
+                try {
+                    TextView FirstTimeInocme = findViewById(R.id.PirmaKartaIvedamaAlga);
+                    double Pajamos = Double.parseDouble(FirstTimeInocme.getText().toString());
+                    String textofnumber = Double.toString(Math.abs(Pajamos));
+                    int integerPlaces = textofnumber.indexOf('.');
+                    int decimalPlaces = textofnumber.length() - integerPlaces - 1;
+                    if (decimalPlaces < 3) {
+                        if (integerPlaces > maxdigitvalue) {
                             Context context = getApplicationContext();
-                            CharSequence text = "If we add it will be more than 7 digit number" +"\n"+"You don't need to save money :)";
+                            CharSequence text = "Don't input more than 7 digit value!";
                             int duration = Toast.LENGTH_SHORT;
                             Toast toast = Toast.makeText(context, text, duration);
                             toast.show();
                         } else {
-                            RewriteData(myExternalFile, Pajamos);
-                            File op = new File(getExternalFilesDir(filepath),"JanuaryData.txt");
-                            if(!op.exists())
-                            {
-                                /// Menesiu sukurimo failai:
-                                File january = new File(getExternalFilesDir(filepath),"JanuaryData.txt");
-                                AllMounthsData(january);
-                                File febuary = new File(getExternalFilesDir(filepath),"FeabuaryData.txt");
-                                AllMounthsData(febuary);
-                                File march = new File(getExternalFilesDir(filepath),"MarchData.txt");
-                                AllMounthsData(march);
-                                File april = new File(getExternalFilesDir(filepath),"AprilData.txt");
-                                AllMounthsData(april);
-                                File may = new File(getExternalFilesDir(filepath),"MayData.txt");
-                                AllMounthsData(may);
-                                File june = new File(getExternalFilesDir(filepath),"JuneData.txt");
-                                AllMounthsData(june);
-                                File july = new File(getExternalFilesDir(filepath),"JulyData.txt");
-                                AllMounthsData(july);
-                                File august = new File(getExternalFilesDir(filepath),"AugustData.txt");
-                                AllMounthsData(august);
-                                File september = new File(getExternalFilesDir(filepath),"SeptemberData.txt");
-                                AllMounthsData(september);
-                                File october = new File(getExternalFilesDir(filepath),"OctoberData.txt");
-                                AllMounthsData(october);
-                                File november = new File(getExternalFilesDir(filepath),"NovemberData.txt");
-                                AllMounthsData(november);
-                                File december = new File(getExternalFilesDir(filepath),"DecemberData.txt");
-                                AllMounthsData(december);
-                                File SAVINGS = new File(getExternalFilesDir(filepath),"Savings.txt");
-                                SavingsofMounth(SAVINGS);
-                                /// Sukuria kuri duomenu faila reikia modufikuoti
-                                File modifications = new File(getExternalFilesDir(filepath),"Modification.txt");
-                                Modification(modifications);
+                            if (Pajamos > max) {
+                                Context context = getApplicationContext();
+                                CharSequence text = "If we add it will be more than 7 digit number" + "\n" + "You don't need to save money :)";
+                                int duration = Toast.LENGTH_SHORT;
+                                Toast toast = Toast.makeText(context, text, duration);
+                                toast.show();
+                            } else {
+                                RewriteData(myExternalFile, Pajamos);
+                                File op = new File(getExternalFilesDir(filepath), "JanuaryData.txt");
+                                if (!op.exists()) {
+                                    /// Menesiu sukurimo failai:
+                                    File january = new File(getExternalFilesDir(filepath), "JanuaryData.txt");
+                                    AllMounthsData(january);
+                                    File febuary = new File(getExternalFilesDir(filepath), "FeabuaryData.txt");
+                                    AllMounthsData(febuary);
+                                    File march = new File(getExternalFilesDir(filepath), "MarchData.txt");
+                                    AllMounthsData(march);
+                                    File april = new File(getExternalFilesDir(filepath), "AprilData.txt");
+                                    AllMounthsData(april);
+                                    File may = new File(getExternalFilesDir(filepath), "MayData.txt");
+                                    AllMounthsData(may);
+                                    File june = new File(getExternalFilesDir(filepath), "JuneData.txt");
+                                    AllMounthsData(june);
+                                    File july = new File(getExternalFilesDir(filepath), "JulyData.txt");
+                                    AllMounthsData(july);
+                                    File august = new File(getExternalFilesDir(filepath), "AugustData.txt");
+                                    AllMounthsData(august);
+                                    File september = new File(getExternalFilesDir(filepath), "SeptemberData.txt");
+                                    AllMounthsData(september);
+                                    File october = new File(getExternalFilesDir(filepath), "OctoberData.txt");
+                                    AllMounthsData(october);
+                                    File november = new File(getExternalFilesDir(filepath), "NovemberData.txt");
+                                    AllMounthsData(november);
+                                    File december = new File(getExternalFilesDir(filepath), "DecemberData.txt");
+                                    AllMounthsData(december);
+                                    File SAVINGS = new File(getExternalFilesDir(filepath), "Savings.txt");
+                                    SavingsofMounth(SAVINGS);
+                                    /// Sukuria kuri duomenu faila reikia modufikuoti
+                                    File modifications = new File(getExternalFilesDir(filepath), "Modification.txt");
+                                    Modification(modifications);
+                                }
+                                BackTOMAIN();
                             }
-                            BackTOMAIN();
                         }
+                    } else {
+                        Context context = getApplicationContext();
+                        CharSequence text = "There are to many decimal places!";
+                        int duration = Toast.LENGTH_SHORT;
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
                     }
-                }
-                else {
+
+
+                } catch (Exception e) {
                     Context context = getApplicationContext();
-                    CharSequence text = "There are to many decimal places!";
+                    CharSequence text = "You input empty value";
                     int duration = Toast.LENGTH_SHORT;
                     Toast toast = Toast.makeText(context, text, duration);
                     toast.show();
                 }
-
-
             }
         });
     }

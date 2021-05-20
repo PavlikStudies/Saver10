@@ -32,17 +32,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <EditText
-            android:id="@+id/PirmaKartaIvedamaAlga"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="415dp"
-            android:layout_marginEnd="71dp"
-            android:ems="10"
-            android:inputType="textPersonName" />
-
         <TextView
             android:id="@+id/Prasymas"
             android:layout_width="wrap_content"
@@ -65,5 +54,16 @@
         app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
         app:layout_constraintStart_toStartOf="@+id/relativeLayout"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/PirmaKartaIvedamaAlga"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="65dp"
+        android:layout_marginBottom="355dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
